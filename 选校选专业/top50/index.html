@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>高校志愿填报建议</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 2rem;
+        }
+
+        ol {
+            padding-left: 1.5rem;
+        }
+
+        ol li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="p-6">
+    <h1 class="text-center">2025河南高考志愿填报建议</h1>
+    <div class="max-w-md mx-auto">
+        <p class="text-gray-600 text-center mb-4">请输入您的位次，并选择类别，我们将为您提供 12 个志愿排序建议。</p>
+        <input type="number" id="rank" placeholder="请输入位次" min="1">
+        <div class="mb-4">
+            <input type="radio" id="physical" name="category" value="physical" checked>
+            <label for="physical">物理类（理科）</label>
+            <input type="radio" id="history" name="category" value="history">
+            <label for="history">历史类（文科）</label>
+        </div>
+        <button onclick="generateVolunteerList()">获取志愿建议</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // 物理类（理科）位次数据（精确到十位，使用原始预估位次）
+        const physicalData = [
+            { name: '清华大学', maxRank: 100 },
+            { name: '北京大学', maxRank: 100 },
+            { name: '上海交通大学', maxRank: 440 },
+            { name: '复旦大学', maxRank: 440 },
+            { name: '浙江大学', maxRank: 550 },
+            { name: '中国科学技术大学', maxRank: 700 },
+            { name: '南京大学', maxRank: 950 },
+            { name: '武汉大学', maxRank: 3700 },
+            { name: '华中科技大学', maxRank: 4000 },
+            { name: '西安交通大学', maxRank: 2000 },
+            { name: '中山大学', maxRank: 4600 },
+            { name: '北京航空航天大学', maxRank: 1400 },
+            { name: '东南大学', maxRank: 2200 },
+            { name: '北京理工大学', maxRank: 1500 },
+            { name: '四川大学', maxRank: 2000 },
+            { name: '哈尔滨工业大学', maxRank: 1200 },
+            { name: '同济大学', maxRank: 3300 },
+            { name: '中国人民大学', maxRank: 3000 },
+            { name: '北京师范大学', maxRank: 8000 },
+            { name: '天津大学', maxRank: 4800 },
+            { name: '南开大学', maxRank: 3600 },
+            { name: '山东大学', maxRank: 12000 },
+            { name: '西北工业大学', maxRank: 4000 },
+            { name: '厦门大学', maxRank: 7000 },
+            { name: '中南大学', maxRank: 12000 },
+            { name: '吉林大学', maxRank: 10100 },
+            { name: '中国农业大学', maxRank: 12000 },
+            { name: '大连理工大学', maxRank: 56000 }, // 取5000-6000中间值（精确到十位）
+            { name: '华东师范大学', maxRank: 6700 },
+            { name: '华南理工大学', maxRank: 8000 },
+            { name: '电子科技大学', maxRank: 5200 },
+            { name: '湖南大学', maxRank: 13000 },
+            { name: '重庆大学', maxRank: 9500 },
+            { name: '南方科技大学', maxRank: 5000 },
+            { name: '北京科技大学', maxRank: 8800 },
+            { name: '南京航空航天大学', maxRank: 6500 },
+            { name: '南京理工大学', maxRank: 8800 },
+            { name: '兰州大学', maxRank: 8800 },
+            { name: '东北大学', maxRank: 6500 },
+            { name: '西安电子科技大学', maxRank: 6500 },
+            { name: '北京交通大学', maxRank: 6500 },
+            { name: '上海科技大学', maxRank: 5000 },
+            { name: '苏州大学', maxRank: 8800 },
+            { name: '华东理工大学', maxRank: 9500 },
+            { name: '哈尔滨工程大学', maxRank: 10000 },
+            { name: '东北师范大学', maxRank: 10000 },
+            { name: '华中农业大学', maxRank: 12000 },
+            { name: '中国石油大学(北京)', maxRank: 11000 },
+            { name: '南京农业大学', maxRank: 12000 },
+            { name: '郑州大学', maxRank: 23000 }
+        ];
+
+        // 历史类（文科）位次数据（根据用户提供的完整文科数据录入）
+        const historyData = [
+            { name: '清华大学', maxRank: 40 },
+            { name: '北京大学', maxRank: 80 },
+            { name: '上海交通大学', maxRank: 80 },
+            { name: '中国人民大学', maxRank: 170 },
+            { name: '复旦大学', maxRank: 120 },
+            { name: '南京大学', maxRank: 260 },
+            { name: '武汉大学', maxRank: 260 },
+            { name: '浙江大学', maxRank: 300 },
+            { name: '北京师范大学', maxRank: 380 },
+            { name: '同济大学', maxRank: 540 },
+            { name: '北京航空航天大学', maxRank: 600 },
+            { name: '南开大学', maxRank: 650 },
+            { name: '北京理工大学', maxRank: 920 },
+            { name: '西安交通大学', maxRank: 840 },
+            { name: '厦门大学', maxRank: 840 },
+            { name: '西北工业大学', maxRank: 800 },
+            { name: '中山大学', maxRank: 1000 },
+            { name: '东南大学', maxRank: 1110 },
+            { name: '哈尔滨工业大学', maxRank: 1160 },
+            { name: '四川大学', maxRank: 1420 },
+            { name: '上海科技大学', maxRank: 1200 },
+            { name: '南方科技大学', maxRank: 1200 },
+            { name: '中国农业大学', maxRank: 1900 },
+            { name: '大连理工大学', maxRank: 1900 },
+            { name: '华中科技大学', maxRank: 1660 },
+            { name: '山东大学', maxRank: 2190 },
+            { name: '电子科技大学', maxRank: 2620 },
+            { name: '北京科技大学', maxRank: 3000 },
+            { name: '北京交通大学', maxRank: 3000 },
+            { name: '南京理工大学', maxRank: 4000 },
+            { name: '河海大学', maxRank: 4000 },
+            { name: '陕西师范大学', maxRank: 4000 },
+            { name: '郑州大学', maxRank: 4004 },
+            { name: '合肥工业大学', maxRank: 5000 },
+            { name: '江南大学', maxRank: 5000 },
+            { name: '南京农业大学', maxRank: 5000 },
+            { name: '西南交通大学', maxRank: 5000 },
+            { name: '哈尔滨工程大学', maxRank: 5000 },
+            { name: '东华大学', maxRank: 6000 },
+            { name: '中国矿业大学', maxRank: 6000 },
+            { name: '云南大学', maxRank: 6000 },
+            { name: '中国石油大学（北京）', maxRank: 7000 },
+            { name: '南京航空航天大学', maxRank: 8810 }
+        ];
+
+        // 软科2024前50高校排名顺序（用于最终排序）
+        const collegeRanking = [
+            '清华大学', '北京大学', '浙江大学', '上海交通大学', '复旦大学', '南京大学',
+            '中国科学技术大学', '华中科技大学', '武汉大学', '西安交通大学', '中山大学',
+            '北京航空航天大学', '东南大学', '北京理工大学', '四川大学', '哈尔滨工业大学',
+            '同济大学', '中国人民大学', '北京师范大学', '天津大学', '南开大学', '山东大学',
+            '西北工业大学', '厦门大学', '中南大学', '吉林大学', '中国农业大学',
+            '大连理工大学', '华东师范大学', '华南理工大学', '电子科技大学', '湖南大学',
+            '重庆大学', '兰州大学', '东北大学', '西安电子科技大学', '北京交通大学',
+            '上海科技大学', '苏州大学', '华东理工大学', '哈尔滨工程大学', '东北师范大学',
+            '华中农业大学', '中国石油大学(北京)', '南京农业大学', '郑州大学',
+            '北京科技大学', '南京航空航天大学', '南京理工大学', '河海大学', '江南大学',
+            '中国矿业大学', '陕西师范大学', '合肥工业大学', '西南交通大学', '东华大学',
+            '云南大学', '南方科技大学'
+        ];
+
+        function generateVolunteerList() {
+            const rank = parseInt(document.getElementById('rank').value);
+            if (isNaN(rank) || rank < 1) {
+                alert('请输入有效的位次！');
+                return;
+            }
+
+            const category = document.querySelector('input[name="category"]:checked').value;
+            const data = category === 'physical' ? physicalData : historyData;
+
+            // 1. 筛选出预估位次 >= 用户位次的高校
+            const eligibleColleges = data.filter(college => college.maxRank >= rank);
+            
+            if (eligibleColleges.length === 0) {
+                document.getElementById('result').innerHTML = '<p>暂无合适的建议</p>';
+                return;
+            }
+
+            // 2. 按预估位次从小到大排序，选取前12所
+            const sortedByRank = eligibleColleges.sort((a, b) => a.maxRank - b.maxRank).slice(0, 12);
+
+            // 3. 在这12所内部按软科排名顺序排序
+            const sortedByRanking = sortedByRank.sort((a, b) => 
+                collegeRanking.indexOf(a.name) - collegeRanking.indexOf(b.name)
+            );
+
+            let resultHTML = '<ol>';
+            sortedByRanking.forEach((college, index) => {
+                resultHTML += `<li>${index + 1}. ${college.name}（参考位次：${college.maxRank}）</li>`;
+            });
+            resultHTML += '</ol>';
+
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+
+</html>
