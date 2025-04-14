@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学专业介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 20%;
+            overflow-y: auto;
+            background-color: #f4f4f4;
+            padding: 1rem;
+        }
+
+        #content {
+            margin-left: 20%;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar" class="bg-gray-100 p-4">
+        <ul class="space-y-2">
+            <li><a href="#humanities" class="text-blue-600 hover:text-blue-800">人文学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#humanities-literature" class="text-gray-700 hover:text-gray-900">文学院</a></li>
+                <li><a href="#humanities-history" class="text-gray-700 hover:text-gray-900">历史学院</a></li>
+                <li><a href="#humanities-philosophy" class="text-gray-700 hover:text-gray-900">哲学学院</a></li>
+                <li><a href="#humanities-foreign" class="text-gray-700 hover:text-gray-900">外国语学院</a></li>
+                <li><a href="#humanities-media" class="text-gray-700 hover:text-gray-900">传媒与国际文化学院</a></li>
+                <li><a href="#humanities-art" class="text-gray-700 hover:text-gray-900">艺术与考古学院</a></li>
+            </ul>
+            <li><a href="#social-sciences" class="text-blue-600 hover:text-blue-800">社会科学学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#social-economics" class="text-gray-700 hover:text-gray-900">经济学院</a></li>
+                <li><a href="#social-law" class="text-gray-700 hover:text-gray-900">光华法学院</a></li>
+                <li><a href="#social-education" class="text-gray-700 hover:text-gray-900">教育学院</a></li>
+                <li><a href="#social-management" class="text-gray-700 hover:text-gray-900">管理学院</a></li>
+                <li><a href="#social-public" class="text-gray-700 hover:text-gray-900">公共管理学院</a></li>
+                <li><a href="#social-marxist" class="text-gray-700 hover:text-gray-900">马克思主义学院</a></li>
+            </ul>
+            <li><a href="#science" class="text-blue-600 hover:text-blue-800">理学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#science-math" class="text-gray-700 hover:text-gray-900">数学科学学院</a></li>
+                <li><a href="#science-physics" class="text-gray-700 hover:text-gray-900">物理学院</a></li>
+                <li><a href="#science-chemistry" class="text-gray-700 hover:text-gray-900">化学系</a></li>
+                <li><a href="#science-earth" class="text-gray-700 hover:text-gray-900">地球科学学院</a></li>
+                <li><a href="#science-psychology" class="text-gray-700 hover:text-gray-900">心理与行为科学系</a></li>
+            </ul>
+            <li><a href="#engineering" class="text-blue-600 hover:text-blue-800">工学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#engineering-mechanical" class="text-gray-700 hover:text-gray-900">机械工程学院</a></li>
+                <li><a href="#engineering-materials" class="text-gray-700 hover:text-gray-900">材料科学与工程学院</a></li>
+                <li><a href="#engineering-energy" class="text-gray-700 hover:text-gray-900">能源工程学院</a></li>
+                <li><a href="#engineering-electric" class="text-gray-700 hover:text-gray-900">电气工程学院</a></li>
+                <li><a href="#engineering-architecture" class="text-gray-700 hover:text-gray-900">建筑工程学院</a></li>
+                <li><a href="#engineering-chemical" class="text-gray-700 hover:text-gray-900">化学工程与生物工程学院</a></li>
+                <li><a href="#engineering-ocean" class="text-gray-700 hover:text-gray-900">海洋学院</a></li>
+                <li><a href="#engineering-aerospace" class="text-gray-700 hover:text-gray-900">航空航天学院</a></li>
+                <li><a href="#engineering-polymer" class="text-gray-700 hover:text-gray-900">高分子科学与工程学系</a></li>
+            </ul>
+            <li><a href="#information" class="text-blue-600 hover:text-blue-800">信息学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#information-optics" class="text-gray-700 hover:text-gray-900">光电科学与工程学院</a></li>
+                <li><a href="#information-electronics" class="text-gray-700 hover:text-gray-900">信息与电子工程学院</a></li>
+                <li><a href="#information-control" class="text-gray-700 hover:text-gray-900">控制科学与工程学院</a></li>
+                <li><a href="#information-computer" class="text-gray-700 hover:text-gray-900">计算机科学与技术学院</a></li>
+                <li><a href="#information-biomedical" class="text-gray-700 hover:text-gray-900">生物医学工程与仪器科学学院</a></li>
+            </ul>
+            <li><a href="#agriculture-life-environment" class="text-blue-600 hover:text-blue-800">农业生命环境学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#ale-life" class="text-gray-700 hover:text-gray-900">生命科学学院</a></li>
+                <li><a href="#ale-bioengineering" class="text-gray-700 hover:text-gray-900">生物系统工程与食品科学学院</a></li>
+                <li><a href="#ale-environment" class="text-gray-700 hover:text-gray-900">环境与资源学院</a></li>
+                <li><a href="#ale-agriculture" class="text-gray-700 hover:text-gray-900">农业与生物技术学院</a></li>
+                <li><a href="#ale-animal" class="text-gray-700 hover:text-gray-900">动物科学学院</a></li>
+            </ul>
+            <li><a href="#medicine" class="text-blue-600 hover:text-blue-800">医药学部</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#medicine-medical" class="text-gray-700 hover:text-gray-900">医学院</a></li>
+                <li><a href="#medicine-pharmacy" class="text-gray-700 hover:text-gray-900">药学院</a></li>
+            </ul>
+            <li><a href="#others" class="text-blue-600 hover:text-blue-800">其他</a></li>
+            <ul class="pl-4 space-y-1">
+                <li><a href="#others-international" class="text-gray-700 hover:text-gray-900">国际教育学院</a></li>
+                <li><a href="#others-international-campus" class="text-gray-700 hover:text-gray-900">国际联合学院（海宁国际校区）ZJUI</a></li>
+            </ul>
+        </ul>
+    </div>
+    <div id="content" class="p-4">
+        <!-- 人文学部 -->
+        <h1 id="humanities" class="text-3xl font-bold text-blue-600 mb-4">人文学部</h1>
+        <h2 id="humanities-literature" class="text-2xl font-bold text-green-600 mb-2">文学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">汉语言文学</h3>
+        <p class="mb-4">[01]<br> 学历：本科<br> 专业：汉语言文学<br> 毕业年份：2017<br> 工作：外企酒水<br> 城市：上海<br> 薪资（月薪/年薪）：税前150w+<br> 想对学弟学妹说的话： 别来酒水<br> 
+            [02]<br> 学历：本科<br> 专业：汉语言文学<br> 毕业年份：2023<br> 工作：建筑企业宣传<br> 城市：杭州可地铁直达的周边城市<br> 薪资（月薪/年薪）：年薪税前15w<br> 想对学弟学妹说的话：珍惜大学时光<br> 
+            [03]<br> 学历：硕士<br> 专业：中文<br> 毕业年份：2010<br> 工作：行政<br> 城市：杭州<br> 薪资（月薪/年薪）：税后年薪60w<br> 想对学弟学妹说的话：中文系没那么难找工作<br> 
+            [04]<br> 学历：本科<br> 专业：汉语言文学<br> 毕业年份：2023<br> 工作：公务员<br> 城市：苏北某市<br> 薪资（月薪/年薪）：月薪8000<br> 想对学弟学妹说的话：还是上学好<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">古典文献学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="humanities-history" class="text-2xl font-bold text-green-600 mb-2">历史学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">历史学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：历史<br> 毕业年份：2024<br> 工作：博物馆讲解员<br> 城市：上海<br> 薪资（月薪/年薪）：4396（疑似月薪，原文未明确单位）<br> 想对学弟学妹说的话：热爱抵过一切~<br> 
+
+        </p>
+        <h2 id="humanities-philosophy" class="text-2xl font-bold text-green-600 mb-2">哲学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">哲学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="humanities-foreign" class="text-2xl font-bold text-green-600 mb-2">外国语学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">英语</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：外国语学院<br> 毕业年份：2023<br> 工作：创业（留学移民海外医疗）<br> 城市：上海<br> 薪资（月薪/年薪）：税后年收入150 - 300w<br> 想对学弟学妹说的话：求其上，得其中；求其中，得其下；求其下，必败。<br> 
+            [02]<br> 学历：本科<br> 专业：英语文学<br> 毕业年份：2006<br> 工作：教培<br> 城市：湖州<br> 薪资（月薪/年薪）：5w<br> 想对学弟学妹说的话：坚持走自己的路，发挥所长，好好努力<br> 
+
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">俄语</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：俄语<br> 毕业年份：2021<br> 工作：行政<br> 城市：广州<br> 薪资（月薪/年薪）：税前月薪8500<br> 想对学弟学妹说的话：run<br> 
+            [02]<br> 学历：硕士<br> 专业：俄语<br> 毕业年份：2010<br> 工作：大厂俄罗斯方向业务总监<br> 城市：莫斯科<br> 薪资（月薪/年薪）：税后年薪260.5w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">德语</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">法语</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">西班牙语</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">日语</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：日语<br> 毕业年份：2021<br> 工作：跨境电商<br> 城市：杭州<br> 薪资（月薪/年薪）：税前37w<br> 想对学弟学妹说的话：别学日语，做好规划，能吃苦就来干电商<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">翻译</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="humanities-media" class="text-2xl font-bold text-green-600 mb-2">传媒与国际文化学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">新闻学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：新闻<br> 毕业年份：2024<br> 工作：gwy<br> 城市：温州<br> 薪资（月薪/年薪）：月薪税后5500<br> 想对学弟学妹说的话：躺平<br> 
+            [02]<br> 学历：硕士<br> 专业：广播电视编导<br> 毕业年份：2025<br> 工作：游戏策划<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪40w<br> 想对学弟学妹说的话：放弃幻想，脚踏实地<br> 
+            [03]<br> 学历：硕士<br> 专业：新闻与传播<br> 毕业年份：2024<br> 工作：品牌营销<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪1w<br> 想对学弟学妹说的话：就业市场竞争太激烈，虽然是浙大人，但也都很不容易，记得签保底offer<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">传播学</h3>
+        <p class="mb-4">
+            <br> [01]<br> 学历：硕士<br> 专业：广播电视<br> 毕业年份：2024<br> 工作：品牌<br> 城市：上海<br> 薪资（月薪/年薪）：税前年包25w<br> 想对学弟学妹说的话：万金油专业，行业大于岗位<br> 
+            [02]<br> 学历：本科<br> 专业：广告学<br> 毕业年份：2023<br> 工作：产品经理<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪37w<br> 想对学弟学妹说的话：学传媒也是可以做产品经理的！文科不要给自己设限！<br>
+            [03]<br> 学历：本科<br> 专业：广告学<br> 毕业年份：2020<br> 工作：Pr Agency<br> 城市：上海<br> 薪资（月薪/年薪）：税后20w<br> 想对学弟学妹说的话：少做乙方 气质会定型<br> 
+            [04]<br> 学历：本科<br> 专业：广告学<br> 毕业年份：2020<br> 工作：独立老师<br> 城市：南京<br> 薪资（月薪/年薪）：税后30w<br> 想对学弟学妹说的话：身体健康最重要<br> 
+            [05]<br> 学历：硕士<br> 专业：传播学<br> 毕业年份：2023<br> 工作：产品经理<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月38000<br> 想对学弟学妹说的话：珍惜在学校的时间吧<br> 
+            [06]<br> 学历：本科<br> 专业：广播电视学<br> 毕业年份：2017<br> 工作：国企员工<br> 城市：宁波<br> 薪资（月薪/年薪）：年薪15w<br> 想对学弟学妹说的话：学传媒出路不深，尽量学理工科金融法学<br>
+
+        </p>
+        <h2 id="humanities-art" class="text-2xl font-bold text-green-600 mb-2">艺术与考古学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">考古学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">文物与博物馆学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：文物与博物馆<br> 毕业年份：2022<br> 工作：乡镇公务员<br> 城市：嘉善<br> 薪资（月薪/年薪）：税后10w<br> 想对学弟学妹说的话：一切都是最好的安排~<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">美术学</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>专业：美术学<br>
+            毕业年份：2023<br>
+            工作：期刊美术编辑<br>
+            城市：株洲<br>
+            薪资（月薪/年薪）：税后月薪7k<br>
+            想对学弟学妹说的话：大城市淹没了抱负 都来三四线城市养老！<br>
+            [02]<br> 学历：硕士<br> 专业：交互产品设计<br> 毕业年份：2021<br> 工作：外企UX<br> 城市：北京<br> 薪资（月薪/年薪）：税后2w+<br> 想对学弟学妹说的话：容易失业，不如干别的<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">艺术与科技</h3>
+        <p class="mb-4">暂无数据</p>
+
+        <!-- 社会科学学部 -->
+        <h1 id="social-sciences" class="text-3xl font-bold text-blue-600 mb-4">社会科学学部</h1>
+        <h2 id="social-economics" class="text-2xl font-bold text-green-600 mb-2">经济学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">经济学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：世界经济<br> 毕业年份：2023<br> 工作：资管行业策略研究员<br> 城市：北京<br> 薪资（月薪/年薪） ：税前30万<br> 想对学弟学妹说的话：选择很重要<br> 
+            [02]<br> 学历：本科<br> 专业：经院4个专业其中之一<br> 毕业年份：2025<br> 工作：互联网战略商分<br> 城市：北京<br> 薪资（月薪/年薪）：税前2.2w<br> 想对学弟学妹说的话：多实习<br> [01]<br> 学历：本科<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">财政学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：财政学<br> 毕业年份：2002<br> 工作：银行<br> 城市：湖州<br> 薪资（月薪/年薪）：税前月薪3w<br> 想对学弟学妹说的话：文科类工作对专业限制少<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">金融学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：本科cs硕士金融<br> 毕业年份：2024<br> 工作：基金从业<br> 城市：北京<br> 薪资（月薪/年薪）：税前40w<br> 想对学弟学妹说的话：干金融要资源<br> 
+            [02]<br> 学历：本科<br> 专业：金融<br> 毕业年份：2014<br> 工作：投资<br> 城市：香港<br> 薪资（月薪/年薪）：月薪税后12w<br> 想对学弟学妹说的话：大环境不好，我算是吃到时代红利的一波人，学弟学妹加油吧<br> 
+            [03]<br> 学历：本科<br> 专业：金融<br> 毕业年份：2022<br> 工作：公务员<br> 城市：北京<br> 薪资（月薪/年薪）：1w<br> 想对学弟学妹说的话： 不要当公务员，不然你会后悔一辈子<br> 
+            [04]<br> 学历：硕士<br> 专业：互联网金融<br> 毕业年份：2024<br> 工作：券商研究所<br> 城市：上海<br> 薪资（月薪/年薪）：税前年薪35w<br> 想对学弟学妹说的话：选择适合自己的工作更重要<br> 
+            [05]<br> 学历：硕士<br> 专业：金融<br> 毕业年份：2024<br> 工作：银行<br> 城市：海口<br> 薪资（月薪/年薪） ：税前9 - 10w<br> 想对学弟学妹说的话：学文科的，可能有必要读个硕士，本科太多了，浙大也不好使，去老家的银行或者国企躺平，只能说在当下，也是一种选择吧<br> 
+            [06]<br> 学历：硕士<br> 专业：金融<br> 毕业年份：2024<br> 工作：银行<br> 城市：杭州<br> 薪资（月薪/年薪）：税后12w<br> 想对学弟学妹说的话：别学金融<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">国际经济与贸易</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：国贸<br> 毕业年份：2018<br> 工作：公务员<br> 城市：杭州<br> 薪资（月薪/年薪）：月薪9k<br> 想对学弟学妹说的话：不必迷信体制内<br>  
+            [02]<br> 学历：本科<br> 专业：国际贸易<br> 毕业年份：2024<br> 工作：代理业<br> 城市：义乌<br> 薪资（月薪/年薪） ：月薪税后5.6w<br> 想对学弟学妹说的话：尽量在海外找工作<br> 
+
+        </p>
+        <h2 id="social-law" class="text-2xl font-bold text-green-600 mb-2">光华法学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">法学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：法律<br> 毕业年份：2022<br> 工作：公务员<br> 城市：上海<br> 薪资（月薪/年薪）：税后1.4w<br> 想对学弟学妹说的话：健康快乐最重要<br>
+            [02]<br> 学历：硕士<br> 专业：法学<br> 毕业年份：2024<br> 工作：法务<br> 城市：上海<br> 薪资（月薪/年薪）：税前年薪50w<br> 想对学弟学妹说的话：做好自己 找准赛道<br> 
+            [03]<br> 学历：硕士<br> 专业：法学<br> 毕业年份：2023<br> 工作：法务<br> 城市：杭州<br> 薪资（月薪/年薪） ：税前8000<br> 想对学弟学妹说的话：不要学法<br> 
+            [04]<br> 学历：硕士<br> 专业：法律硕士<br> 毕业年份：2019<br> 工作：律师<br> 城市：上海<br> 薪资（月薪/年薪）：税前月薪2.4w<br> 想对学弟学妹说的话：尽早找到自己热爱的事情<br> 
+
+        </p>
+        <h2 id="social-education" class="text-2xl font-bold text-green-600 mb-2">教育学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">教育学</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>
+            毕业年份：2025<br>
+            工作：互联网设计<br>
+            城市：未定<br>
+            薪资（月薪/年薪）：年薪到手32w<br>
+            想对学弟学妹说的话：以始为终<br>
+            [02]<br>
+            学历：硕士<br>
+            毕业年份：非全在读<br>
+            工作：在编教师<br>
+            城市：山东沿海三线<br>
+            薪资（月薪/年薪）：全包税后12w<br>
+            想对学弟学妹说的话：想好自己想过怎样的生活很重要，不要盲目追求一些东西，比如编制、考研<br>
+            [02]<br> 学历：硕士<br> 专业：教育类<br> 毕业年份：2025<br> 工作：产品经理<br> 城市：江浙沪<br> 薪资（月薪/年薪） ：税前年薪40+<br> 想对学弟学妹说的话：实习最重要<br> 
+            [03]<br> 学历：博士<br> 专业：教育<br> 毕业年份：2024<br> 工作：教师<br> 城市：杭州<br> 薪资（月薪/年薪）：2w<br> 想对学弟学妹说的话：珍惜当下<br> 
+            [04]<br>
+            学历：硕士<br>专业：汉语国际教育<br>
+            毕业年份：2016<br>
+            工作：高中语文老师<br>
+            城市：杭州<br>
+            薪资（月薪/年薪）：税后年薪20w<br>
+            想对学弟学妹说的话：知识和技能不会辜负你，多尝试<br>
+            [05]<br> 学历：硕士<br> 专业：汉语国际教育<br> 毕业年份：2021<br> 工作：HR<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪17w<br> 想对学弟学妹说的话： 去海外发展吧<br>
+            [06]<br> 学历：硕士<br> 专业：教育<br> 毕业年份：2023<br> 工作：HR<br> 城市：深圳<br> 薪资（月薪/年薪）：税前年薪20w<br> 想对学弟学妹说的话：要想好卷还是躺，否则会非常内耗<br> 
+            [07]<br> 学历：硕士<br> 专业：教育管理<br> 毕业年份：2023<br> 工作：教师<br> 城市：海宁<br> 薪资（月薪/年薪）：税后12w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">体育教育</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">运动训练</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">智能体育工程</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="social-management" class="text-2xl font-bold text-green-600 mb-2">管理学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">信息管理与信息系统</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：信息资源管理<br> 毕业年份：2011<br> 工作：销售<br> 城市：东阳<br> 薪资（月薪/年薪）：10000<br> 想对学弟学妹说的话：加油努力 人生每个阶段都不能落后<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">工商管理</h3>
+        <p class="mb-4">[01]<br>
+            学历：本科<br>
+            毕业年份：2025<br>
+            工作：教育<br>
+            城市：北方<br>
+            薪资（月薪/年薪）：税前月薪10w＋（上个月，波动较大）<br>
+            想对学弟学妹说的话：大学期间可以多找一些标准化之外的道路<br>
+            [02]<br> 学历：本科<br> 专业：工商管理<br> 毕业年份：2022<br> 工作：体制内<br> 城市：江西某城市<br> 薪资（月薪/年薪）：8w年薪（税后）<br> 想对学弟学妹说的话：选择远大于努力，时代的洪流会裹挟着一切努力，我们这个专业，如果家里没背景没资源，体制内是不错的选择，当然，如果家里有背景和资源，那任何专业也无所谓了。学弟学妹们请提前了解这个专业和就业行情呀。<br> 
+            [03]<br> 学历：本科<br> 专业：工商管理<br> 毕业年份：2025<br> 工作：hr<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪11k<br> 想对学弟学妹说的话：无<br> 
+            [04]<br> 学历：硕士<br> 专业：工商管理<br> 毕业年份：2024<br> 工作：咨询<br> 城市：上海<br> 薪资（月薪/年薪）：税后年薪40w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">会计学</h3>
+        <p class="mb-4">[01]<br>
+            学历：本科<br>
+            毕业年份：2020<br>
+            工作：会计师<br>
+            城市：杭州<br>
+            薪资（月薪/年薪）：税后年薪80w<br>
+            想对学弟学妹说的话：好好学习<br></p>
+        <h2 id="social-public" class="text-2xl font-bold text-green-600 mb-2">公共管理学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">政治学与行政学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：政治学与行政学<br> 毕业年份：2024<br> 工作：高中教师<br> 城市：湖州<br> 薪资（月薪/年薪）：税前年薪15w<br> 想对学弟学妹说的话：别当老师<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">社会学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">农林经济管理</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">行政管理</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">劳动与社会保障</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">土地资源管理</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="social-marxist" class="text-2xl font-bold text-green-600 mb-2">马克思主义学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">马克思主义理论</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：马克思主义理论<br> 毕业年份：2023<br> 工作：公务员<br> 城市：重庆<br> 薪资（月薪/年薪）：税后7k<br> 想对学弟学妹说的话：知足常乐<br> 
+
+        </p>
+
+        <!-- 理学部 -->
+        <h1 id="science" class="text-3xl font-bold text-blue-600 mb-4">理学部</h1>
+        <h2 id="science-math" class="text-2xl font-bold text-green-600 mb-2">数学科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">数学与应用数学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：数学应用<br> 毕业年份：2023<br> 工作：老师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪15k<br> 想对学弟学妹说的话：不要在杭州的高校，学术缅北<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">信息与计算科学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">统计学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：统计<br> 毕业年份：2020<br> 工作：量化分析师<br> 城市：墨尔本<br> 薪资（月薪/年薪）：税后年薪102w<br> 想对学弟学妹说的话：能run就run<br>
+            [02]<br> 学历：本科<br> 专业：统计学<br> 毕业年份：2022<br> 工作：量化<br> 城市：上海<br> 薪资（月薪/年薪）：税后年薪200w<br> 想对学弟学妹说的话：不用读研<br> 
+
+        </p>
+        <h2 id="science-physics" class="text-2xl font-bold text-green-600 mb-2">物理学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">物理学</h3>
+        <p class="mb-4">
+            [01]<br>专业：物理学<br> 毕业年份：2024<br> 工作：教培<br> 城市：杭州<br> 薪资（月薪/年薪）：税前1.4w<br> 想对学弟学妹说的话：选择自己喜欢的最重要<br> 
+            [02]<br> 学历：本科<br> 专业：物理<br> 毕业年份：2022<br> 工作：大模型算法工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前60w <br> 想对学弟学妹说的话：别卷绩点，没用，及格就行，多去刷实习搞项目，没必要读研。<br>
+            [03]<br> 学历：硕士<br> 专业：凝聚态物理<br> 毕业年份：2021<br> 工作：高校行政<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪1.5w<br> 想对学弟学妹说的话：努力学习，在学校的每一分钟都是值得珍惜的<br> 
+
+
+        </p>
+        <h2 id="science-chemistry" class="text-2xl font-bold text-green-600 mb-2">化学系</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">化学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：化学<br> 毕业年份：2016<br> 工作：咨询<br> 城市：跟项目走<br> 薪资（月薪/年薪）：税前180（疑似年薪，单位缺失，原文如此）<br> 想对学弟学妹说的话：竺老二问的答案想好了吗<br> 
+            [02]<br> 学历：硕士<br> 专业：化学<br> 毕业年份：2022<br> 工作：教师<br> 城市：台州<br> 薪资（月薪/年薪）：税后18w<br> 想对学弟学妹说的话：当高中老师真的好累
+
+        </p>
+        <h2 id="science-earth" class="text-2xl font-bold text-green-600 mb-2">地球科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">地理信息科学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">大气科学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">地质学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="science-psychology" class="text-2xl font-bold text-green-600 mb-2">心理与行为科学系</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">心理学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：心理<br> 毕业年份：2022<br> 工作：高校教师<br> 城市：宁波<br> 薪资（月薪/年薪） ：税前18w<br> 想对学弟学妹说的话：开心最重要<br> 
+            [02]<br> 学历：博士<br> 专业：心理学<br> 毕业年份：2024<br> 工作：设计师<br> 城市：上海<br> 薪资（月薪/年薪）：税前60w<br> 想对学弟学妹说的话：做自己喜欢的事，建立差异化优势
+            [03]<br> 学历：硕士<br> 专业：心理学<br> 毕业年份：2025<br> 工作：校招offer<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪2.2w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+
+        <!-- 工学部 -->
+        <h1 id="engineering" class="text-3xl font-bold text-blue-600 mb-4">工学部</h1>
+        <h2 id="engineering-mechanical" class="text-2xl font-bold text-green-600 mb-2">机械工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">机械工程</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>专业：机械工程<br> 
+            毕业年份：2024<br>
+            工作：国企采购<br>
+            城市：一线城市<br>
+            薪资（月薪/年薪）：年薪税后20w<br>
+            想对学弟学妹说的话：如果你不是卷王，又没一技之长，专业又不咋地，最大的优势是学校title，趁现在还有机会来垄断性国企吧，这是你学历变现最好的地方。私企所谓的学历厂都是假学历厂。待遇好的国企本科学历就够了，没必要读研。原因你自己细品。<br>
+            [02]<br>
+            学历：硕士<br>专业：机械工程<br> 
+            毕业年份：2023<br>
+            工作：大厂智驾算法工程师<br>
+            城市：深圳<br>
+            薪资（月薪/年薪）：税前年薪60w<br>
+            想对学弟学妹说的话：加油好好干<br>
+            [03]<br> 学历：硕士<br> 专业：机械工程<br> 毕业年份：2025<br> 工作：软件工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年包35w<br> 想对学弟学妹说的话：选对方向，不要浪费时间<br> 
+            [04]<br> 学历：博士<br> 专业：机械工程<br> 毕业年份：2021<br> 工作：结构岗<br> 城市：波士顿<br> 薪资（月薪/年薪）：税后270w<br> 想对学弟学妹说的话：美国也是一个不错的选择<br>
+            [05]<br>
+            学历：本科<br>专业：机械设计工程及其自动化<br>
+            毕业年份：2018<br>
+            工作：教育相关行业的小个体户<br>
+            城市：上海<br>
+            薪资（月薪/年薪）：这几年税后200~300万之间<br>
+            想对学弟学妹说的话：他强任他强，清风拂山岗。我大学时属于纯差生，挂科延毕，考研失败，毕业一年没工作。但是出身小城穷人家，20多年来一颗出人头地的心从未熄灭过。后来偶然抓住一个机会做起来了，现在回头看，当时甚至没有意识到那会是我人生的一个重大转折。跟我一样成绩不好的学弟学妹们，请永远以打不死的心态活到老，屡战屡败但要屡败屡战，机会来了就上别犹豫，人生可能就只有那么几个窗口，能抓住一波机会就翻身<br>
+            [06]<br> 学历：硕士<br> 专业：机械工程<br> 毕业年份：2024<br> 工作：国企技术岗<br> 城市：上海<br> 薪资（月薪/年薪）：税后1w1<br> 想对学弟学妹说的话：适合自己的才是最好的<br> 
+            [07]<br> 学历：博士<br> 专业：机械工程<br> 毕业年份：2025<br> 工作：机器人行业研发<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪60w<br> 想对学弟学妹说的话：找工作项目对口比论文重要一点，主要靠吹<br>
+            [08]<br> 学历：本科<br> 专业：机械<br> 毕业年份：2010<br> 工作：机械设计<br> 城市：沈阳<br> 薪资（月薪/年薪）：税后月薪6900<br> 想对学弟学妹说的话：如果没有明确的专业兴趣取向，选一个工资高的专业而非容易学的专业往往不是错误的选择，因为即便你做不出名堂，行业的工资在那里，高就是高，低就是低。更何况，克服困难学懂一个专业也是大学要学习的技能之一呢。<br> 
+            [09]<br> 学历：硕士<br> 专业：机械工程<br> 毕业年份：2023<br> 工作：大数据分析<br> 城市：上海<br> 薪资（月薪/年薪）：税前年包45w<br> 想对学弟学妹说的话：选择大于努力<br> 
+            [10]<br> 学历：硕士<br> 专业：机械<br> 毕业年份：2025<br> 工作：车企研发工程师<br> 城市：深圳<br> 薪资（月薪/年薪）：税前年薪38w<br> 想对学弟学妹说的话：无<br> 
+            [11]<br> 学历：硕士<br> 专业：机械<br> 毕业年份：2024<br> 工作：结构工程师<br> 城市：深圳<br> 薪资（月薪/年薪）：税前2.8w<br> 想对学弟学妹说的话：一切都会好起来的<br> 
+            [12]<br> 学历：本科<br> 专业：机械工程<br> 毕业年份：2024<br> 工作：消费电子产品结构工程师<br> 城市：深圳<br> 薪资（月薪/年薪）：税前年薪32w<br> 想对学弟学妹说的话：肯吃苦，多学习<br> 
+
+        </p>
+        <h2 id="engineering-materials" class="text-2xl font-bold text-green-600 mb-2">材料科学与工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">材料科学与工程</h3>
+        <p class="mb-4">[01]<br>
+            学历：博士<br>
+            毕业年份：2020<br>
+            工作：昇腾边缘计算研发<br>
+            城市：深圳<br>
+            薪资（月薪/年薪）：税前月薪12w<br>
+            想对学弟学妹说的话：生化环材不是天坑，专业从不定生死，奔跑者自造风口<br>
+            [02]<br> 学历：硕士<br> 专业：材料工程<br> 毕业年份：2022<br> 工作：高速公路管理单位<br> 城市：广州<br> 薪资（月薪/年薪）：税后20w<br> 想对学弟学妹说的话：半体制内 个人成长主要靠自己<br> 
+            [03]<br> 学历：硕士<br> 专业：材料科学与工程<br> 毕业年份：2020<br> 工作：运营商<br> 城市：浙江小县城<br> 薪资（月薪/年薪）：税前年薪35w<br> 想对学弟学妹说的话：趁年轻，大胆试，不受约束<br> 
+            [04]<br> 学历：本科<br> 专业：材料科学与工程<br> 毕业年份：2016<br> 工作：大模型算法<br> 城市：上海<br> 薪资（月薪/年薪）：月薪6w，总包110w<br> 想对学弟学妹说的话：早点转行吧<br> 
+            [05]<br> 学历：硕士<br> 专业：材料与化工<br> 毕业年份：2023<br> 工作：高级研发工程师<br> 城市：上海<br> 薪资（月薪/年薪）：税后1.9w<br> 想对学弟学妹说的话： 生活才是重要的<br> 
+            [06]<br> 学历：硕士<br> 专业：材料与化工<br> 毕业年份：2024<br> 工作：半导体工程师<br> 城市：武汉<br> 薪资（月薪/年薪）：月薪1.8w<br> 想对学弟学妹说的话：半导体真的很累<br> 
+            [07]<br> 学历：硕士<br> 专业：材料与化工<br> 毕业年份：2024<br> 工作：大宗商品研究员<br> 城市：宁波<br> 薪资（月薪/年薪）：税后1.3w<br> 想对学弟学妹说的话：无
+
+        </p>
+        <h2 id="engineering-energy" class="text-2xl font-bold text-green-600 mb-2">能源工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">过程装备与控制工程</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">车辆工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：汽车工程<br> 毕业年份：2017<br> 工作：控制工程师<br> 城市：株洲<br> 薪资（月薪/年薪）：税后月薪10000<br> 想对学弟学妹说的话：好学好专业课，积极参与专业实践<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">能源与环境系统工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：能源动力<br> 毕业年份：2025<br> 工作：机械工程师<br> 城市：上海<br> 薪资（月薪/年薪）：税前25w<br> 想对学弟学妹说的话：提前实习，找适合自己的工作<br> 
+            [02]<br> 学历：硕士<br> 专业：能源与环境系统工程<br> 毕业年份：2021<br> 工作：大厂热设计工程师<br> 城市：东莞<br> 薪资（月薪/年薪）：月薪税后2w<br> 想对学弟学妹说的话：永远记住，选择大于努力<br> 
+            [03]<br> 学历：博士<br> 专业：能源<br> 毕业年份：2024<br> 工作：公司职员<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪28w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+        <h2 id="engineering-electric" class="text-2xl font-bold text-green-600 mb-2">电气工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">电气工程及其自动化</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：电气工程及其自动化<br> 毕业年份：2015<br> 工作：基础设施维护管理<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪35w<br> 想对学弟学妹说的话：干一行爱一行<br> 
+            [02]<br> 学历：博士<br> 专业：电气工程<br> 毕业年份：2021<br> 工作：软件工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前80w<br> 想对学弟学妹说的话：读博需慎重<br> 
+            [03]<br> 学历：硕士<br> 专业：电气工程<br> 毕业年份：2023<br> 工作：电网研究院研究员<br> 城市：广州<br> 薪资（月薪/年薪）：稅前月薪1.5w，税后年薪20w<br> 想对学弟学妹说的话：学生期间多多培养学习之外的兴趣，多关注热点领域和话题，学生期间尽量多可能去实习<br> 
+            [04]<br> 学历：博士<br> 专业：电气工程/电力电子<br> 毕业年份：2023<br> 工作：国企研发工程师<br> 城市：南京<br> 薪资（月薪/年薪） ：税前年薪37w<br> 想对学弟学妹说的话：选择合适自己的工作<br> 
+            [05]<br> 学历：硕士<br> 专业：电气工程<br> 毕业年份：2024<br> 工作：自动化主管<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪40w<br> 想对学弟学妹说的话：好好学习专业知识和技能，多参加实践活动<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">电子信息工程</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>
+            毕业年份：2024<br>
+            工作：交易员<br>
+            城市：香港<br>
+            薪资（月薪/年薪）：税前170w<br>
+            想对学弟学妹说的话：看命<br>
+            [02]<br> 学历：硕士<br> 专业：电子信息<br> 毕业年份：2024<br> 工作：量化<br> 城市：上海<br> 薪资（月薪/年薪）：税前6w<br> 想对学弟学妹说的话：转码<br> 
+            [03]<br> 学历：硕士<br> 专业：电子信息<br> 毕业年份：2025<br> 工作：电路设计<br> 城市：上海<br> 薪资（月薪/年薪）：税前57w<br> 想对学弟学妹说的话：别转行来ic设计了，门槛越来越高了<br> 
+            [04]<br> 学历：本科<br> 专业：电子信息工程<br> 毕业年份：2009<br> 工作：电气工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前10000<br> 想对学弟学妹说的话：能力大于学历<br>
+            [05]<br> 学历：硕士<br> 专业：电子信息<br> 毕业年份：2025<br> 工作：数字电路工程师<br> 城市：西安<br> 薪资（月薪/年薪）：税前年薪45w<br> 想对学弟学妹说的话：无<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">自动化（电气）</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="engineering-architecture" class="text-2xl font-bold text-green-600 mb-2">建筑工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">土木、水利与交通工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：土木工程<br> 毕业年份：2024<br> 工作：事业编研究院<br> 城市：南京<br> 薪资（月薪/年薪） ：月薪1.2，年终未知<br> 想对学弟学妹说的话：选择适合自己的而不是别人认为好的（求职决定后悔中）
+            <br> [02]<br> 学历：本科<br> 专业：土木工程<br> 毕业年份：2022<br> 工作：国企工程岗<br> 城市：南昌<br> 薪资（月薪/年薪）：税前年薪20w<br> 想对学弟学妹说的话：不是我们不行，是这个行业已经烂透了，趁早转行。<br> 
+            [03]<br> 学历：本科<br> 专业：土木<br> 毕业年份：2019<br> 工作：桥梁设计师<br> 城市：杭州<br> 薪资（月薪/年薪）：年薪24w<br> 想对学弟学妹说的话：别选土木谢谢<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">建筑学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：建筑与土木工程<br> 毕业年份：2020<br> 工作：央企电力院<br> 城市：杭州<br> 薪资（月薪/年薪） ：税后1w+年终奖2 - 4w<br> 想对学弟学妹说的话：钱与闲不可兼得<br> 
+            [02]<br> 学历：本科<br> 专业：建筑学<br> 毕业年份：2019<br> 工作：建筑设计师<br> 城市：上海<br> 薪资（月薪/年薪）：税后9500<br> 想对学弟学妹说的话：选一个好赛道吧<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">城乡规划</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：城乡规划<br> 毕业年份：2021<br> 工作：设计院<br> 城市：不方便<br> 薪资（月薪/年薪）：6000<br> 想对学弟学妹说的话：快逃<br> 
+        </p>
+        <h2 id="engineering-chemical" class="text-2xl font-bold text-green-600 mb-2">化学工程与生物工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">化学工程与工艺</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：化工<br> 毕业年份：2022<br> 工作：化工厂安全员<br> 城市：南京<br> 薪资（月薪/年薪）：月薪6000，不过年终会比较多<br> 想对学弟学妹说的话：求是创新心不变，是碱是酸自分明。氢碱钠钾常为伴，爆炸泄露心慌慌。站岗放哨守工厂，纯心只为厂周全。啥都不说只行动，毕业之后常戚戚。<br> 
+            [02]<br>
+            学历：博士<br>专业：化学工程与技术<br>
+            毕业年份：2024<br>
+            工作：研发总监<br>
+            城市：杭州<br>
+            薪资（月薪/年薪）：税前50W，奖金另外，要做出成绩<br>
+            想对学弟学妹说的话：多提高自己的思维模式，把毛选认认真真学好<br>
+            [03]<br> 学历：本科<br> 专业：化工<br> 毕业年份：2024<br> 工作：化工厂废料处理<br> 城市：保密<br> 薪资（月薪/年薪）：税前月薪8k<br> 想对学弟学妹说的话： 秌卋棾虣琖是一种常见的化工废料，可能会混在食品中，同学们一定要注意<br> 
+            [04]<br> 学历：硕士<br> 专业：化学工程与技术<br> 毕业年份：2025<br> 工作：半导体电路设计工程师<br> 城市：武汉<br> 薪资（月薪/年薪）：税前年薪45w<br> 想对学弟学妹说的话：生化环材，及时跑路<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">生物工程</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="engineering-ocean" class="text-2xl font-bold text-green-600 mb-2">海洋学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">海洋科学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">海洋工程与技术</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：海洋工程与技术<br> 毕业年份：2020<br> 工作：法务<br> 城市：浙江<br> 薪资（月薪/年薪）：税后月薪1w<br> 想对学弟学妹说的话：回头是岸<br> 
+            [02]<br> 学历：本科<br> 专业：海洋工程与技术<br> 毕业年份：2024<br> 工作：工程师<br> 城市：江苏<br> 薪资（月薪/年薪）：税后月薪8000<br> 想对学弟学妹说的话：传统行业真不太行，硕士和本一个价，快逃（）<br> 
+            [03]<br> 学历：本科<br> 专业：海洋技术<br> 毕业年份：2024<br> 工作：程序员<br> 城市：北京<br> 薪资（月薪/年薪） ：税前50w<br> 想对学弟学妹说的话：今年往公司内推的浙大同学一共有约4%的人拿到offer。What can i say<br> 
+            [04]<br> 学历：博士<br> 专业：海洋技术与工程<br> 毕业年份：2024<br> 工作：研究所<br> 城市：成都<br> 薪资（月薪/年薪）：税前年薪25w<br> 想对学弟学妹说的话：加油<br> 
+            [05]<br> 学历：博士<br> 专业：海洋技术与工程<br> 毕业年份：2023<br> 工作：博士后<br> 城市：杭州<br> 薪资（月薪/年薪）：税后15k<br> 想对学弟学妹说的话：无<br> 
+
+        </p>
+        <h2 id="engineering-aerospace" class="text-2xl font-bold text-green-600 mb-2">航空航天学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">工程力学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">飞行器设计与工程</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="engineering-polymer" class="text-2xl font-bold text-green-600 mb-2">高分子科学与工程学系</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">高分子材料与工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：高分子<br> 毕业年份：2020<br> 工作：供应链工程部高级经理<br> 城市：上海<br> 薪资（月薪/年薪）：税前年薪47w<br> 想对学弟学妹说的话：放松心态，人生长着呢<br> 
+            [02]<br> 学历：博士<br> 专业：高分子材料<br> 毕业年份：2025<br> 工作：研究院<br> 城市：杭州<br> 薪资（月薪/年薪）：税前30w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+
+        <!-- 信息学部 -->
+        <h1 id="information" class="text-3xl font-bold text-blue-600 mb-4">信息学部</h1>
+        <h2 id="information-optics" class="text-2xl font-bold text-green-600 mb-2">光电科学与工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">光电信息科学与工程</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>
+            毕业年份：2022<br>
+            工作：教育<br>
+            城市：上海<br>
+            薪资（月薪/年薪）：税后200+<br>
+            想对学弟学妹说的话：什么赚钱干什么<br>
+            [02]<br>
+            学历：博士<br>
+            毕业年份：2018<br>
+            工作：外企<br>
+            城市：上海<br>
+            薪资（月薪/年薪）：税后350万<br>
+            想对学弟学妹说的话：天道酬勤<br>
+            [03]<br> 学历：博士<br> 专业：光学工程<br> 毕业年份：2024<br> 工作：制造业工程师<br> 城市：深圳<br> 薪资（月薪/年薪）：税前4.3w<br> 想对学弟学妹说的话：祝大家学业顺利、工作顺利！<br> 
+
+        </p>
+        <h2 id="information-electronics" class="text-2xl font-bold text-green-600 mb-2">信息与电子工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">电子科学与技术</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：电子科学与技术(芯片设计)<br> 毕业年份：2021<br> 工作：数字集成电路设计工程师<br> 城市：上海<br> 薪资（月薪/年薪）：140w(税前)<br> 想对学弟学妹说的话：运气好一点，选择很重要<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">微电子科学与工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：微电子科学与工程<br> 毕业年份：2024<br> 工作：IC设计<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪20w<br> 想对学弟学妹说的话：找工作真难<br>
+            [02]<br> 学历：硕士<br> 专业：集成电路<br> 毕业年份：2022<br> 工作：集成电路<br> 城市：上海<br> 薪资（月薪/年薪）：税前月薪4.2w<br> 想对学弟学妹说的话：多实习<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">信息工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：电子类<br> 毕业年份：2021<br> 工作：通信工程师<br> 城市：上海<br> 薪资（月薪/年薪）：年薪40w<br> 想对学弟学妹说的话：选择和运气，远远大于努力<br> 
+            [02]<br> 学历：硕士<br> 专业：通信工程<br> 毕业年份：2020<br> 工作：央企职员<br> 城市：杭州<br> 薪资（月薪/年薪）：税后22w<br> 想对学弟学妹说的话：工作可以躺平 人生不能躺平！共勉
+            [03]<br> 学历：本科<br> 专业：信息工程<br> 毕业年份：2022<br> 工作：信息系统管理员<br> 城市：杭州<br> 薪资（月薪/年薪）：税后7.5k<br> 想对学弟学妹说的话：一定要在开始找工作前搞清楚职位所需要的技能，并且综合考虑到工作中的杂事等不确定因素<br> 
+        </p>
+        <h2 id="information-control" class="text-2xl font-bold text-green-600 mb-2">控制科学与工程学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">自动化</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：控制工程<br> 毕业年份：2023<br> 工作：算法工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前2.6w<br> 想对学弟学妹说的话：学弟学妹加油，如果准备进入职场，最好工作和实践导向，多动手<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">机器人工程</h3>
+        <p class="mb-4">此处可插入机器人工程专业的相关介绍内容，如专业培养目标、课程设置等。</p>
+        <h2 id="information-computer" class="text-2xl font-bold text-green-600 mb-2">计算机科学与技术学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">工业设计</h3>
+        <p class="mb-4">
+            [01]<br> 学历：本科<br> 专业：工业设计<br> 毕业年份：2025<br> 工作：前端工程师<br> 城市：杭州<br> 薪资（月薪/年薪） ：月薪4000<br> 想对学弟学妹说的话：大环境烂完了<br> 
+            [02]<br> 学历：本科<br> 专业：工业设计<br> 毕业年份：2025<br> 工作：ios开发工程师<br> 城市：杭州<br> 薪资（月薪/年薪） ：税前2300<br> 想对学弟学妹说的话：烂完了孩子们<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">人工智能</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：人工智能<br> 毕业年份：2025<br> 工作：ai<br> 城市：北京<br> 薪资（月薪/年薪）：税后年薪60w<br> 想对学弟学妹说的话：加油<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">计算机科学与技术</h3>
+        <p class="mb-4">[01]<br>
+            学历：博士<br>
+            毕业年份：2014<br>
+            工作：量化<br>
+            城市：上海<br>
+            薪资（月薪/年薪）：税前500w<br>
+            想对学弟学妹说的话：珍惜校园时光<br>
+            [02]<br>
+            学历：本科<br>
+            毕业年份：2016<br>
+            工作：算法工程师<br>
+            城市：深圳<br>
+            薪资（月薪/年薪）：年薪税后247w<br>
+            想对学弟学妹说的话：走对圈子跟对人，情商比智商更重要<br>
+            [03]<br> 学历：硕士<br> 专业：计算机<br> 毕业年份：2018<br> 工作：公务员<br> 城市：合肥<br> 薪资（月薪/年薪）：10000月薪<br> 想对学弟学妹说的话：18年的计算机老硕想不开走了公务员，从此告别了高薪职业，有点后悔！<br> 
+            [04]<br> 学历：硕士<br> 专业：计算机科学<br> 毕业年份：2025<br> 工作：算法工程师<br> 城市：北京<br> 薪资（月薪/年薪）：税前年薪80w<br> 想对学弟学妹说的话：读研要有自己的想法，懂得都懂。<br> 
+            [05]<br> 学历：硕士<br> 专业：计算机<br> 毕业年份：2021<br> 工作：算法工程师<br> 城市：上海<br> 薪资（月薪/年薪）：税后年薪350w<br> 想对学弟学妹说的话：求是<br> 
+            [06]<br> 学历：硕士<br> 专业：计算机<br> 毕业年份：2024<br> 工作：机器人<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪50w<br> 想对学弟学妹说的话：加油<br> 
+            [07]<br> 学历：博士<br> 专业：计算机<br> 毕业年份：2025<br> 工作：校招offer某央企研究院<br> 城市：深圳<br> 薪资（月薪/年薪）：税前50w<br> 想对学弟学妹说的话：秋招早点投不然没得选
+            [08]<br> 学历：硕士<br> 专业：计科<br> 毕业年份：2024<br> 工作：程序员<br> 城市：深圳<br> 薪资（月薪/年薪）：税前32k<br> 想对学弟学妹说的话：努力实习吧
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">信息安全</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">软件工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：软件工程<br> 毕业年份：2021<br> 工作：华为<br> 城市：深圳<br> 薪资（月薪/年薪）：税后年薪300w<br> 想对学弟学妹说的话：加油努力<br> 
+
+        </p>
+
+        <!-- 信息学部 - 生物医学工程与仪器科学学院 -->
+        <h2 id="information-biomedical" class="text-2xl font-bold text-green-600 mb-2">生物医学工程与仪器科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">生物医学工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：电子信息技术及仪器<br> 毕业年份：2021<br> 工作：网络算法工程师<br> 城市：杭州<br> 薪资（月薪/年薪）：税前年薪90w<br> 想对学弟学妹说的话：跟随政策，选对方向<br> 
+            [02]<br> 学历：本科<br> 专业：测控技术与仪器<br> 毕业年份：2022<br> 工作：嵌入式开发<br> 城市：杭州<br> 薪资（月薪/年薪）：税前3w<br> 想对学弟学妹说的话：多思考竺校长的两个问题<br> 
+            [03]<br> 学历：博士<br> 专业：生物医学工程<br> 毕业年份：2023<br> 工作：设备科<br> 城市：杭州<br> 薪资（月薪/年薪）：税后年薪14.6w<br> 想对学弟学妹说的话：快跑<br> 
+
+        </p>
+
+        <!-- 农业生命环境学部 -->
+        <h1 id="agriculture-life-environment" class="text-3xl font-bold text-blue-600 mb-4">农业生命环境学部</h1>
+        <h2 id="ale-life" class="text-2xl font-bold text-green-600 mb-2">生命科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">生物科学</h3>
+        <p class="mb-4">[01]<br>
+            学历：硕士<br>
+            毕业年份：2024<br>
+            工作：事业单位<br>
+            城市：兰州<br>
+            薪资（月薪/年薪）：月薪5k 年底有不固定绩效 职称每升一级基本工资会加几百<br>
+            想对学弟学妹说的话：入行前多了解 不同行业有不同的工作风格<br>
+            [02]<br> 学历：硕士<br> 专业：细胞生物学<br> 毕业年份：2020<br> 工作：研发<br> 城市：上海<br> 薪资（月薪/年薪）：月薪税前19k，税后15k<br> 想对学弟学妹说的话：快跑<br>
+            [03]<br> 学历：本科<br> 专业：生物技术<br> 毕业年份：2021<br> 工作：生物老师<br> 城市：宁波<br> 薪资（月薪/年薪）：税后年薪18w<br> 想对学弟学妹说的话：高中选生物的越来越少，生物老师活也越来越少，躺平好爽。<br>
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">生态学</h3>
+        <p class="mb-4">
+            暂无数据<br>
+
+        </p>
+        <h2 id="ale-bioengineering" class="text-2xl font-bold text-green-600 mb-2">生物系统工程与食品科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">生物系统工程</h3>
+        <p class="mb-4">生物系统工程专业培养具备生物学与工程学基本知识，掌握生物系统工程学科的基本理论、方法和技能，能在生物工程、生物制品、食品、环境保护等领域从事设计、研发、生产、管理和教学等工作的高素质复合型工程技术人才。课程有工程力学、机械设计基础、电工与电子技术、生物化学、微生物学、生物系统分析与建模、生物加工过程与设备等。</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">食品科学与工程</h3>
+        <p class="mb-4">食品科学与工程专业培养具有化学、生物学、食品工程和食品技术知识，能在食品领域内从事食品生产技术管理、品质控制、产品开发、科学研究、工程设计等方面工作的食品科学与工程学科的高级工程技术人才。主要课程包括食品化学、食品微生物学、食品营养学、食品工程原理、食品工艺学、食品分析与检测等。</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">农业工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：农学部<br> 毕业年份：2024<br> 工作：教育<br> 城市：深圳<br> 薪资（月薪/年薪）：税前年包32w，包括12薪+绩效，但是绩效可能发不出来<br> 想对学弟学妹说的话：选择确实大于努力，但是热爱可以在工作中获得成就感，如果能找到自己特别喜欢的工作，并且降低预期（给人情琐事），我觉着这会让你更快乐。此外，提前准备岗位所需的工作技能，或者对口实习，这个会帮助你顺利找到想要的工作。<br> 
+            [02]<br> 学历：硕士<br> 专业：畜牧<br> 毕业年份：2020<br> 工作：大专教师<br> 城市：河南<br> 薪资（月薪/年薪）：月薪5k<br> 想对学弟学妹说的话：知足常乐<br> 
+            [03]<br> 学历：硕士<br> 专业：畜牧<br> 毕业年份：2024<br> 工作：教培老师<br> 城市：安徽宣城<br> 薪资（月薪/年薪）：税前7000<br> 想对学弟学妹说的话：无话可说<br> 
+            [04]<br> 学历：硕士<br> 专业：农艺与种业<br> 毕业年份：2023<br> 工作：市场营销<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪1w<br> 想对学弟学妹说的话：多积累实习工作经验，养成好的学习和工作习惯，充分利用好学校的资源<br> 
+            [05]<br> 学历：本科<br> 专业：农业工程<br> 毕业年份：2018<br> 工作：产品主管<br> 城市：嘉兴<br> 薪资（月薪/年薪）：税前年薪30w<br> 想对学弟学妹说的话：浙大是个很好的地方，会是人生新的起步点，加油<br> 
+        </p>        
+        <h2 id="ale-environment" class="text-2xl font-bold text-green-600 mb-2">环境与资源学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">环境科学</h3>
+        <p class="mb-4">[01]<br>学历：博士<br>专业：环境科学<br> 毕业年份：2019<br>工作：联合国环境署<br>城市：日内瓦<br>薪资（月薪/年薪）：税后120w<br>想对学弟学妹说的话：优选选择国际性工作
+            [02]<br> 学历：硕士<br> 专业：环境科学<br> 毕业年份：2020<br> 工作：咨询顾问<br> 城市：上海<br> 薪资（月薪/年薪）：税前月薪2万<br> 想对学弟学妹说的话：无<br>
+            [03]<br> 学历：本科<br> 专业：农业资源与环境<br> 毕业年份：2023<br> 工作：互联网产品经理<br> 城市：深圳<br> 薪资（月薪/年薪） ：税前40w<br> 想对学弟学妹说的话：速速转行<br> 
+            [04]<br> 学历：硕士<br> 专业：资源与环境<br> 毕业年份：2023<br> 工作：新能源材料<br> 城市：江浙沪片区<br> 薪资（月薪/年薪）：税前年薪25w<br> 想对学弟学妹说的话：有没有好赛道推荐下<br> 
+
+        <h3 class="text-xl font-bold text-red-600 mb-1">环境工程</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：水资源与水环境工程<br> 毕业年份：2023<br> 工作：浙江省水文管理中心资料应用部小员工<br> 城市：杭州<br> 薪资（月薪/年薪）：税后7842一个月，年终1w，公积金3344，各种福利2800，饭卡一年9200<br> 想对学弟学妹说的话：事业单位、公务员没想象中那么赚钱，也没那么清闲。甚至不如一些边缘专业就业。建议同学不要老是冲着网上某些舆论导向选择。
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">农业资源与环境</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：水资源与水环境工程<br> 毕业年份：2023<br> 工作：浙江省水文管理中心资料应用部小员工<br> 城市：杭州<br> 薪资（月薪/年薪）：税后7842一个月，年终1w，公积金3344，各种福利2800，饭卡一年9200<br> 想对学弟学妹说的话：事业单位、公务员没想象中那么赚钱，也没那么清闲。甚至不如一些边缘专业就业。建议同学不要老是冲着网上某些舆论导向选择。
+
+        </p>
+      
+
+        </p>        
+        <h2 id="ale-agriculture" class="text-2xl font-bold text-green-600 mb-2">农业与生物技术学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">农学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：农<br> 毕业年份：2025<br> 工作：高校无编offer<br> 城市：浙江<br> 薪资（月薪/年薪）：税前年薪13w<br> 想对学弟学妹说的话：农硕到底怎么找工作，真的不想千军万马考公<br> 
+            [02]<br> 学历：本科<br> 专业：农学院某小专业<br> 毕业年份：2025<br> 工作：互联网产品经理<br> 城市：杭州<br> 薪资（月薪/年薪） ：税前年薪40w<br> 想对学弟学妹说的话：该跑就跑 选择适合自己的<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">园林</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：园林<br> 毕业年份：2022<br> 工作：设计院<br> 城市：杭州<br> 薪资（月薪/年薪） ：税后月薪6000<br> 想对学弟学妹说的话：快跑啊啊啊啊啊啊！税后这个工资还要加班（到11点）<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">园艺</h3>
+        <p class="mb-4">
+            [02]<br> 学历：硕士<br> 专业：园艺<br> 毕业年份：2020<br> 工作：主播<br> 城市：山东<br> 薪资（月薪/年薪）：税后10w<br> 想对学弟学妹说的话：人生不只一条路，换个眼光你会赚到更多。<br>
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">植物保护</h3>
+        <p class="mb-4">暂无数据</p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">茶学</h3>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="ale-animal" class="text-2xl font-bold text-green-600 mb-2">动物科学学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">动物科学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：动物营养与饲料科学<br> 毕业年份：2012<br> 工作：事业部总经理<br> 城市：全国跑<br> 薪资（月薪/年薪）：税前200w<br> 想对学弟学妹说的话：让自己更专业<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">动物医学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：兽医<br> 毕业年份：2024<br> 工作：助理研究员<br> 城市：杭州<br> 薪资（月薪/年薪）：税前1.2w<br> 想对学弟学妹说的话：快逃<br> 
+            [02]<br> 学历：硕士<br> 专业：兽医<br> 毕业年份：2024<br> 工作：医药公司管培生<br> 城市：北京<br> 薪资（月薪/年薪）：税后月薪9500<br> 想对学弟学妹说的话：提前实习，找到适合自己的工作<br> 
+
+
+        </p>
+        <!-- 医药学部 -->
+        <h1 id="medicine" class="text-3xl font-bold text-blue-600 mb-4">医药学部</h1>
+        <h2 id="medicine-medical" class="text-2xl font-bold text-green-600 mb-2">医学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">临床医学</h3>
+        <p class="mb-4">[01]<br>
+            学历：博士<br>
+            毕业年份：2023<br>
+            工作：医生<br>
+            城市：北京<br>
+            薪资（月薪/年薪）：税后2w<br>
+            想对学弟学妹说的话：夜班是对人生的消耗，医保真的没钱了，医院是法外之地，快跑！！！<br>
+            [02]<br> 学历：博士<br> 专业：临床医学<br> 毕业年份：2022<br> 工作：医生<br> 城市：北京<br> 薪资（月薪/年薪）：税前月薪1～4w浮动<br> 想对学弟学妹说的话：临床er不要来北京 快逃<br> 
+            [03]<br> 学历：博士<br> 专业：临床医学<br> 毕业年份：2023<br> 工作：规培医生<br> 城市：上海<br> 薪资（月薪/年薪）：月薪13k<br> 想对学弟学妹说的话：孩子们，快跑啊……<br> 
+            [04]<br> 学历：硕士<br> 专业：临床医学/肿瘤学<br> 毕业年份：2023<br> 工作：普外医师<br> 城市：四川宜宾<br> 薪资（月薪/年薪）：月薪税后8k<br> 想对学弟学妹说的话：临床医学，速逃<br> 
+            [05]<br> 学历：硕士<br> 专业：临床医学<br> 毕业年份：2022<br> 工作：军队文职<br> 城市：石家庄<br> 薪资（月薪/年薪）：税后1w<br> 想对学弟学妹说的话：就业大环境不好，充分发挥名校优势，珍惜每次选择的机会，浙大er永远没有绝境<br> 
+            [06]<br> 学历：本科<br> 专业：临床医学<br> 毕业年份：2020<br> 工作：药企服务<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪2.2w<br> 想对学弟学妹说的话：祝你们都能感受到幸福，过自己想过的生活<br> 
+            [07]<br> 学历：硕士<br> 专业：临床医学<br> 毕业年份：2024<br> 工作：外科医生<br> 城市：南宁<br> 薪资（月薪/年薪）：月薪税后8k<br> 想对学弟学妹说的话：不要学医<br> 
+            [08]<br> 学历：博士<br> 专业：临床医学<br> 毕业年份：2024<br> 工作：博士后<br> 城市：青岛<br> 薪资（月薪/年薪）：税后年薪16w<br> 想对学弟学妹说的话：别来北方鬼地方，留在江浙<br> 
+
+        </p>
+
+        <h3 class="text-xl font-bold text-red-600 mb-1">口腔医学</h3>
+        <p class="mb-4"></p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">预防医学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：硕士<br> 专业：公共卫生<br> 毕业年份：2024<br> 工作：医院行政专技人员<br> 城市：福州<br> 薪资（月薪/年薪）：税前月薪1.2w，完整年终奖大概3 - 4w<br> 想对学弟学妹说的话：机会是留给有准备的人<br> 
+            [02]<br> 学历：本科<br> 专业：预防医学<br> 毕业年份：2019<br> 工作：卫健委<br> 城市：乌鲁木齐<br> 薪资（月薪/年薪）：月薪4300<br> 想对学弟学妹说的话：专业太尴尬了，想稳定的可选，比较适合女孩子<br> 
+            [03]<br> 学历：硕士<br> 专业：精神病与精神卫生学<br> 毕业年份：2024<br> 工作：科研助理<br> 城市：杭州<br> 薪资（月薪/年薪）：税后月薪5800<br> 想对学弟学妹说的话：别学医，赚不到一毛钱<br> 
+
+        </p>
+        <h2 id="medicine-pharmacy" class="text-2xl font-bold text-green-600 mb-2">药学院</h2>
+        <h3 class="text-xl font-bold text-red-600 mb-1">药学</h3>
+        <p class="mb-4">
+            [01]<br> 学历：博士<br> 专业：药学<br> 毕业年份：2025<br> 工作：有机合成<br> 城市：杭州<br> 薪资（月薪/年薪）：35w<br> 想对学弟学妹说的话：又苦又累，还毒。赶紧跑<br> 
+            [02]<br> 学历：硕士<br> 专业：药学<br> 毕业年份：2023<br> 工作：化学品合规<br> 城市：杭州<br> 薪资（月薪/年薪）：税前1w<br> 想对学弟学妹说的话：出国吧<br> 
+            [03]<br> 学历：硕士<br> 专业：药学<br> 毕业年份：2023<br> 工作：药品注册<br> 城市：济南<br> 薪资（月薪/年薪）：税前月薪1w<br> 想对学弟学妹说的话：祝顺利毕业！<br> 
+            [04]<br> 学历：博士<br> 专业：药学<br> 毕业年份：2024<br> 工作：药物研发<br> 城市：杭州<br> 薪资（月薪/年薪）：税前月薪1.5w<br> 想对学弟学妹说的话：别来了老弟<br> 
+            [05]<br> 学历：博士<br> 专业：药学<br> 毕业年份：2023<br> 工作：药企研发岗<br> 城市：波士顿<br> 薪资（月薪/年薪）：税后100w+<br> 想对学弟学妹说的话：加油<br> 
+            [06]<br> 学历：博士<br> 专业：药学<br> 毕业年份：2024<br> 工作：药企研发人员<br> 城市：杭州<br> 薪资（月薪/年薪）：税前40w<br> 想对学弟学妹说的话：工作真不好找<br> 
+
+        </p>
+        <h3 class="text-xl font-bold text-red-600 mb-1">药物制剂</h3>
+        <p class="mb-4">药物制剂专业培养从事药物制剂研究、开发、生产及质量管理，能够在制药企业、医院药剂科、药品检验机构等单位从事药物制剂研究、开发、生产、各类医药经营、生产单位和医疗卫生单位，从事药品制剂、质检、管理、购销、问病给药等工作。主要课程包括物理化学、化工原理、药物化学、药物分析学、药理学、药用高分子材料学、生物药剂学、工业药剂学、制剂设备与车间工艺设计等。</p>
+        <!-- 其他 -->
+        <h1 id="others" class="text-3xl font-bold text-blue-600 mb-4">其他</h1>
+        <h2 id="others-international" class="text-2xl font-bold text-green-600 mb-2">国际教育学院</h2>
+        <p class="mb-4">暂无数据</p>
+        <h2 id="others-international-campus" class="text-2xl font-bold text-green-600 mb-2">国际联合学院（海宁国际校区）ZJUI</h2>
+        <p class="mb-4">暂无数据</p>
+    </div>
+</body>
+</html>

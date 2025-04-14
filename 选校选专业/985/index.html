@@ -161,11 +161,14 @@
         ];
 
         function generateVolunteerList() {
-            const rank = parseInt(document.getElementById('rank').value);
-            if (isNaN(rank) || rank < 1) {
-                alert('请输入有效的位次！');
+            const rankInput = document.getElementById('rank').value;
+            const rank = Number(rankInput);
+
+            if (isNaN(rank) || rank < 1 ||!Number.isInteger(rank)) {
+                alert('请输入有效的位次（正整数）！');
                 return;
             }
+
 
             const category = document.querySelector('input[name="category"]:checked').value;
             const data = category === 'physical' ? physicalData : historyData;
