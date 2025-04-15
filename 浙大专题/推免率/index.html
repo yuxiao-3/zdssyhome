@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情系实验·浙里启辰</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 0.8rem;
+            z-index: 1000;
+        }
+        .nav-link + .nav-link::before {
+            content: " | ";
+            color: white;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="bg-blue-600 p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold">情系实验·浙里启辰</a>
+            <div class="flex space-x-4">
+                <a href="https://yuxiao-3.github.io/zdssyhome/index.html" class="text-white hover:text-gray-200 nav-link">首页</a>
+                <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题/index.html" class="text-white hover:text-gray-200 nav-link">浙江大学专题馆</a>
+                <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题/推免率/index.html" class="text-white hover:text-gray-200 nav-link">推免率</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto pt-24 pb-16 px-4">
+        <h1 class="text-3xl font-bold mb-8 text-center">2023-2025浙江大学各学院本科毕业生推免率</h1>
+        <p class="mb-6">说明：数据整理自学校官网和各学院（系）院网</p>
+
+        <table class="w-full bg-white rounded-lg shadow-md overflow-x-auto">
+            <thead class="bg-blue-600 text-white">
+                <tr>
+                    <th class="px-6 py-3 text-left text-sm font-semibold">学院</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2025年<br>毕业人数</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2025年<br>推免人数</th>
+                    <th class="px-6 py-4 text-center text-sm font-semibold">2025年<br>推免率</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2024年<br>毕业人数</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2024年<br>推免人数</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2024年<br>推免率</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2023年<br>毕业人数</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2023年<br>推免人数</th>
+                    <th class="px-6 py-3 text-center text-sm font-semibold">2023年<br>推免率</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <!-- 文学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.lit.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">文学院</a></td>
+                    <td class="text-center">177</td>
+                    <td class="text-center">57</td>
+                    <td class="text-center">32.20%</td>
+                    <td class="text-center">171</td>
+                    <td class="text-center">53</td>
+                    <td class="text-center">31.00%</td>
+                    <td class="text-center">149</td>
+                    <td class="text-center">48</td>
+                    <td class="text-center">32.21%</td>
+                </tr>
+
+                <!-- 历史学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://ls.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">历史学院</a></td>
+                    <td class="text-center">52</td>
+                    <td class="text-center">11</td>
+                    <td class="text-center">21.15%</td>
+                    <td class="text-center">48</td>
+                    <td class="text-center">9</td>
+                    <td class="text-center">18.75%</td>
+                    <td class="text-center">26</td>
+                    <td class="text-center">11</td>
+                    <td class="text-center">42.31%</td>
+                </tr>
+
+                <!-- 哲学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.philosophy.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">哲学学院</a></td>
+                    <td class="text-center">44</td>
+                    <td class="text-center">10</td>
+                    <td class="text-center">22.73%</td>
+                    <td class="text-center">36</td>
+                    <td class="text-center">7</td>
+                    <td class="text-center">19.44%</td>
+                    <td class="text-center">25</td>
+                    <td class="text-center">8</td>
+                    <td class="text-center">32.00%</td>
+                </tr>
+
+                <!-- 艺术与考古学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.soaa.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">艺术与考古学院</a></td>
+                    <td class="text-center">83</td>
+                    <td class="text-center">26</td>
+                    <td class="text-center">31.33%</td>
+                    <td class="text-center">76</td>
+                    <td class="text-center">24</td>
+                    <td class="text-center">31.58%</td>
+                    <td class="text-center">68</td>
+                    <td class="text-center">21</td>
+                    <td class="text-center">30.88%</td>
+                </tr>
+
+                <!-- 外国语学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.sis.zju.edu.cn/sischinese/" target="_blank" class="text-blue-600 hover:underline">外国语学院</a></td>
+                    <td class="text-center">194</td>
+                    <td class="text-center">65</td>
+                    <td class="text-center">33.51%</td>
+                    <td class="text-center">201</td>
+                    <td class="text-center">62</td>
+                    <td class="text-center">30.85%</td>
+                    <td class="text-center">213</td>
+                    <td class="text-center">65</td>
+                    <td class="text-center">30.52%</td>
+                </tr>
+
+                <!-- 传媒与国际文化学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cmic.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">传媒与国际文化学院</a></td>
+                    <td class="text-center">168</td>
+                    <td class="text-center">51</td>
+                    <td class="text-center">30.36%</td>
+                    <td class="text-center">158</td>
+                    <td class="text-center">50</td>
+                    <td class="text-center">31.65%</td>
+                    <td class="text-center">163</td>
+                    <td class="text-center">46</td>
+                    <td class="text-center">28.22%</td>
+                </tr>
+
+                <!-- 经济学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cec.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">经济学院</a></td>
+                    <td class="text-center">242</td>
+                    <td class="text-center">83</td>
+                    <td class="text-center">34.30%</td>
+                    <td class="text-center">244</td>
+                    <td class="text-center">79</td>
+                    <td class="text-center">32.38%</td>
+                    <td class="text-center">228</td>
+                    <td class="text-center">72</td>
+                    <td class="text-center">31.58%</td>
+                </tr>
+
+                <!-- 光华法学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.ghls.zju.edu.cn//" target="_blank" class="text-blue-600 hover:underline">光华法学院</a></td>
+                    <td class="text-center">152</td>
+                    <td class="text-center">52</td>
+                    <td class="text-center">34.21%</td>
+                    <td class="text-center">176</td>
+                    <td class="text-center">56</td>
+                    <td class="text-center">31.82%</td>
+                    <td class="text-center">144</td>
+                    <td class="text-center">38</td>
+                    <td class="text-center">26.39%</td>
+                </tr>
+
+                <!-- 教育学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.ced.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">教育学院</a></td>
+                    <td class="text-center">116</td>
+                    <td class="text-center">47</td>
+                    <td class="text-center">40.52%</td>
+                    <td class="text-center">131</td>
+                    <td class="text-center">49</td>
+                    <td class="text-center">37.40%</td>
+                    <td class="text-center">118</td>
+                    <td class="text-center">36</td>
+                    <td class="text-center">30.51%</td>
+                </tr>
+
+                <!-- 管理学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cma.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">管理学院</a></td>
+                    <td class="text-center">182</td>
+                    <td class="text-center">66</td>
+                    <td class="text-center">36.26%</td>
+                    <td class="text-center">173</td>
+                    <td class="text-center">56</td>
+                    <td class="text-center">32.37%</td>
+                    <td class="text-center">174</td>
+                    <td class="text-center">50</td>
+                    <td class="text-center">28.74%</td>
+                </tr>
+
+                <!-- 公共管理学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.som.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">公共管理学院</a></td>
+                    <td class="text-center">235</td>
+                    <td class="text-center">81</td>
+                    <td class="text-center">34.47%</td>
+                    <td class="text-center">198</td>
+                    <td class="text-center">67</td>
+                    <td class="text-center">33.84%</td>
+                    <td class="text-center">227</td>
+                    <td class="text-center">71</td>
+                    <td class="text-center">31.28%</td>
+                </tr>
+
+                <!-- 数学科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="https://www.math.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">数学科学学院</a></td>
+                    <td class="text-center">188</td>
+                    <td class="text-center">57</td>
+                    <td class="text-center">30.32%</td>
+                    <td class="text-center">178</td>
+                    <td class="text-center">62</td>
+                    <td class="text-center">34.83%</td>
+                    <td class="text-center">205</td>
+                    <td class="text-center">71</td>
+                    <td class="text-center">34.63%</td>
+                </tr>
+
+                <!-- 物理学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="https://physics.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">物理学院</a></td>
+                    <td class="text-center">102</td>
+                    <td class="text-center">45</td>
+                    <td class="text-center">44.12%</td>
+                    <td class="text-center">97</td>
+                    <td class="text-center">38</td>
+                    <td class="text-center">39.18%</td>
+                    <td class="text-center">92</td>
+                    <td class="text-center">43</td>
+                    <td class="text-center">46.74%</td>
+                </tr>
+
+                <!-- 化学系 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.chem.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">化学系</a></td>
+                    <td class="text-center">134</td>
+                    <td class="text-center">48</td>
+                    <td class="text-center">35.82%</td>
+                    <td class="text-center">103</td>
+                    <td class="text-center">39</td>
+                    <td class="text-center">37.86%</td>
+                    <td class="text-center">91</td>
+                    <td class="text-center">34</td>
+                    <td class="text-center">37.36%</td>
+                </tr>
+
+                <!-- 地球科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://gs.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">地球科学学院</a></td>
+                    <td class="text-center">76</td>
+                    <td class="text-center">34</td>
+                    <td class="text-center">44.74%</td>
+                    <td class="text-center">74</td>
+                    <td class="text-center">34</td>
+                    <td class="text-center">45.95%</td>
+                    <td class="text-center">78</td>
+                    <td class="text-center">30</td>
+                    <td class="text-center">38.46%</td>
+                </tr>
+
+                <!-- 心理与行为科学系 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.psych.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">心理与行为科学系</a></td>
+                    <td class="text-center">69</td>
+                    <td class="text-center">28</td>
+                    <td class="text-center">40.58%</td>
+                    <td class="text-center">64</td>
+                    <td class="text-center">20</td>
+                    <td class="text-center">31.25%</td>
+                    <td class="text-center">60</td>
+                    <td class="text-center">21</td>
+                    <td class="text-center">35.00%</td>
+                </tr>
+
+                <!-- 机械工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://me.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">机械工程学院</a></td>
+                    <td class="text-center">202</td>
+                    <td class="text-center">93</td>
+                    <td class="text-center">46.04%</td>
+                    <td class="text-center">169</td>
+                    <td class="text-center">78</td>
+                    <td class="text-center">46.15%</td>
+                    <td class="text-center">188</td>
+                    <td class="text-center">49</td>
+                    <td class="text-center">26.06%</td>
+                </tr>
+
+                <!-- 材料科学与工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="https://mse.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">材料科学与工程学院</a></td>
+                    <td class="text-center">93</td>
+                    <td class="text-center">39</td>
+                    <td class="text-center">41.94%</td>
+                    <td class="text-center">52</td>
+                    <td class="text-center">27</td>
+                    <td class="text-center">51.92%</td>
+                    <td class="text-center">82</td>
+                    <td class="text-center">28</td>
+                    <td class="text-center">34.15%</td>
+                </tr>
+
+                <!-- 能源工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.doe.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">能源工程学院</a></td>
+                    <td class="text-center">245</td>
+                    <td class="text-center">104</td>
+                    <td class="text-center">42.45%</td>
+                    <td class="text-center">208</td>
+                    <td class="text-center">89</td>
+                    <td class="text-center">42.79%</td>
+                    <td class="text-center">231</td>
+                    <td class="text-center">79</td>
+                    <td class="text-center">34.20%</td>
+                </tr>
+
+                <!-- 电气工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://ee.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">电气工程学院</a></td>
+                    <td class="text-center">282</td>
+                    <td class="text-center">124</td>
+                    <td class="text-center">43.97%</td>
+                    <td class="text-center">286</td>
+                    <td class="text-center">116</td>
+                    <td class="text-center">40.56%</td>
+                    <td class="text-center">315</td>
+                    <td class="text-center">96</td>
+                    <td class="text-center">30.48%</td>
+                </tr>
+
+                <!-- 建筑工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.ccea.zju.edu.cn/ts/list.htm" target="_blank" class="text-blue-600 hover:underline">建筑工程学院</a></td>
+                    <td class="text-center">220</td>
+                    <td class="text-center">76</td>
+                    <td class="text-center">34.55%</td>
+                    <td class="text-center">238</td>
+                    <td class="text-center">81</td>
+                    <td class="text-center">34.03%</td>
+                    <td class="text-center">279</td>
+                    <td class="text-center">77</td>
+                    <td class="text-center">27.60%</td>
+                </tr>
+
+                <!-- 化学工程与生物工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://che.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">化学工程与生物工程学院</a></td>
+                    <td class="text-center">118</td>
+                    <td class="text-center">50</td>
+                    <td class="text-center">42.37%</td>
+                    <td class="text-center">104</td>
+                    <td class="text-center">48</td>
+                    <td class="text-center">46.15%</td>
+                    <td class="text-center">138</td>
+                    <td class="text-center">40</td>
+                    <td class="text-center">28.99%</td>
+                </tr>
+
+                <!-- 海洋学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://oc.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">海洋学院</a></td>
+                    <td class="text-center">111</td>
+                    <td class="text-center">53</td>
+                    <td class="text-center">47.75%</td>
+                    <td class="text-center">180</td>
+                    <td class="text-center">70</td>
+                    <td class="text-center">38.89%</td>
+                    <td class="text-center">173</td>
+                    <td class="text-center">53</td>
+                    <td class="text-center">30.64%</td>
+                </tr>
+
+                <!-- 航空航天学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://saa.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">航空航天学院</a></td>
+                    <td class="text-center">112</td>
+                    <td class="text-center">41</td>
+                    <td class="text-center">36.61%</td>
+                    <td class="text-center">89</td>
+                    <td class="text-center">39</td>
+                    <td class="text-center">43.82%</td>
+                    <td class="text-center">77</td>
+                    <td class="text-center">33</td>
+                    <td class="text-center">42.86%</td>
+                </tr>
+
+                <!-- 高分子科学与工程学系 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="https://polymer.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">高分子科学与工程学系</a></td>
+                    <td class="text-center">61</td>
+                    <td class="text-center">29</td>
+                    <td class="text-center">47.54%</td>
+                    <td class="text-center">56</td>
+                    <td class="text-center">25</td>
+                    <td class="text-center">44.64%</td>
+                    <td class="text-center">63</td>
+                    <td class="text-center">21</td>
+                    <td class="text-center">33.33%</td>
+                </tr>
+
+                <!-- 光电科学与工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://opt.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">光电科学与工程学院</a></td>
+                    <td class="text-center">93</td>
+                    <td class="text-center">58</td>
+                    <td class="text-center">62.37%</td>
+                    <td class="text-center">100</td>
+                    <td class="text-center">51</td>
+                    <td class="text-center">51.00%</td>
+                    <td class="text-center">116</td>
+                    <td class="text-center">39</td>
+                    <td class="text-center">33.62%</td>
+                </tr>
+
+                <!-- 信息与电子工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.isee.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">信息与电子工程学院</a></td>
+                    <td class="text-center">278</td>
+                    <td class="text-center">120</td>
+                    <td class="text-center">43.17%</td>
+                    <td class="text-center">283</td>
+                    <td class="text-center">113</td>
+                    <td class="text-center">39.93%</td>
+                    <td class="text-center">310</td>
+                    <td class="text-center">90</td>
+                    <td class="text-center">29.03%</td>
+                </tr>
+
+                <!-- 计算机科学与技术学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cs.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">计算机科学与技术学院</a></td>
+                    <td class="text-center">469</td>
+                    <td class="text-center">206</td>
+                    <td class="text-center">43.92%</td>
+                    <td class="text-center">548</td>
+                    <td class="text-center">233</td>
+                    <td class="text-center">42.52%</td>
+                    <td class="text-center">481</td>
+                    <td class="text-center">172</td>
+                    <td class="text-center">35.76%</td>
+                </tr>
+
+                <!-- 控制科学与工程学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cse.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">控制科学与工程学院</a></td>
+                    <td class="text-center">162</td>
+                    <td class="text-center">75</td>
+                    <td class="text-center">46.30%</td>
+                    <td class="text-center">101</td>
+                    <td class="text-center">70</td>
+                    <td class="text-center">69.31%</td>
+                    <td class="text-center">160</td>
+                    <td class="text-center">57</td>
+                    <td class="text-center">35.63%</td>
+                </tr>
+
+                <!-- 生物医学工程与仪器科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cbeis.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">生物医学工程与仪器科学学院</a></td>
+                    <td class="text-center">131</td>
+                    <td class="text-center">51</td>
+                    <td class="text-center">38.93%</td>
+                    <td class="text-center">101</td>
+                    <td class="text-center">33</td>
+                    <td class="text-center">32.67%</td>
+                    <td class="text-center">110</td>
+                    <td class="text-center">29</td>
+                    <td class="text-center">26.36%</td>
+                </tr>
+
+                <!-- 生命科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cls.zju.edu.cn/clscn/" target="_blank" class="text-blue-600 hover:underline">生命科学学院</a></td>
+                    <td class="text-center">138</td>
+                    <td class="text-center">28</td>
+                    <td class="text-center">20.29%</td>
+                    <td class="text-center">138</td>
+                    <td class="text-center">32</td>
+                    <td class="text-center">23.19%</td>
+                    <td class="text-center">133</td>
+                    <td class="text-center">39</td>
+                    <td class="text-center">29.32%</td>
+                </tr>
+
+                <!-- 生物系统工程与食品科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.caefs.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">生物系统工程与食品科学学院</a></td>
+                    <td class="text-center">67</td>
+                    <td class="text-center">32</td>
+                    <td class="text-center">47.76%</td>
+                    <td class="text-center">110</td>
+                    <td class="text-center">36</td>
+                    <td class="text-center">32.73%</td>
+                    <td class="text-center">104</td>
+                    <td class="text-center">34</td>
+                    <td class="text-center">32.69%</td>
+                </tr>
+
+                <!-- 环境与资源学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cers.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">环境与资源学院</a></td>
+                    <td class="text-center">91</td>
+                    <td class="text-center">34</td>
+                    <td class="text-center">37.36%</td>
+                    <td class="text-center">119</td>
+                    <td class="text-center">42</td>
+                    <td class="text-center">35.29%</td>
+                    <td class="text-center">113</td>
+                    <td class="text-center">37</td>
+                    <td class="text-center">32.74%</td>
+                </tr>
+
+                <!-- 农业与生物技术学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cab.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">农业与生物技术学院</a></td>
+                    <td class="text-center">161</td>
+                    <td class="text-center">63</td>
+                    <td class="text-center">39.13%</td>
+                    <td class="text-center">200</td>
+                    <td class="text-center">81</td>
+                    <td class="text-center">40.50%</td>
+                    <td class="text-center">208</td>
+                    <td class="text-center">68</td>
+                    <td class="text-center">32.69%</td>
+                </tr>
+
+                <!-- 动物科学学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cas.zju.edu.cn/caschinese/" target="_blank" class="text-blue-600 hover:underline">动物科学学院</a></td>
+                    <td class="text-center">81</td>
+                    <td class="text-center">29</td>
+                    <td class="text-center">35.80%</td>
+                    <td class="text-center">42</td>
+                    <td class="text-center">18</td>
+                    <td class="text-center">42.86%</td>
+                    <td class="text-center">98</td>
+                    <td class="text-center">32</td>
+                    <td class="text-center">32.65%</td>
+                </tr>
+
+                <!-- 医学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cmm.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">医学院</a></td>
+                    <td class="text-center">460</td>
+                    <td class="text-center">288</td>
+                    <td class="text-center">62.61%</td>
+                    <td class="text-center">444</td>
+                    <td class="text-center">289</td>
+                    <td class="text-center">65.09%</td>
+                    <td class="text-center">420</td>
+                    <td class="text-center">281</td>
+                    <td class="text-center">66.90%</td>
+                </tr>
+
+                <!-- 药学院 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="http://www.cps.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">药学院</a></td>
+                    <td class="text-center">121</td>
+                    <td class="text-center">40</td>
+                    <td class="text-center">33.06%</td>
+                    <td class="text-center">108</td>
+                    <td class="text-center">38</td>
+                    <td class="text-center">35.19%</td>
+                    <td class="text-center">111</td>
+                    <td class="text-center">41</td>
+                    <td class="text-center">36.94%</td>
+                </tr>
+
+
+
+                <!-- 国际联合学院（海宁国际校区） -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4"><a href="https://www.intl.zju.edu.cn/" target="_blank" class="text-blue-600 hover:underline">国际联合学院（海宁国际校区）</a></td>
+                    <td class="text-center">349</td>
+                    <td class="text-center">104</td>
+                    <td class="text-center">29.80%</td>
+                    <td class="text-center">325</td>
+                    <td class="text-center">97</td>
+                    <td class="text-center">29.85%</td>
+                    <td class="text-center">276</td>
+                    <td class="text-center">69</td>
+                    <td class="text-center">25.00%</td>
+                </tr>
+
+                <!-- 和 -->
+                <tr class="hover:bg-gray-100">
+                    <td class="px-6 py-4">总和</td>
+                    <td class="text-center">6349</td>
+                    <td class="text-center">2512</td>
+                    <td class="text-center">39.57%</td>
+                    <td class="text-center">6243</td>
+                    <td class="text-center">2425</td>
+                    <td class="text-center">38.84%</td>
+                    <td class="text-center">5941</td>
+                    <td class="text-center">2140</td>
+                    <td class="text-center">36.02%</td>
+                </tr>                
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 页脚 -->
+    <div id="footer" class="bg-gray-200 text-center p-2">
+        &copy; 2025 情系实验·浙里启辰. 保留所有权利.
+    </div>
+</body>
+</html>
