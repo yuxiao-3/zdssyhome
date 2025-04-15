@@ -1,78 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <title>情系实验·浙里启辰</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        main {
-            flex: 1;
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .slider-container {
+            display: flex;
+            width: 600vw;
+            height: 100vh;
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+        }
+
+        .slide {
+            flex: 0 0 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* 左右切换按钮 */
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 16px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .nav-left { left: 20px; }
+        .nav-right { right: 20px; }
+
+        .nav-button:hover { background: rgba(0, 0, 0, 0.8); }
+
+        /* 板块标签样式 */
+        .section-label {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background: rgba(29, 55, 225, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .section-label:hover { transform: translateX(12px); }
+
+        /* 底部导航指示器 */
+        .nav-indicators {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* 示例图片样式（替换为你的图片和链接） */
+        .slide-1 { background-image: url("https://p5.itc.cn/q_70/images03/20230518/c3c5f6ab251d4e5cb590cc0e33601646.png"); }
+        .slide-2 { background-image: url("https://img1.baidu.com/it/u=1713288954,2283930291&fm=253&fmt=auto&app=138&f=JPEG?w=1422&h=800"); }
+        .slide-3 { background-image: url("https://i1.hdslb.com/bfs/archive/f1fd413f6507da02a10629a588213debeeb2e33c.jpg"); }
+        .slide-4 { background-image: url("https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%275Y2O5a625rGgXzE3MjU2ODIxMzIuNjIzMjIwMg%3D%3D%27/0.png"); }
+        .slide-5 { background-image: url("https://img1.baidu.com/it/u=548768258,990423740&fm=253&fmt=auto&app=138&f=JPEG?w=759&h=463"); }
+        .slide-6 { background-image: url("https://www.zju.edu.cn/_upload/article/images/71/d5/3fa5de1d428ca2de54be0f5a48cd/e65c0d28-f79e-4a22-80f4-7f81a8c29d0c.jpg"); }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-button {
+                padding: 12px 16px;
+                font-size: 18px;
+            }
+
+            .section-label {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+
+            .nav-indicators {
+                bottom: 10px;
+                gap: 6px;
+            }
+
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+
+            .indicator.active {
+                width: 14px;
+                height: 14px;
+            }
         }
     </style>
 </head>
+<body>
+    <div class="slider-container" id="slider">
+        <!-- 板块1 -->
+        <div class="slide slide-1">
+            <a href="https://yuxiao-3.github.io/zdssyhome/选校选专业" class="section-label">智能选校决策系统</a>
 
-<body class="bg-gray-100">
-    <!-- 导航栏 -->
-    <nav class="bg-blue-600 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-2xl font-bold">情系实验·浙里启辰</a>
-            <div class="flex space-x-4">
-                <a href="#" class="text-white hover:text-gray-200">首页</a>
-            </div>
         </div>
-    </nav>
+        <!-- 板块2 -->
+        <div class="slide slide-2">
+            <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题" class="section-label">浙江大学专题馆</a>
 
-    <!-- 主内容区域 -->
-    <main class="container mx-auto p-4">
-        <div class="grid grid-cols-2 gap-4">
-            <!-- 智能选校决策系统 -->
-            <a href="https://yuxiao-3.github.io/zdssyhome/选校选专业" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">智能选校决策系统</h2>
-                <p>全国高校数据库、智能推荐引擎、选科与专业适配工具，助你精准选校选专业。</p>
-            </a>
-            <!-- 浙江大学专题馆 -->
-            <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">浙江大学专题馆</h2>
-                <p>权威招生指南、王牌专业深度解析、沉浸式校园体验，全方位了解浙大。</p>
-            </a>
-            <!-- 家长学院 -->
-            <a href="parent-college.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">家长学院</h2>
-                <p>升学规划指南、心理疏导与沟通技巧、政策与资源解读，为家长提供支持。（待建设）</p>
-            </a>
-            <!-- 互动社区与服务 -->
-            <a href="interaction-community.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">互动社区与服务</h2>
-                <p>问答论坛、在线咨询、数据工具包，让你随时交流获取信息。（待建设）</p>
-            </a>
-            <!-- 职业发展与就业 -->
-            <a href="https://yuxiao-3.github.io/zdssyhome/就业" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">职业发展与就业</h2>
-                <p>专业就业报告、实习与校企合作、考研与留学，规划未来职业道路。</p>
-            </a>
-            <!-- 特色功能与创新体验 -->
-            <a href="special-features.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition duration-300">
-                <h2 class="text-xl font-bold mb-2">特色功能与创新体验</h2>
-                <p>AI模拟填报、元宇宙校园、政策智能预警，带来全新选校体验。（待建设）</p>
-            </a>
         </div>
-    </main>
+        <!-- 板块3 -->
+        <div class="slide slide-3">
+            <a href="parent-college.html" class="section-label">家长学院</a>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-200 p-4 text-center">
-        <p>&copy; 2025 情系实验·浙里启辰. 保留所有权利.</p>
-    </footer>
+        </div>
+        <!-- 板块4 -->
+        <div class="slide slide-4">
+            <a href="interaction-community.html" class="section-label">互动社区与服务</a>
+
+        </div>
+        <!-- 板块5 -->
+        <div class="slide slide-5">
+            <a href="https://yuxiao-3.github.io/zdssyhome/就业" class="section-label">职业发展与就业</a>
+
+        </div>
+        <!-- 板块6 -->
+        <div class="slide slide-6">
+            <a href="special-features.html" class="section-label">特色功能与创新体验</a>
+
+        </div>
+    </div>
+
+    <!-- 左右切换按钮 -->
+    <button class="nav-button nav-left" id="prev-btn">&lt;</button>
+    <button class="nav-button nav-right" id="next-btn">&gt;</button>
+
+    <!-- 底部导航指示器 -->
+    <div class="nav-indicators" id="indicators">
+        <div class="indicator active" data-index="0"></div>
+        <div class="indicator" data-index="1"></div>
+        <div class="indicator" data-index="2"></div>
+        <div class="indicator" data-index="3"></div>
+        <div class="indicator" data-index="4"></div>
+        <div class="indicator" data-index="5"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
+        const totalSlides = 6;
+
+        // 切换到指定板块
+        function goToSlide(index) {
+            currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}vw)`;
+            updateIndicators();
+        }
+
+        // 更新指示器状态
+        function updateIndicators() {
+            indicators.forEach(indicator => {
+                indicator.classList.toggle('active', indicator.dataset.index === currentIndex.toString());
+            });
+        }
+
+        // 左切换
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            goToSlide(currentIndex);
+        });
+
+        // 右切换
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
+        });
+
+        // 点击指示器切换
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                const targetIndex = parseInt(indicator.dataset.index);
+                if (targetIndex!== currentIndex) {
+                    goToSlide(targetIndex);
+                }
+            });
+        });
+
+        // 键盘左右键支持
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            }
+            if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+    </script>
 </body>
-
 </html>
-    
     
