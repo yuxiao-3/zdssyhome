@@ -14,22 +14,112 @@
             padding: 0;
         }
 
+        /* 顶部渐变导航栏（垂直渐变） */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, #0033cc, #99ccff);
+            z-index: 200;
+            height: 60px;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 20px 40px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #e0e0e0;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            min-width: 180px;
+        }
+
+        .submenu li {
+            list-style: none;
+        }
+
+        .submenu a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background 0.3s ease;
+        }
+
+        .submenu a:hover {
+            background: #f0f0f0;
+        }
+
+        .nav-item:hover .submenu {
+            display: block;
+        }
+
+        /* 新增搜索框样式 */
+        .search-container {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .search-icon {
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: #e0e0e0;
+        }
+
+        .search-input {
+            position: absolute;
+            top: 40px;
+            right: -10px;
+            padding: 8px 16px;
+            border: 1px solid #eee;
+            border-radius: 24px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+            min-width: 200px;
+        }
+
+        .search-input.active {
+            display: block;
+        }
+
         body {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             position: relative;
-        }
-
-        /* 初始滑动区域（固定视口） */
-        #initial {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background-color: #000;
         }
 
         .slider-container {
@@ -47,12 +137,12 @@
             background-repeat: no-repeat;
         }
 
-        /* 滑动控制按钮 */
+        /* 滑动控制按钮（仅在初始区域显示） */
         .nav-button {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(225, 8, 109, 0.6);
+            background: rgba(6, 149, 221, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
@@ -60,14 +150,12 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 100;
-            pointer-events: none;
         }
 
         .nav-left { left: 20px; }
         .nav-right { right: 20px; }
-        .nav-button.active { pointer-events: auto; }
 
-        /* 导航指示器 */
+        /* 导航指示器（仅在初始区域显示） */
         .nav-indicators {
             position: fixed;
             bottom: 20px;
@@ -85,61 +173,26 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
-            pointer-events: none;
         }
 
         .indicator.active {
             background: white;
             width: 16px;
             height: 16px;
-            pointer-events: auto;
         }
 
-        /* 新页面布局（铺满屏幕） */
-        #home {
-            flex: 1;
-            min-height: 100vh;
-            display: none;
-            background-color: #f5f5f5;
-            overflow-y: auto;
-            position: relative;
-            z-index: 50;
-        }
+        #initial {
+    height: 100vh; /* 固定初始页高度，确保占据整个视口 */
+    overflow: hidden; /* 保持滑动效果 */
+    display: block; /* 始终显示，不再隐藏 */
+}
 
-        /* 导航栏 */
-        nav {
-            position: sticky;
-            top: 0;
-            background: #1d37e1;
-            padding: 12px 20px;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-title {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 24px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #e0e0e0;
-        }
+#home {
+    min-height: 100vh; /* 紧跟初始页，自然滚动进入 */
+    display: block; /* 始终显示，通过滚动位置进入 */
+    opacity: 1; /* 移除隐藏状态 */
+    transition: none; /* 不需要过渡动画 */
+}
 
         /* 主内容区 */
         .main-content {
@@ -163,44 +216,105 @@
             transform: translateY(-8px);
             box-shadow: 0 6px 18px rgba(246, 162, 6, 0.15);
         }
-        .section-label { /* 修改选择器 */
+
+        .section-label { 
             font-size: 20px;
             font-weight: bold;
             color: #1d37e1;
             margin-bottom: 16px;
         }
+
         .section-desc {
             font-size: 16px;
             color: #21e5db;
             line-height: 1.6;
         }
 
-        /* 页脚 */
-
-
         footer {
             background: #f0f0f0;
             padding: 32px 20px;
             text-align: center;
             border-top: 1px solid #e0e0e0;
-            position: fixed; /* 固定定位 */
-            bottom: 0; /* 位于页面底部 */
-            left: 0; /* 左对齐 */
-            width: 100%; /* 宽度占满页面 */
+        }
+        /* 导航栏左侧文字样式 */
+        .nav-left-text {
+            position: absolute;
+            left: 20px; /* 距离左侧的距离 */
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* 调整导航列表的左边距，避免与左侧文字重叠 */
+        .nav-list {
+            margin-left: 200px; /* 根据左侧文字的宽度进行调整 */
         }
 
     </style>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-left-text">2025 情系实验·浙里启辰</div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块一</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块一</a></li>
+                    <li><a href="#">子版块二</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块二</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块三</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块三</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块四</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块四</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块五</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块五</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块六</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">板块六</a>
+                <ul class="submenu">
+                    <li><a href="#">子版块七</a></li>
+                </ul>
+            </li>
+            <!-- 新增搜索框图标 -->
+            <li class="search-container nav-item">
+                <i class="fas fa-search search-icon" id="search-icon"></i>
+                <input type="text" class="search-input" placeholder="搜索内容" id="search-input">
+            </li>
+        </ul>
+    </nav>
+
     <!-- 初始滑动区域 -->
     <div id="initial">
         <div class="slider-container" id="slider">
-            <div class="slide" style="background-image: url('./1.webp')"></div>
+            <div class="slide" style="background-image: url('./1.png')"></div>
             <div class="slide" style="background-image: url('./2.png')"></div>
-            <div class="slide" style="background-image: url('./3.jpg')"></div>
+            <div class="slide" style="background-image: url('./3.png')"></div>
             <div class="slide" style="background-image: url('./4.jpg')"></div>
-            <div class="slide" style="background-image: url('./5.jpg')"></div>
-            <div class="slide" style="background-image: url('./6.webp')"></div>
+            <div class="slide" style="background-image: url('./5.png')"></div>
+            <div class="slide" style="background-image: url('./6.png')"></div>
+            <div class="slide" style="background-image: url('./7.jpg')"></div>
+            <div class="slide" style="background-image: url('./8.png')"></div>
         </div>
 
         <!-- 左右切换按钮 -->
@@ -215,21 +329,14 @@
             <div class="indicator" data-index="3"></div>
             <div class="indicator" data-index="4"></div>
             <div class="indicator" data-index="5"></div>
+            <div class="indicator" data-index="6"></div>
+            <div class="indicator" data-index="7"></div>
         </div>
 
     </div>
 
     <!-- 新页面区域 -->
     <div id="home">
-        <nav class="bg-blue-600 text-white">
-            <div class="nav-container">
-                <a href="#initial" class="nav-title">2025 情系实验·浙里启辰</a>
-                <div class="nav-links">
-                    <a href="#home">首页</a>
-                </div>
-            </div>
-        </nav>
-
         <main class="main-content">
             <a href="https://yuxiao-3.github.io/zdssyhome/选校选专业" class="section-card" >
                 <div class="section-content">
@@ -267,6 +374,18 @@
                     <p class="section-desc">AI模拟填报、元宇宙校园、政策智能预警，带来全新选校体验。（待建设）</p>
                 </div>
             </a>
+            <a href="special-features.html" class="section-card" aria-disabled="true">
+                <div class="section-content">
+                    <h2 class="section-label">特色功能与创新体验</h2>
+                    <p class="section-desc">AI模拟填报、元宇宙校园、政策智能预警，带来全新选校体验。（待建设）</p>
+                </div>
+            </a>
+            <a href="special-features.html" class="section-card" aria-disabled="true">
+                <div class="section-content">
+                    <h2 class="section-label">特色功能与创新体验</h2>
+                    <p class="section-desc">AI模拟填报、元宇宙校园、政策智能预警，带来全新选校体验。（待建设）</p>
+                </div>
+            </a>
 
         </main>
 
@@ -276,32 +395,29 @@
     </div>
 
     <script>
-        const correctPassword = '1957';
-        let isAuthenticated = false;
         const initialSection = document.getElementById('initial');
         const homeSection = document.getElementById('home');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const indicators = document.querySelectorAll('.indicator');
+        const searchIcon = document.getElementById('search-icon');
+        const searchInput = document.getElementById('search-input');
         let currentIndex = 0;
-        const totalSlides = 6;
+        const totalSlides = 8;
         let autoScrollInterval;
 
-        // 密码验证
-        function showPasswordPrompt() {
-            const input = prompt('请输入密码   (HINT:向下滚动)');
-            if (input === correctPassword) {
-                isAuthenticated = true;
-                prevBtn.classList.add('active');
-                nextBtn.classList.add('active');
-                indicators.forEach(ind => ind.classList.add('active'));
-                enableScrollControl();
-                startAutoScroll();
-            } else {
-                alert('密码错误，请重新输入');
-                showPasswordPrompt();
+        // 搜索框交互
+        searchIcon.addEventListener('click', () => {
+            searchInput.classList.toggle('active');
+            searchInput.focus(); // 点击时自动聚焦
+        });
+
+        // 点击页面其他区域关闭搜索框
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container, .search-input')) {
+                searchInput.classList.remove('active');
             }
-        }
+        });
 
         // 滑动控制
         function goToSlide(index) {
@@ -316,27 +432,41 @@
             });
         }
 
-        // 电脑端滚动控制
+        // 电脑端滚动控制（优化双向滚动）
         function enableScrollControl() {
-            window.addEventListener('wheel', (e) => {
-                if (!isAuthenticated || homeSection.style.display === 'block') return;
-                if (e.deltaY > 50) { // 向下滚动
-                    enterHomeSection();
-                }
-            });
+    window.addEventListener('wheel', (e) => {
+        // 向下滚动超过初始页高度时，隐藏切换按钮和指示器
+        if (window.scrollY > 0) { 
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            indicators.forEach(ind => ind.style.display = 'none');
+        } 
+        // 向上滚动回到顶部（初始页）时，显示切换按钮和指示器
+        else {
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
+            indicators.forEach(ind => ind.style.display = 'block');
+        }
+    });
+
 
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowDown' && isAuthenticated && homeSection.style.display !== 'block') {
-                    enterHomeSection();
+                if (e.key === 'ArrowDown' && homeSection.style.display !== 'block') {
+                    homeSection.style.display = 'block';
+                    initialSection.style.pointerEvents = 'none';
+                    clearInterval(autoScrollInterval);
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                    indicators.forEach(ind => ind.style.display = 'none');
+                } else if (e.key === 'ArrowUp' && homeSection.style.display === 'block') {
+                    homeSection.style.display = 'none';
+                    initialSection.style.pointerEvents = 'auto';
+                    startAutoScroll();
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                    indicators.forEach(ind => ind.style.display = 'block');
                 }
             });
-        }
-
-        function enterHomeSection() {
-            homeSection.style.display = 'block';
-            initialSection.style.pointerEvents = 'none';
-            clearInterval(autoScrollInterval);
-            history.pushState(null, '', '#home');
         }
 
         // 自动滚动
@@ -361,19 +491,23 @@
 
         // 初始化
         window.addEventListener('load', () => {
-            showPasswordPrompt();
             updateIndicators();
+            enableScrollControl();
+            startAutoScroll();
         });
 
-        // 防止手动返回初始页（可选增强）
+        // 防止手动返回初始页（优化）
         window.addEventListener('popstate', (e) => {
             if (window.location.hash !== '#home') {
                 homeSection.style.display = 'none';
                 initialSection.style.pointerEvents = 'auto';
-                if (!isAuthenticated) showPasswordPrompt();
                 startAutoScroll();
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                indicators.forEach(ind => ind.style.display = 'block');
             }
         });
     </script>
 </body>
 </html>
+    
