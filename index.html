@@ -20,16 +20,18 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to bottom, #0033cc, #99ccff);
+
+    /* 使用半透明颜色的线性渐变 */
+    background: linear-gradient(to bottom, rgba(22, 155, 217, 0.7), rgba(174, 210, 230, 0.7));
             z-index: 200;
-            height: 60px;
+            height: 80px;
         }
 
         .nav-list {
             display: flex;
             justify-content: flex-end;
             list-style: none;
-            padding: 20px 40px;
+            padding: 30px 10px;
             align-items: center;
         }
 
@@ -53,8 +55,8 @@
         .submenu {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 120%;
+            right:-50%;
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-radius: 4px;
@@ -100,13 +102,13 @@
 
         .search-input {
             position: absolute;
-            top: 40px;
+            top: 30px;
             right: -10px;
             padding: 8px 16px;
             border: 1px solid #eee;
             border-radius: 24px;
             background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(223, 112, 48, 0.1);
             display: none;
             min-width: 200px;
         }
@@ -239,11 +241,11 @@
         /* 导航栏左侧文字样式 */
         .nav-left-text {
             position: absolute;
-            left: 20px; /* 距离左侧的距离 */
+            left: 630px; /* 距离左侧的距离 */
             top: 50%;
             transform: translateY(-50%);
-            color: white;
-            font-size: 18px;
+            color: rgb(218, 80, 175);
+            font-size: 24px;
             font-weight: bold;
         }
 
@@ -251,49 +253,103 @@
         .nav-list {
             margin-left: 200px; /* 根据左侧文字的宽度进行调整 */
         }
-
+        /* 导航栏左侧图片样式 */
+        .nav-left-logo2 {
+            position: absolute;
+            left: 280px; /* 距离左侧的距离 */
+            top: 50%;
+            transform: translateY(-50%);
+            height: 70px; /* 图片高度 */
+            width: auto; /* 图片宽度自适应 */
+        }
+        .nav-left-logo1 {
+            position: absolute;
+            left: 20px; /* 距离左侧的距离 */
+            top: 50%;
+            transform: translateY(-50%);
+            height: 250px; /* 图片高度 */
+            width: auto; /* 图片宽度自适应 */
+        }
+        /* 调整导航列表的左边距，避免与左侧图片重叠 */
+        .nav-list {
+            margin-left: 80px; /* 根据图片大小进行调整 */
+        }
     </style>
 </head>
 <body>
     <!-- 顶部导航栏 -->
     <nav class="navbar">
+            <!-- 添加图片 -->
+            <img src="9.png" alt="Logo" class="nav-left-logo1">
+            <img src="10.png" alt="Logo" class="nav-left-logo2">
+
         <div class="nav-left-text">2025 情系实验·浙里启辰</div>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="#" class="nav-link">板块一</a>
+                <a href="#" class="nav-link">浙大概况</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块一</a></li>
-                    <li><a href="#">子版块二</a></li>
+                    <li><a href="#">历史沿革</a></li>
+                    <li><a href="#">学校定位与荣誉</a></li>
+                    <li><a href="#">院系与专业设置</a></li>
+                    <li><a href="#">师资力量</a></li>
+                    <li><a href="#">学生规模</a></li>
+                    <li><a href="#">校区分布</a></li>
+                    <li><a href="#">科研成果</a></li>
+                    <li><a href="#">人才培养</a></li>
+                    <li><a href="#">国际交流</a></li>
+                    <li><a href="#">校园文化</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">板块二</a>
+                <a href="#" class="nav-link">本科招生</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块三</a></li>
+                    <li><a href="#">强基计划</a></li>
+                    <li><a href="#">录取情况</a></li>
+                    <li><a href="#">学习建议</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">板块三</a>
+                <a href="#" class="nav-link">专业介绍</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块四</a></li>
+                    <li><a href="#">人文学部</a></li>
+                    <li><a href="#">社会科学学部</a></li>
+                    <li><a href="#">理学部</a></li>
+                    <li><a href="#">工学部</a></li>
+                    <li><a href="#">信息学部</a></li>
+                    <li><a href="#">农业生命环境学部</a></li>
+                    <li><a href="#">医药学部</a></li>
+                    <li><a href="#">国际联合学院</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">板块四</a>
+                <a href="#" class="nav-link">相关政策</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块五</a></li>
+                    <li><a href="#">大类分流</a></li>
+                    <li><a href="#">转专业</a></li>
+                    <li><a href="#">推免/保研</a></li>
+                    <li><a href="#">辅修</a></li>
+                    <li><a href="#">评奖评优</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">板块五</a>
+                <a href="#" class="nav-link">浙里生活</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块六</a></li>
+                    <li><a href="#">饮食</a></li>
+                    <li><a href="#">住宿</a></li>
+                    <li><a href="#">活动</a></li>
+                    <li><a href="#">社团</a></li>
+                    <li><a href="#">学习</a></li>
+                    <li><a href="#">科研</a></li>
+                    <li><a href="#">竞赛</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">板块六</a>
+                <a href="#" class="nav-link">生涯规划</a>
                 <ul class="submenu">
-                    <li><a href="#">子版块七</a></li>
+                    <li><a href="#">专业兴趣</a></li>
+                    <li><a href="#">学长体验</a></li>
+                    <li><a href="#">就业薪资</a></li>
+                    <li><a href="#">就业形势</a></li>
                 </ul>
             </li>
             <!-- 新增搜索框图标 -->
@@ -313,7 +369,7 @@
             <div class="slide" style="background-image: url('./4.jpg')"></div>
             <div class="slide" style="background-image: url('./5.png')"></div>
             <div class="slide" style="background-image: url('./6.png')"></div>
-            <div class="slide" style="background-image: url('./7.jpg')"></div>
+            <div class="slide" style="background-image: url('./7.png')"></div>
             <div class="slide" style="background-image: url('./8.png')"></div>
         </div>
 
@@ -473,7 +529,7 @@
         function startAutoScroll() {
             autoScrollInterval = setInterval(() => {
                 goToSlide((currentIndex + 1) % totalSlides);
-            }, 2000);
+            }, 3000);
         }
 
         // 按钮事件
