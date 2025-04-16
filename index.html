@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>情系实验·浙里启辰</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>情系实验·浙里启辰</title>
     <style>
         * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             min-height: 100vh;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
             position: relative;
+        }
+
+        /* 初始滑动区域（固定视口） */
+        #initial {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
         }
 
         .slider-container {
@@ -23,7 +37,6 @@
             width: 600vw;
             height: 100vh;
             transition: transform 0.3s ease;
-            transform: translateX(0);
         }
 
         .slide {
@@ -32,15 +45,14 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative;
         }
 
-        /* 左右切换按钮 */
+        /* 滑动控制按钮 */
         .nav-button {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(225, 8, 109, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
@@ -48,31 +60,14 @@
             font-size: 24px;
             cursor: pointer;
             z-index: 100;
+            pointer-events: none;
         }
 
         .nav-left { left: 20px; }
         .nav-right { right: 20px; }
+        .nav-button.active { pointer-events: auto; }
 
-        .nav-button:hover { background: rgba(0, 0, 0, 0.8); }
-
-        /* 板块标签样式 */
-        .section-label {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            background: rgba(29, 55, 225, 0.8);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 24px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .section-label:hover { transform: translateX(12px); }
-
-        /* 底部导航指示器 */
+        /* 导航指示器 */
         .nav-indicators {
             position: fixed;
             bottom: 20px;
@@ -90,155 +85,295 @@
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .indicator.active {
             background: white;
             width: 16px;
             height: 16px;
+            pointer-events: auto;
         }
 
-        /* 示例图片样式（替换为你的图片和链接） */
-        .slide-1 { background-image: url("./1.png"); }
-        .slide-2 { background-image: url("https://img1.baidu.com/it/u=1713288954,2283930291&fm=253&fmt=auto&app=138&f=JPEG?w=1422&h=800"); }
-        .slide-3 { background-image: url("./2.png"); }
-        .slide-4 { background-image: url("https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%275Y2O5a625rGgXzE3MjU2ODIxMzIuNjIzMjIwMg%3D%3D%27/0.png"); }
-        .slide-5 { background-image: url("https://img1.baidu.com/it/u=548768258,990423740&fm=253&fmt=auto&app=138&f=JPEG?w=759&h=463"); }
-        .slide-6 { background-image: url("https://www.zju.edu.cn/_upload/article/images/71/d5/3fa5de1d428ca2de54be0f5a48cd/e65c0d28-f79e-4a22-80f4-7f81a8c29d0c.jpg"); }
-
-        /* 响应式适配 */
-        @media (max-width: 768px) {
-            .nav-button {
-                padding: 12px 16px;
-                font-size: 18px;
-            }
-
-            .section-label {
-                bottom: 20px;
-                left: 20px;
-                padding: 8px 16px;
-                font-size: 1rem;
-            }
-
-            .nav-indicators {
-                bottom: 10px;
-                gap: 6px;
-            }
-
-            .indicator {
-                width: 10px;
-                height: 10px;
-            }
-
-            .indicator.active {
-                width: 14px;
-                height: 14px;
-            }
+        /* 新页面布局（铺满屏幕） */
+        #home {
+            flex: 1;
+            min-height: 100vh;
+            display: none;
+            background-color: #f5f5f5;
+            overflow-y: auto;
+            position: relative;
+            z-index: 50;
         }
+
+        /* 导航栏 */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #1d37e1;
+            padding: 12px 20px;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e0e0e0;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .section-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(46, 18, 228, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 18px rgba(246, 162, 6, 0.15);
+        }
+        .section-label { /* 修改选择器 */
+            font-size: 20px;
+            font-weight: bold;
+            color: #1d37e1;
+            margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 16px;
+            color: #21e5db;
+            line-height: 1.6;
+        }
+
+        /* 页脚 */
+
+
+        footer {
+            background: #f0f0f0;
+            padding: 32px 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            position: fixed; /* 固定定位 */
+            bottom: 0; /* 位于页面底部 */
+            left: 0; /* 左对齐 */
+            width: 100%; /* 宽度占满页面 */
+        }
+
     </style>
 </head>
 <body>
-    <div class="slider-container" id="slider">
-        <!-- 板块1 -->
-        <div class="slide slide-1">
-            <a href="https://yuxiao-3.github.io/zdssyhome/选校选专业" class="section-label">智能选校决策系统</a>
-
+    <!-- 初始滑动区域 -->
+    <div id="initial">
+        <div class="slider-container" id="slider">
+            <div class="slide" style="background-image: url('./1.webp')"></div>
+            <div class="slide" style="background-image: url('./2.png')"></div>
+            <div class="slide" style="background-image: url('./3.jpg')"></div>
+            <div class="slide" style="background-image: url('./4.jpg')"></div>
+            <div class="slide" style="background-image: url('./5.jpg')"></div>
+            <div class="slide" style="background-image: url('./6.webp')"></div>
         </div>
-        <!-- 板块2 -->
-        <div class="slide slide-2">
-            <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题" class="section-label">浙江大学专题馆</a>
 
-        </div>
-        <!-- 板块3 -->
-        <div class="slide slide-3">
-            <a href="parent-college.html" class="section-label">家长学院</a>
+        <!-- 左右切换按钮 -->
+        <button class="nav-button nav-left" id="prev-btn">&lt;</button>
+        <button class="nav-button nav-right" id="next-btn">&gt;</button>
 
+        <!-- 底部导航指示器 -->
+        <div class="nav-indicators" id="indicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+            <div class="indicator" data-index="3"></div>
+            <div class="indicator" data-index="4"></div>
+            <div class="indicator" data-index="5"></div>
         </div>
-        <!-- 板块4 -->
-        <div class="slide slide-4">
-            <a href="interaction-community.html" class="section-label">互动社区与服务</a>
 
-        </div>
-        <!-- 板块5 -->
-        <div class="slide slide-5">
-            <a href="https://yuxiao-3.github.io/zdssyhome/就业" class="section-label">职业发展与就业</a>
-
-        </div>
-        <!-- 板块6 -->
-        <div class="slide slide-6">
-            <a href="special-features.html" class="section-label">特色功能与创新体验</a>
-
-        </div>
     </div>
 
-    <!-- 左右切换按钮 -->
-    <button class="nav-button nav-left" id="prev-btn">&lt;</button>
-    <button class="nav-button nav-right" id="next-btn">&gt;</button>
+    <!-- 新页面区域 -->
+    <div id="home">
+        <nav class="bg-blue-600 text-white">
+            <div class="nav-container">
+                <a href="#initial" class="nav-title">2025 情系实验·浙里启辰</a>
+                <div class="nav-links">
+                    <a href="#home">首页</a>
+                </div>
+            </div>
+        </nav>
 
-    <!-- 底部导航指示器 -->
-    <div class="nav-indicators" id="indicators">
-        <div class="indicator active" data-index="0"></div>
-        <div class="indicator" data-index="1"></div>
-        <div class="indicator" data-index="2"></div>
-        <div class="indicator" data-index="3"></div>
-        <div class="indicator" data-index="4"></div>
-        <div class="indicator" data-index="5"></div>
+        <main class="main-content">
+            <a href="https://yuxiao-3.github.io/zdssyhome/选校选专业" class="section-card" >
+                <div class="section-content">
+                    <h2 class="section-label">智能选校决策系统</h2>
+                    <p class="section-desc">全国高校数据库、智能推荐引擎、选科与专业适配工具，助你精准选校选专业。</p>
+                </div>
+            </a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/浙大专题" class="section-card" >
+                <div class="section-content">
+                    <h2 class="section-label">浙江大学专题馆</h2>
+                    <p class="section-desc">权威招生指南、王牌专业深度解析、沉浸式校园体验，全方位了解浙大。</p>
+                </div>
+            </a>
+            <a href="parent-college.html" class="section-card" aria-disabled="true">
+                <div class="section-content">
+                    <h2 class="section-label">家长学院</h2>
+                    <p class="section-desc">升学规划指南、心理疏导与沟通技巧、政策与资源解读，为家长提供支持。（待建设）</p>
+                </div>
+            </a>
+            <a href="interaction-community.html" class="section-card" aria-disabled="true">
+                <div class="section-content">
+                    <h2 class="section-label">互动社区与服务</h2>
+                    <p class="section-desc">问答论坛、在线咨询、数据工具包，让你随时交流获取信息。（待建设）</p>
+                </div>
+            </a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/就业" class="section-card">
+                <div class="section-content">
+                    <h2 class="section-label">职业发展与就业</h2>
+                    <p class="section-desc">专业就业报告、实习与校企合作、考研与留学，规划未来职业道路。</p>
+                </div>
+            </a>
+            <a href="special-features.html" class="section-card" aria-disabled="true">
+                <div class="section-content">
+                    <h2 class="section-label">特色功能与创新体验</h2>
+                    <p class="section-desc">AI模拟填报、元宇宙校园、政策智能预警，带来全新选校体验。（待建设）</p>
+                </div>
+            </a>
+
+        </main>
+
+        <footer>
+            <p class="footer-text">&copy; 2025 情系实验·浙里启辰. 保留所有权利.</p>
+        </footer>
     </div>
 
     <script>
-        const slider = document.getElementById('slider');
+        const correctPassword = '1957';
+        let isAuthenticated = false;
+        const initialSection = document.getElementById('initial');
+        const homeSection = document.getElementById('home');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const indicators = document.querySelectorAll('.indicator');
         let currentIndex = 0;
         const totalSlides = 6;
+        let autoScrollInterval;
 
-        // 切换到指定板块
+        // 密码验证
+        function showPasswordPrompt() {
+            const input = prompt('请输入密码   (HINT:向下滚动)');
+            if (input === correctPassword) {
+                isAuthenticated = true;
+                prevBtn.classList.add('active');
+                nextBtn.classList.add('active');
+                indicators.forEach(ind => ind.classList.add('active'));
+                enableScrollControl();
+                startAutoScroll();
+            } else {
+                alert('密码错误，请重新输入');
+                showPasswordPrompt();
+            }
+        }
+
+        // 滑动控制
         function goToSlide(index) {
             currentIndex = index;
-            slider.style.transform = `translateX(-${index * 100}vw)`;
+            initialSection.querySelector('.slider-container').style.transform = `translateX(-${index * 100}vw)`;
             updateIndicators();
         }
 
-        // 更新指示器状态
         function updateIndicators() {
-            indicators.forEach(indicator => {
-                indicator.classList.toggle('active', indicator.dataset.index === currentIndex.toString());
+            indicators.forEach((ind, i) => {
+                ind.classList.toggle('active', i === currentIndex);
             });
         }
 
-        // 左切换
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            goToSlide(currentIndex);
-        });
-
-        // 右切换
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            goToSlide(currentIndex);
-        });
-
-        // 点击指示器切换
-        indicators.forEach(indicator => {
-            indicator.addEventListener('click', () => {
-                const targetIndex = parseInt(indicator.dataset.index);
-                if (targetIndex!== currentIndex) {
-                    goToSlide(targetIndex);
+        // 电脑端滚动控制
+        function enableScrollControl() {
+            window.addEventListener('wheel', (e) => {
+                if (!isAuthenticated || homeSection.style.display === 'block') return;
+                if (e.deltaY > 50) { // 向下滚动
+                    enterHomeSection();
                 }
             });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' && isAuthenticated && homeSection.style.display !== 'block') {
+                    enterHomeSection();
+                }
+            });
+        }
+
+        function enterHomeSection() {
+            homeSection.style.display = 'block';
+            initialSection.style.pointerEvents = 'none';
+            clearInterval(autoScrollInterval);
+            history.pushState(null, '', '#home');
+        }
+
+        // 自动滚动
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                goToSlide((currentIndex + 1) % totalSlides);
+            }, 2000);
+        }
+
+        // 按钮事件
+        prevBtn.addEventListener('click', () => {
+            goToSlide((currentIndex - 1 + totalSlides) % totalSlides);
         });
 
-        // 键盘左右键支持
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                prevBtn.click();
-            }
-            if (e.key === 'ArrowRight') {
-                nextBtn.click();
+        nextBtn.addEventListener('click', () => {
+            goToSlide((currentIndex + 1) % totalSlides);
+        });
+
+        indicators.forEach((ind, i) => {
+            ind.addEventListener('click', () => goToSlide(i));
+        });
+
+        // 初始化
+        window.addEventListener('load', () => {
+            showPasswordPrompt();
+            updateIndicators();
+        });
+
+        // 防止手动返回初始页（可选增强）
+        window.addEventListener('popstate', (e) => {
+            if (window.location.hash !== '#home') {
+                homeSection.style.display = 'none';
+                initialSection.style.pointerEvents = 'auto';
+                if (!isAuthenticated) showPasswordPrompt();
+                startAutoScroll();
             }
         });
     </script>
 </body>
 </html>
-    
