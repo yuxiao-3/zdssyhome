@@ -274,6 +274,44 @@
         .nav-list {
             margin-left: 80px; /* 根据图片大小进行调整 */
         }
+
+        /* 向下滚动提示样式 */
+.scroll-down-tip {
+    position: fixed;
+    left: 50%;
+    bottom: 60px; /* 位于圆点导航上方20px */
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.9;
+    pointer-events: none; /* 避免遮挡点击 */
+}
+
+.scroll-down-tip i {
+    font-size: 36px;
+    color: rgb(76, 200, 235);
+    margin-bottom: 8px;
+    animation: bounce 2s infinite; /* 添加跳动动画 */
+}
+
+.scroll-down-tip p {
+    font-size: 26px;
+    color: rgb(76, 200, 235);
+    font-weight: 600;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* 仅在初始页显示，滚动后隐藏 */
+#home:target ~ #scroll-tip,
+#home:has(> :not(:empty)) ~ #scroll-tip {
+    display: none;
+}
     </style>
 </head>
 <body>
@@ -376,6 +414,13 @@
         <!-- 左右切换按钮 -->
         <button class="nav-button nav-left" id="prev-btn">&lt;</button>
         <button class="nav-button nav-right" id="next-btn">&gt;</button>
+
+
+        <div class="scroll-down-tip" id="scroll-tip">
+            <i class="fas fa-chevron-down"></i>
+            <p>向下滚动</p>
+        </div>
+
 
         <!-- 底部导航指示器 -->
         <div class="nav-indicators" id="indicators">
@@ -488,6 +533,24 @@
             });
         }
 
+
+        // 滚动提示显示/隐藏控制
+const scrollTip = document.getElementById('scroll-tip');
+
+function toggleScrollTip() {
+    if (window.scrollY === 0) {
+        scrollTip.style.display = 'flex';
+    } else {
+        scrollTip.style.display = 'none';
+    }
+}
+
+// 初始加载时检查
+window.addEventListener('load', toggleScrollTip);
+// 滚动时实时检查
+window.addEventListener('scroll', toggleScrollTip);
+
+
         // 电脑端滚动控制（优化双向滚动）
         function enableScrollControl() {
     window.addEventListener('wheel', (e) => {
@@ -552,17 +615,6 @@
             startAutoScroll();
         });
 
-        // 防止手动返回初始页（优化）
-        window.addEventListener('popstate', (e) => {
-            if (window.location.hash !== '#home') {
-                homeSection.style.display = 'none';
-                initialSection.style.pointerEvents = 'auto';
-                startAutoScroll();
-                prevBtn.style.display = 'block';
-                nextBtn.style.display = 'block';
-                indicators.forEach(ind => ind.style.display = 'block');
-            }
-        });
     </script>
 </body>
 </html>
