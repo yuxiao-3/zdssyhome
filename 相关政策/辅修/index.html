@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>浙江大学本科辅修相关事项</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+        <style>
+            .custom-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+            .section-title {
+                font-size: 2rem; /* 字号调小 */
+                font-weight: 700;
+                color: #1a73e8;
+                margin-bottom: 2rem;
+                text-align: center; /* 标题居中 */
+            }
+            .pdf-link, .excel-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                background-color: #1a73e8;
+                color: white;
+                border-radius: 4px;
+                text-decoration: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            .pdf-link:hover, .excel-link:hover {
+                transform: scale(1.02);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .image-container {
+                max-width: 600px;
+                margin: 1rem 0;
+            }
+            .image-container img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 font-sans">
+        <div class="custom-container">
+            <h1 class="section-title mb-4">浙江大学本科辅修相关事项</h1>
+
+            <!-- 板块一：浙江大学本科辅修管理办法 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">一、浙江大学本科辅修管理办法</h2>
+                <p class="mb-2">点击下载查看：</p>
+                <a href="./浙江大学本科辅修管理办法.pdf" class="pdf-link" download>
+                    <i class="fas fa-file-pdf"></i>
+                    浙江大学本科辅修管理办法
+                </a>
+            </div>
+
+            <!-- 板块二：2025年本科辅修相关工作通知 -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">二、2024级本科辅修相关情况</h2>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="image-container">
+                        <img src="./1.jpg" alt="辅修工作通知相关图片">
+                    </div>
+                    <div>
+                        <p class="mb-2">点击下载查看：</p>
+                        <a href="./2024级开设项目清单.xls" class="excel-link" download>
+                            <i class="fas fa-file-excel"></i>
+                            2024级微辅修、辅修项目、辅修专业开设清单
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 板块三：关于辅修作用的若干说明 -->
+            <div>
+                <h2 class="text-xl font-bold text-gray-800 mb-4">三、关于辅修相关问题的若干说明</h2>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>辅修后选课学分上限由35学分提高至40学分，有助于选课</li>
+                    <li>选择热门通用专业（计算机、机器人等）的辅修有一定的用处</li>
+                    <li>无论是微辅修、辅修专业抑或是辅修学位，对将来跨专业保研、考研、就业实际用处均不大</li>
+                    <li>申请辅修后每学年春学期可以申请放弃辅修或变更辅修专业</li>
+                    <li>竺可桢学院的辅修班单独进行选拔，如工程技术高级班（ACEE）等</li>
+                    <li>辅修要收取对应学分的学费</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="bg-gray-200 p-4 text-center">
+            <p>&copy; 2025 情系实验·浙里启辰. 保留所有权利.</p>
+        </footer>
+    </body>
+    </html>
+    
