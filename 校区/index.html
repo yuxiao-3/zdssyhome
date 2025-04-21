@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学各校区风采</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h2 {
+            color: #1a73e8;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-bottom: 3px solid #1a73e8;
+            margin-bottom: 2rem;
+        }
+
+        .campus-card {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .campus-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .campus-image {
+            flex-basis: 50%;
+            max-width: 50%;
+            overflow: hidden;
+            border-radius: 15px 0 0 15px;
+        }
+
+        .campus-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .campus-content {
+            flex-basis: 50%;
+            max-width: 50%;
+            padding: 2rem;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .campus-card {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .campus-image,
+            .campus-content {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            .campus-image {
+                border-radius: 15px 15px 0 0;
+            }
+        }
+
+        /* 图文交替样式 */
+        .campus-card:nth-child(even) .campus-image {
+            order: 2;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .campus-card:nth-child(even) .campus-content {
+            order: 1;
+        }
+
+        .campus-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .campus-desc {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1557b0;
+        }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f4f4f4; /* 可以根据需要修改背景颜色 */
+            text-align: center; /* 文字居中 */
+            padding: 0.8rem; /* 内边距 */
+            z-index: 1000; /* 确保页脚在其他元素之上 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>浙江大学各校区介绍</h2>
+
+        <!-- 紫金港校区 -->
+        <article class="campus-card">
+            <div class="campus-image">
+                <img src="./1.png" alt="紫金港校区全景">
+            </div>
+            <div class="campus-content">
+                <h3 class="campus-title">紫金港校区</h3>
+                <p class="campus-desc">
+                    紫金港校区是浙江大学的主校区，位于杭州城西塘北地块，毗邻西溪湿地公园，按建设周期分东西区两个部分，校园占地面积5369亩。紫金港校区东区占地面积2975亩，2002年10月投入使用；紫金港校区西区占地面积2394亩，2009年正式启动。 
+                    <br><br>
+                    紫金港校区目前有22个院系，全部机关部门（不含离退休工作处）和部分直属单位入驻，全日制本科生、研究生、国际生共计3万余人。2022年，紫金港校区将迎来理工组团等10家院系单位搬迁入驻，发展规模进一步扩大。 
+                    <br><br>
+                    校区坚持按照“更高质量、更加卓越、更受尊敬、更有梦想”的战略导向，以立德树人为宗旨，胸怀“国之大者”，统筹“安全”“发展”两大主线，不断优化“五个维度”，遵循“构建东西区一体化，打造紫金港全方位”工作思路，着力打造“平安校园、美丽校园、健康校园、文明校园、智慧校园、和谐校园”，为进一步巩固和发挥好紫金港承载教育教学、科研创新、学科交叉、人才培养、社会服务等重大功能的主校区地位，助力学校加快建成中国特色、世界一流大学“走在前列”踔厉奋发、不懈奋斗。
+                </p>
+                <a href="https://www.bilibili.com/video/BV1nxosYHE3e?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进紫金港</a>
+            </div>
+        </article>
+
+        <!-- 玉泉校区 -->
+        <article class="campus-card">
+            <div class="campus-content">
+                <h3 class="campus-title">玉泉校区</h3>
+                <p class="campus-desc">
+                    浙江大学玉泉校区位于“人间天堂”杭州西湖西北角，背靠老和山，紧邻杭州植物园，占地面积1200多亩。 
+                    <br><br>
+                    玉泉校区是原浙江大学所在地，校区综合办学条件优良，基本设施齐全。图书馆建筑面积2.5万平方米，藏书量达170多万册。拥有邵逸夫科学馆、邵逸夫体育馆、永谦活动中心、欧阳纯美科学楼、竺可桢国际教育大楼、曹光彪高科技大楼等一批先进的教学科研、文化体育活动场所。
+                </p>
+                <a href="https://www.bilibili.com/video/BV1BYR2YuEee?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进玉泉</a>
+            </div>
+            <div class="campus-image">
+                <img src="./2.png" alt="玉泉校区教学楼">
+            </div>
+        </article>
+
+        <!-- 西溪校区 -->
+        <article class="campus-card">
+            <div class="campus-image">
+                <img src="./3.jpg" alt="西溪校区历史建筑">
+            </div>
+            <div class="campus-content">
+                <h3 class="campus-title">西溪校区</h3>
+                <p class="campus-desc">
+                    浙江大学西溪校区位于杭州市西湖区西溪街道，地处黄龙商务区，毗邻“人间天堂”杭州西湖。占地500.23亩（含北园约75亩），校舍总建筑面积近26万平方米。现有杭州市历史文化保护建筑7幢：东二、西二、西三、7幢、8幢，北园5号楼、西大楼，是历史悠久的老校区。 
+                    <br><br>
+                    西溪校区现有艺术与考古学院一个属地院系，还有档案馆、浙江大学出版社有限责任公司、浙江大学建筑设计研究院有限公司、浙江大学创新创业研究院有限公司等单位。安全保卫处、总务处、离退休工作处等在校区内设有派出机构。全校继续教育办学单位在校区几乎都有驻点。学校后勤保障部门均在本校区内设有服务机构，包括浙江大学幼儿园（西溪分园）。
+                </p>
+                <a href="https://www.bilibili.com/video/BV1cRqbYJEc2?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进西溪</a>
+            </div>
+        </article>
+
+        <!-- 华家池校区 -->
+        <article class="campus-card">
+            <div class="campus-content">
+                <h3 class="campus-title">华家池校区</h3>
+                <p class="campus-desc">
+                    浙江大学华家池校区是现存浙江大学历史最为悠久的校区，是浙江大学抗战西迁仅存的出发和复员东归地，是浙江省现代高等农业教育的发源地。 
+                    <br><br>
+                    华家池校区位于杭州市上城区，因校区内有华家池而得名。校区目前占地面积805亩，其中水域面积约为110亩。目前校区有全日制学生三千余人，主要为医学院临床医学专业研究生、高年级本科生以及转化医学研究院研究生。作为浙江大学继续教育学院和全国干部教育培训浙江大学基地的办学主校区，每年约有15万人次在华家池校区参加学习培训。
+                </p>
+                <a href="https://www.bilibili.com/video/BV15eZbYxENe?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进华家池</a>
+            </div>
+            <div class="campus-image">
+                <img src="./4.jpg" alt="华家池校区标志性水池">
+            </div>
+        </article>
+
+        <!-- 之江校区 -->
+        <article class="campus-card">
+            <div class="campus-image">
+                <img src="./5.png" alt="之江校区百年建筑">
+            </div>
+            <div class="campus-content">
+                <h3 class="campus-title">之江校区</h3>
+                <p class="campus-desc">
+                    浙江大学之江校区坐落在杭州钱塘江畔、六和塔边的月轮山峦，占地面积650亩。校区内树高林密，四季葱茏。所有建筑依山而建，依势而筑，错落有致，风格别致。之江校区原为美国基督教南北长老会在杭州开办的一所基督教教会大学——之江大学的旧址，于1911年建成并投入使用。建校初期以文科专业为主，后来发展了理科。1952年全国高校院系调整，之江大学解体。原之江大学的各院系并入同济大学、浙江大学、上海财经学院、复旦大学，浙江师范学院等学校。 
+                    <br><br>
+                    之江大学旧址50年代曾先后为浙江师范学院和浙江省委党校所在地，1961年正式划归浙江大学，成为浙大的分部。1996年改作浙大基础部——之江学院，每年浙大新生在此进行第一学年的基础阶段学习。1998年新浙江大学成立，原基础部学生于2002年10月全部搬到紫金港校区。 
+                    <br><br>
+                    2007年起，旧址成为浙大光华法学院所在地。2015年8月，浙大人文高等研究院成立，落户在之江校区。目前有近1000名师生员工在这里学习、工作和生活。 
+                    <br><br>
+                    2006年5月，之江大学旧址被国务院列入全国重点文物保护单位，这也是目前国内唯一的一所保存最好的教会大学旧址。
+                </p>
+                <a href="https://www.bilibili.com/video/BV14Yq1YBEpB?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进之江</a>
+            </div>
+        </article>
+
+        <!-- 舟山校区 -->
+        <article class="campus-card">
+            <div class="campus-content">
+                <h3 class="campus-title">舟山校区</h3>
+                <p class="campus-desc">
+                    舟山校区是浙江大学重大的战略办学布局，是浙江大学涉海学科的会聚平台。校区总用地面积约600亩，一期占地面积约480亩。总建筑面积近20万。舟山校区由舟山市政府提供土地和建设资金，按照“交钥匙工程”的标准完成校园建设任务。校区突出“山水”要素，强化“海洋”特色。建筑布局顺应景观地形，呼应浙大玉泉校区的规划结构特点，主轴两侧的主要建筑与浙大老校区的整体色调相吻合。
+                </p>
+                <a href="https://www.bilibili.com/video/BV1cRqbYJE26?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进舟山</a>
+            </div>
+            <div class="campus-image">
+                <img src="./6.jpg" alt="舟山校区海景校园">
+            </div>
+        </article>
+
+        <!-- 海宁校区 -->
+        <article class="campus-card">
+            <div class="campus-image">
+                <img src="./7.jpg" alt="海宁校区国际化建筑">
+            </div>
+            <div class="campus-content">
+                <h3 class="campus-title">海宁校区</h3>
+                <p class="campus-desc">
+                    海宁国际校区于2013年2月启动筹建，2016年9月首批学生入学，2017年10月校园全面落成。国际校区实现了“以我为主、高水平、一对多”的国际合作办学模式，与国际综合排名或单一学科排名居于前列的世界著名大学或一流学科开展合作，设立若干中外合作办学机构、国际研究中心和成果转化机构。目前，校区内设有浙江大学爱丁堡大学联合学院和浙江大学伊利诺伊大学厄巴纳香槟校区联合学院2个国内最高水平的中外合作办学机构。国际校区建成了两个“4 + 0”国内最高水平的中外合作办学机构，成为国家高水平中外合作办学的标杆。
+                </p>
+                <a href="https://www.bilibili.com/video/BV1oZ4y1378G?vd_source=40cdbb678bde0d683f65615370eb74ad" class="btn">走进海宁</a>
+            </div>
+        </article>
+            <!-- 页脚 -->
+    <div id="footer" class="bg-gray-200 text-center p-2">&copy; 2025 情系实验·浙里启辰. 保留所有权利.</div>
+    
+</body>
+</html>

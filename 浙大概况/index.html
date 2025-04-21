@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学智能概况系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #2c3e50;
+            --hover-color: #0056b3;
+            --bg-color: #0f172a;
+            --white-color: #fff;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--white-color);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header.sticky {
+            background: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white-color);
+        }
+
+        .nav-links a {
+            color: var(--white-color);
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://bkimg.cdn.bcebos.com/pic/127901/a3/20210115181402-18333481.jpg?x-bce-process=image/resize,m_lfit,w_1920,h_1080,limit_1') no-repeat center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: var(--white-color);
+            text-shadow: 0 0 20px rgba(0,123,255,0.5);
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 60px;
+            color: #ddd;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,123,255,0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 48px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            width: 120px;
+            height: 4px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 0 30px rgba(0,123,255,0.2);
+        }
+
+        .feature-card i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card p {
+            color: #ddd;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.03);
+        }
+
+        .stat-card span {
+            font-size: 60px;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .stat-card p {
+            font-size: 18px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .footer {
+            padding: 80px 20px;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+        }
+
+        .footer p {
+            color: #ddd;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .social-links a {
+            color: var(--white-color);
+            margin: 0 20px;
+            font-size: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header class="header">
+        <div class="logo">浙江大学</div>
+        <nav class="nav-links">
+            <a href="#home">首页</a>
+            <a href="#about">概况</a>
+            <a href="#features">特色</a>
+            <a href="#stats">数据</a>
+            <a href="#contact">联系</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Zhejiang University</h1>
+            <p>中国特色世界一流大学</p>
+            <a href="#about" class="btn">探索校园</a>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <div class="section-title">
+            <h2>学校概况</h2>
+        </div>
+        <p style="font-size: 20px; line-height: 1.8; margin-bottom: 60px; color: #ddd;">
+            浙江大学是一所历史悠久、声誉卓著的高等学府，坐落于中国历史文化名城、风景旅游胜地杭州。学校成立于1897年，前身"求是书院"是中国近代史上效法西方学制最早创办的几所新式高等学校之一。作为教育部直属的全国重点大学，浙江大学是国家"双一流"建设高校(A类)、"211工程""985工程"重点建设高校，在长期的办学过程中，形成了以"求是创新"为校训的优良传统。
+        </p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span>QS世界排名</span>
+                <p>2024年全球第47位<br>亚洲第10位</p>
+            </div>
+            <div class="stat-card">
+                <span>软科世界大学排名</span>
+                <p>2023年全球第27位<br>中国内地第3位</p>
+            </div>
+            <div class="stat-card">
+                <span>泰晤士高等教育排名</span>
+                <p>2024年全球第47位<br>科研影响力全球前50</p>
+            </div>
+            <div class="stat-card">
+                <span>毕业生竞争力</span>
+                <p>2023年全球第35位<br>中国高校就业质量第一梯队</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="features">
+        <div class="section-title">
+            <h2>核心竞争力</h2>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>顶尖学科矩阵</h3>
+                <p>
+                    42个学科进入A类（A+、A、A-）<br>
+                    7个学科进入全球ESI前1‰<br>
+                    39个国家级一流本科专业<br>
+                    涵盖人工智能、脑科学、碳中和等前沿领域
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-flask"></i>
+                <h3>科研创新高地</h3>
+                <p>
+                    近五年发表CNS主刊论文超50篇<br>
+                    建成超重力离心模拟与实验装置等大科学装置<br>
+                    获国家科技奖35项（含特等奖1项）<br>
+                    主导或参与嫦娥、天问等国家重大工程
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>卓越师资力量</h3>
+                <p>
+                    两院院士41人，国家杰青200+<br>
+                    海外高层次人才占比25%<br>
+                    拥有12个国家级教学团队<br>
+                    竺可桢、苏步青等著名学者曾在此执教
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3>国际化办学典范</h3>
+                <p>
+                    与哈佛大学、牛津大学等200+高校建立合作<br>
+                    海宁国际校区开设12个中外合作办学项目<br>
+                    留学生规模超6000人，来自160+国家<br>
+                    全球首个高校跨境教育质量保障联盟发起单位
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="stats">
+        <div class="section-title">
+            <h2>关键发展数据</h2>
+        </div>
+        <div class="stats">
+            <div class="stat-card">
+                <span>60000+</span>
+                <p>在校生总数<br>（含30000+本科生）</p>
+            </div>
+            <div class="stat-card">
+                <span>6000+</span>
+                <p>专任教师<br>其中90%具有海外经历</p>
+            </div>
+            <div class="stat-card">
+                <span>100+</span>
+                <p>国家级科研平台<br>其中国家重点实验室7个</p>
+            </div>
+            <div class="stat-card">
+                <span>4000+</span>
+                <p>年本科毕业生深造率<br>境外TOP50高校占比70%</p>
+            </div>
+            <div class="stat-card">
+                <span>200亿+</span>
+                <p>年度科研经费<br>科研实力稳居全国高校前三</p>
+            </div>
+            <div class="stat-card">
+                <span>1000+</span>
+                <p>授权发明专利<br>近三年技术转化金额超10亿元</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>地址：浙江省杭州市西湖区余杭塘路866号 | 邮编：310058</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-qq"></i></a>
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 浙江大学智能概况系统 | 技术支持：浙江大学网络信息中心</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 150,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1200
+                    }
+                },
+                "color": {
+                    "value": "#007bff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.6,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.2,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 4,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 3,
+                        "size_min": 1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 180,
+                    "color": "#007bff",
+                    "opacity": 0.5,
+                    "width": 1.5
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "bounce",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 30,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            header.classList.toggle('sticky', window.scrollY > 100);
+        });
+    </script>
+</body>
+</html>

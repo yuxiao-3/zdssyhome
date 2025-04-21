@@ -3,307 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>浙江大学强基计划</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>情系实验·浙里启辰</title>
     <style>
-        :root {
-            --primary-color: #1a73e8;
-            --card-bg: #ffffff;
-            --spacing: 2rem;
-        }
-
+        /* 简洁清新风格 */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f7fa;
-            line-height: 1.75;
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #f8f9fa;
         }
-        .custom-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 2rem;
-            }
-        .section-title {
-                font-size: 2rem; /* 字号调小 */
-                font-weight: 700;
-                color: #1a73e8;
-                margin-bottom: 2rem;
-                text-align: center; /* 标题居中 */
-            }
 
-        h1 {
+        .main-title {
             text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 2.5rem;
-            border-bottom: 4px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 0.75rem;
-            margin-inline: auto;
+            color: #007bff;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
         }
 
-       .section {
-            background: var(--card-bg);
-            padding: 2rem 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-bottom: 3rem;
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
 
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.875rem;
-            font-weight: 600;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+        .section h2 {
+            color: #0056b3;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
         }
 
-        h3 {
-            color: #2d3748;
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-        }
-
-        p {
-            color: #4b5563;
-            font-size: 1rem;
-        }
-
-        ul, ol {
-            list-style-position: outside;
-            padding-left: 2.5rem;
-            margin-top: 1rem;
-        }
-
-        table {
+        .zju-table {
             width: 100%;
+            margin-top: 20px;
             border-collapse: collapse;
-            margin-top: 1.5rem;
+            font-size: 0.95em;
         }
 
-        th, td {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        th {
-            color: var(--primary-color);
-            font-weight: 600;
+        .zju-table th,
+        .zju-table td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
             text-align: left;
         }
 
-       .footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #edf2f7;
-            margin-top: 4rem;
-            border-top: 1px solid #e2e8f0;
+        .zju-table th {
+            background-color: #f5f7fa;
+            color: #0056b3;
+            font-weight: 500;
         }
+
+        .list-item {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .list-item::before {
+            content: "▸";
+            color: #007bff;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .link {
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px dashed #007bff;
+            transition: all 0.3s;
+        }
+
+        .link:hover {
+            color: #0056b3;
+            border-bottom-style: solid;
+        }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f4f4f4; /* 可以根据需要修改背景颜色 */
+            text-align: center; /* 文字居中 */
+            padding: 0.8rem; /* 内边距 */
+            z-index: 1000; /* 确保页脚在其他元素之上 */
+        }
+
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="custom-container">
-        <h1 class="section-title mb-4">浙江大学强基计划</h1>
+<body>
+    <h1 class="main-title">浙江大学强基计划</h1>
 
-        <!-- 一、招生对象及报名条件 -->
-        <div class="section">
-            <h2>一、招生对象及报名条件</h2>
-            <p><br>符合2024年全国普通高等学校招生全国统一考试报名条件，有志于服务国家重大战略需求的高中毕业生，分为两类：</p>
+    <!-- 一、招生基本信息 -->
+    <div class="section">
+        <h2>一、招生基本信息</h2>
+        <div class="list-item">发布主体：浙江大学</div>
+        <div class="list-item">负责学院：竺可桢学院负责强基计划培养</div>
+        <div class="list-item">相关平台：
             <ul>
-                <li>第一类：综合素质优秀、学业成绩优异，高考成绩达本省特控线120%以上</li>
-                <li>第二类：五大学科奥赛全国决赛二等奖及以上，需上传获奖证书扫描件</li>
-            </ul>
-        </div>
-
-        <!-- 二、招生专业及计划 -->
-        <div class="section">
-            <h2>二、招生专业及计划</h2>
-            <h3><br>（一）全国专业组别及选考要求</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>招生组别</th>
-                        <th>包含专业</th>
-                        <th>3+3模式</th>
-                        <th>3+1+2模式</th>
-                        <th>非改革省份</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>理学I类</td>
-                        <td>数学与应用数学、物理学、工程力学</td>
-                        <td>必选物理</td>
-                        <td>首选物理+再选不限</td>
-                        <td>理工类</td>
-                    </tr>
-                    <tr>
-                        <td>理学II类</td>
-                        <td>化学、生物科学、生态学、生物育种科学</td>
-                        <td>必选物理</td>
-                        <td>首选物理+再选化学</td>
-                        <td>理工类</td>
-                    </tr>
-                    <tr>
-                        <td>基础医学类</td>
-                        <td>基础医学</td>
-                        <td>必选化学+生物</td>
-                        <td>首选物理+再选化/生</td>
-                        <td>理工类</td>
-                    </tr>
-                    <tr>
-                        <td>人文历史类</td>
-                        <td>哲学、历史学、汉语言文学(古文字学方向)</td>
-                        <td>历史/地理任选</td>
-                        <td>首选历史+再选不限</td>
-                        <td>文史类</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3><br>（二）2024年河南省招生计划（完整版）</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>专业名称</th>
-                        <th>计划数</th>
-                        <th>备注</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>数学与应用数学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>物理学</td>
-                        <td>2</td>
-                        <td>较2023年+1</td>
-                    </tr>
-                    <tr>
-                        <td>工程力学</td>
-                        <td>2</td>
-                        <td>新增招生</td>
-                    </tr>
-                    <tr>
-                        <td>化学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>生物科学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>生态学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>生物育种科学</td>
-                        <td>2</td>
-                        <td>新增专业</td>
-                    </tr>
-                    <tr>
-                        <td>基础医学</td>
-                        <td>3</td>
-                        <td>较2023年+1</td>
-                    </tr>
-                    <tr>
-                        <td>哲学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>历史学</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>汉语言文学(古文字学方向)</td>
-                        <td>1</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- 三、报名与选拔流程 -->
-        <div class="section">
-            <h2>三、报名与选拔流程</h2>
-            <h3><br>（一）报名时间</h3>
-            <p>第一类考生：4月15日09:00 - 4月30日17:00</p>
-            <p>第二类考生：4月15日09:00 - 4月27日12:00（需完成双平台报名）</p>
-
-            <h3><br>（二）报名平台</h3>
-            <p>统一通过教育部「强基计划报名平台」报名：<br>
-
-            <h3><br>（三）选拔环节对比</h3>
-            <div class="flex flex-col md:flex-row gap-6">
-                <div class="w-full md:w-1/2">
-                    <h4>第一类考生（需笔试+面试+体测）</h4>
-                    <ul>
-                        <li>笔试科目：按组别考2科（如理学I类考数学+物理）</li>
-                        <li>面试重点：专业潜力、创新思维、综合素质档案</li>
-                        <li>体测项目：身高体重/BMI、肺活量、坐位体前屈等5项</li>
-                    </ul>
-                </div>
-                <div class="w-full md:w-1/2">
-                    <h4>第二类考生（免笔试，直接面试+体测）</h4>
-                    <ul>
-                        <li>资格要求：奥赛国二及以上，4月28日公布审核结果</li>
-                        <li>面试侧重：学科特长展示、科研规划能力</li>
-                        <li>体测要求：与第一类考生一致，免测需提前申请</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 四、特色培养体系 -->
-        <div class="section">
-            <h2>四、特色培养体系</h2>
-            <h3><br>（一）本硕博贯通培养（3+1+X模式）</h3>
-            <p>3年本科夯实基础 → 1年衔接期跨学科选课 → X年直博/硕博（可衔接国家战略领域）</p>
-            <h3><br>（二）专属培养措施</h3>
-            <ul>
-                <li>双导师制：1名校内博导+1名行业专家联合指导</li>
-                <li>动态机制：每年末考核，前80%进入衔接阶段</li>
-                <li>国际资源：优先推荐海外名校交流，30%获全额奖学金</li>
-            </ul>
-            <h3><br>（三）往届数据参考</h3>
-            <p>2021级转段率83.2% | 人均参与科研项目1.2项 | 竞赛获奖率提升40%</p>
-        </div>
-
-        <!-- 五、奖助与就业 -->
-        <div class="section">
-            <h2>五、奖助体系与就业前景</h2>
-            <h3><br>（一）立体奖助体系</h3>
-            <ul>
-                <li>国家奖：国家奖学金8000元/年（评选比例1%）</li>
-                <li>学校奖：强基专项奖学金10000元/年（覆盖15%学生）</li>
-                <li>助学金：国家助学金3300元/年平均标准，覆盖经济困难学生</li>
-            </ul>
-
-            <h3><br>（二）多元就业方向</h3>
-            <p>近三年毕业生去向：</p>
-            <ul>
-                <li>深造率89%（直博占比65%，海外TOP50院校占比40%）</li>
-                <li>重点单位：中科院、华为、中芯国际、航天科技集团等</li>
-                <li>政府部门：教育部、科技部、省级发改委等</li>
+                <li><a href="https://bm.chsi.com.cn/jcxkzs/sc/10335" class="link" target="_blank">报名平台</a></li>
+                <li><a href="http://bep.zsc.zju.edu.cn/Zsxt/web/xsLogin/login.zf" class="link" target="_blank">招生管理服务平台</a></li>
+                <li><a href="https://zdzsc.zju.edu.cn/" class="link" target="_blank">本科招生网</a></li>
             </ul>
         </div>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 情系实验·浙里启辰. 保留所有权利.</p>
-        <p class="text-sm text-gray-500">招生咨询：0571-87951006 | 简章原文：<a href="#" class="text-blue-600 underline">浙江大学本科招生网</a></p>
-    </footer>
+    <!-- 二、招生对象 -->
+    <div class="section">
+        <h2>二、招生对象</h2>
+        <div class="list-item">第一类考生：综合素质优秀、学业成绩优异，符合2024年全国高考报名条件，有志于服务国家重大战略需求。</div>
+        <div class="list-item">第二类考生：在数学、物理、化学、生物学学科全国中学生奥林匹克竞赛中获全国决赛二等奖及以上奖项（获奖名单以中国科协官网公示为准），审核通过者可破格入围面试，免笔试（笔试部分分数给满）。</div>
+    </div>
+
+    <!-- 三、招生专业及计划（以河南为例） -->
+    <div class="section">
+        <h2>三、招生专业及计划（以河南为例）</h2>
+        <table class="zju-table">
+            <thead>
+                <tr>
+                    <th>招生组别</th>
+                    <th>专业名称</th>
+                    <th>招生计划（河南）</th>
+                    <th>2024变动情况</th>
+                    <th>选考科目要求（高考改革省份）</th>
+                    <th>科类要求（非高考改革省份）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>理学I类</td>
+                    <td>数学与应用数学</td>
+                    <td>1</td>
+                    <td>无新增专业</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选不限</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学I类</td>
+                    <td>物理学</td>
+                    <td>2</td>
+                    <td>相比于2023年+1</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选不限</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学I类</td>
+                    <td>工程力学</td>
+                    <td>2</td>
+                    <td>无</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选不限</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学II类</td>
+                    <td>化学</td>
+                    <td>1</td>
+                    <td>无</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选化学</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学II类</td>
+                    <td>生物科学</td>
+                    <td>1</td>
+                    <td>无</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选化学</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学II类</td>
+                    <td>生态学</td>
+                    <td>1</td>
+                    <td>无</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选化学</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>理学II类</td>
+                    <td>生物育种科学</td>
+                    <td>2</td>
+                    <td>新增专业</td>
+                    <td>“3 + 3”模式：物理；“3 + 1 + 2”模式：首选物理，再选化学</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>基础医学类</td>
+                    <td>基础医学</td>
+                    <td>3</td>
+                    <td>相比于2023年+1</td>
+                    <td>“3 + 3”模式：化学和生物；“3 + 1 + 2”模式：首选物理，再选化学或生物</td>
+                    <td>理工</td>
+                </tr>
+                <tr>
+                    <td>人文历史类</td>
+                    <td>哲学、历史学、汉语言文学（古文字学方向）</td>
+                    <td>2</td>
+                    <td>相比于2023年+1</td>
+                    <td>“3 + 3”模式：历史或地理；“3 + 1 + 2”模式：首选历史，再选不限</td>
+                    <td>文史</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 四、报名方式 -->
+    <div class="section">
+        <h2>四、报名方式</h2>
+        <div class="list-item">第一类考生：4月15日 - 4月30日，登录强基计划报名平台，填报1个招生组别（每组最多4个专业），上传《诚信考试承诺书》，不可兼报其他高校。</div>
+        <div class="list-item">第二类考生：
+            <ul>
+                <li>4月15日 - 4月27日中午12:00前，需同时在强基计划报名平台和招生管理服务平台报名，提交竞赛获奖材料。</li>
+                <li>4月28日公布审核结果，通过者直接入围面试，不通过者可转为第一类考生或取消报名。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 五、选拔程序 -->
+    <div class="section">
+        <h2>五、选拔程序（高考后出分前进行）</h2>
+        <div class="list-item">笔试：
+            <ul>
+                <li>理学I类：考数学、物理。数学100分，15道不定向选择题（不选全对不给分，答错0分）；物理100分，33道不定项选择题。</li>
+                <li>理学II类：考数学、化学。数学题型同理学I类；化学100分，45道单选题。</li>
+                <li>基础医学类：考物理、化学。</li>
+                <li>人文历史类：考语文、历史，语文涉及课外知识（如与音标关联）。</li>
+                <li>入围规则：按招生计划数的5倍确定面试名单（末位同分均入围）。例如物理学专业在河南招生计划数2人，按笔试成绩取前10名入围面试。</li>
+            </ul>
+        </div>
+        <div class="list-item">面试：考查理想信念、专业志向、思维能力等，综合素质档案作为参考，采用“双随机”抽签，全程录音录像。</div>
+        <div class="list-item">体测：项目包括BMI、肺活量、立定跳远、坐位体前屈、50米跑，成绩作为同分排序依据，可申请免测（需书面提交申请）。第二类考生免笔试，直接参加面试和体测，面试结合学科特长考查。</div>
+    </div>
+
+    <!-- 六、录取办法 -->
+    <div class="section">
+        <h2>六、录取办法</h2>
+        <div class="list-item">高考成绩要求：达到所在省第一批本科录取控制线（合并批次省份按特殊类型最低控制线执行）。</div>
+        <div class="list-item">综合成绩计算：综合成绩（满分1000分）=（高考成绩/高考满分）×850 + 学校考核成绩（折算为满分150分）。学校考核成绩=笔试成绩×2/3 + 面试成绩×1/3（第二类考生笔试成绩直接计满分100分）。</div>
+        <div class="list-item">录取规则：
+            <ul>
+                <li>第一类考生：按综合成绩从高到低排序，“分数优先，平行志愿”投档，同分依次按学校考核成绩、笔试成绩、高考成绩、语文/数学/外语成绩、体测成绩排序。</li>
+                <li>第二类考生：综合成绩达到同组别第一类考生最低录取线，浙大追加计划录取。</li>
+            </ul>
+        </div>
+        <div class="list-item">录取结果：拟录取名单经审核后，被录取考生不再参加后续高考志愿录取，未录取者可正常参与其他批次录取。</div>
+    </div>
+
+    <!-- 七、培养模式 -->
+    <div class="section">
+        <h2>七、培养模式</h2>
+        <div class="list-item">学制：本硕博衔接培养（3 + 1 + X模式）。“3”为本科阶段，“1”为衔接阶段（本研过渡），“X”为直博或硕博阶段。</div>
+        <div class="list-item">培养特色：单独编班，配备班主任和专业导师，实施动态进出机制；强化科研训练，对接国家重大战略需求，支持跨学科交叉研究；国际化培养，提供学术交流机会。</div>
+        <div class="list-item">转段机制：本科阶段考核合格可进入研究生阶段，2021级转段率超83%。</div>
+        <div class="list-item">博士专业对接：
+            <table class="zju-table">
+                <tr>
+                    <th>本科专业</th>
+                    <th>对应博士生一级学科代码及名称</th>
+                </tr>
+                <tr>
+                    <td>数学与应用数学</td>
+                    <td>0701数学、0702物理学、0805材料科学与工程、0810信息通信与工程</td>
+                </tr>
+                <tr>
+                    <td>物理学</td>
+                    <td>0702物理学、0801力学、0805材料科学与工程、0814土木工程</td>
+                </tr>
+                <tr>
+                    <td>化学</td>
+                    <td>0703化学、0702物理学、0814土木工程</td>
+                </tr>
+                <tr>
+                    <td>生物科学</td>
+                    <td>0710生物学、0702物理学、0805材料科学与工程、1007药学</td>
+                </tr>
+                <tr>
+                    <td>基础医学</td>
+                    <td>1001基础医学、0702物理学、0805材料科学与工程、0710生物学</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 八、其他重要事项 -->
+    <div class="section">
+        <h2>八、其他重要事项</h2>
+        <div class="list-item">兼报限制：报考浙大强基计划的考生不得兼报其他高校。</div>
+        <div class="list-item">时间节点：关注报名截止时间、审核结果公布时间、校测安排（以官网公告为准）。</div>
+        <div class="list-item">材料提交：诚信承诺书、竞赛获奖材料需按时上传，确保真实有效。</div>
+        <div class="list-item">体测免测：因身体原因无法参加体测需提前申请，审核通过后方可免测。</div>
+        <div class="list-item">不可抗力：如遇特殊情况，招生流程调整将另行通知。</div>
+    </div>
+
+    <!-- 九、联系方式与平台 -->
+    <div class="section">
+        <h2>九、联系方式与平台</h2>
+        <div class="list-item">官方渠道为浙江大学本科招生网（<a href="https://zdzsc.zju.edu.cn/" class="link" target="_blank">https://zdzsc.zju.edu.cn/</a>）实时发布最新公告，可通过招生网“联系我们”栏目获取联系方式。</div>
+    </div>
+
+    <!-- 页脚 -->
+    <div id="footer" class="bg-gray-200 text-center p-2">&copy; 2025 情系实验·浙里启辰. 保留所有权利.</div>
 </body>
 </html>
-    

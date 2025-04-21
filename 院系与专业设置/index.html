@@ -45,6 +45,17 @@
             text-align: center;       /* 水平居中 */
             white-space: nowrap;
         }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f4f4f4; /* 可以根据需要修改背景颜色 */
+            text-align: center; /* 文字居中 */
+            padding: 0.8rem; /* 内边距 */
+            z-index: 1000; /* 确保页脚在其他元素之上 */
+        }
+
     </style>
 </head>
 <body>
@@ -329,6 +340,7 @@
         <tr><td>新农科实验班（本博贯通）</td><td>4</td><td>农学</td><td>紫金港校区</td></tr>
     </table>
 </div>
-
+            <!-- 页脚 -->
+            <div id="footer" class="bg-gray-200 text-center p-2">&copy; 2025 情系实验·浙里启辰. 保留所有权利.</div>
 </body>
 </html>
