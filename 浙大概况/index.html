@@ -1,234 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浙江大学智能概况系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-            list-style: none;
-            text-decoration: none;
-            scroll-behavior: smooth;
+        /* 自定义样式，补充tailwind未覆盖的部分 */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #007bff;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
         }
 
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #2c3e50;
-            --hover-color: #0056b3;
-            --bg-color: #0f172a;
-            --white-color: #fff;
-        }
-
-        body {
-            background: var(--bg-color);
-            color: var(--white-color);
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 100px;
-            background: transparent;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .header.sticky {
-            background: var(--primary-color);
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--white-color);
-        }
-
-        .nav-links a {
-            color: var(--white-color);
-            margin-left: 30px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--hover-color);
-        }
-
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://bkimg.cdn.bcebos.com/pic/127901/a3/20210115181402-18333481.jpg?x-bce-process=image/resize,m_lfit,w_1920,h_1080,limit_1') no-repeat center;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
-            color: var(--white-color);
-            text-shadow: 0 0 20px rgba(0,123,255,0.5);
-        }
-
-        .hero-content p {
-            font-size: 24px;
-            margin-bottom: 60px;
+        .stat-desc {
+            font-size: 0.875rem;
             color: #ddd;
-            letter-spacing: 1px;
+            line-height: 1.4;
+            opacity: 0.9;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 16px 48px;
-            background: var(--primary-color);
-            color: var(--white-color);
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 2px;
+        .feature-card,
+        .alumni-card,
+        .research-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0,123,255,0.3);
+        .feature-card:hover,
+        .alumni-card:hover,
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.2);
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 100px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title h2 {
-            font-size: 48px;
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -15px;
-            width: 120px;
-            height: 4px;
-            background: var(--primary-color);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 0 30px rgba(0,123,255,0.2);
-        }
-
-        .feature-card i {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-        }
-
-        .feature-card h3 {
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card p {
-            color: #ddd;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: scale(1.03);
-        }
-
-        .stat-card span {
-            font-size: 60px;
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .stat-card p {
-            font-size: 18px;
-            color: #ddd;
-            line-height: 1.5;
-        }
-
-        .footer {
-            padding: 80px 20px;
-            background: rgba(0,0,0,0.9);
-            text-align: center;
-        }
-
-        .footer p {
-            color: #ddd;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-
-        .social-links a {
-            color: var(--white-color);
-            margin: 0 20px;
-            font-size: 30px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
+        /* 粒子背景样式 */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -237,152 +45,243 @@
         }
     </style>
 </head>
-<body>
+
+<body class="bg-[#0f172a] text-white">
+    <!-- 粒子背景 -->
     <div id="particles-js"></div>
-    <header class="header">
-        <div class="logo">浙江大学</div>
-        <nav class="nav-links">
-            <a href="#home">首页</a>
-            <a href="#about">概况</a>
-            <a href="#features">特色</a>
-            <a href="#stats">数据</a>
-            <a href="#contact">联系</a>
+    <!-- 导航栏 -->
+    <header class="fixed top-0 left-0 w-full py-4 px-20 bg-transparent flex justify-between items-center z-100 transition-all duration-300">
+        <div class="text-2xl font-bold text-white">浙江大学</div>
+        <nav class="space-x-6">
+            <a href="#home" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">首页</a>
+            <a href="#about" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">概况</a>
+            <a href="#core-data" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">核心竞争力数据</a>
+            <a href="#key-metrics" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">关键发展指标</a>
+            <a href="#research-resources" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">科研资源与成果</a>
+            <a href="#distinguished-alumni" class="text-white font-medium hover:text-[#0056b3] transition-colors duration-300">灿若星辰的浙大人</a>
         </nav>
     </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Zhejiang University</h1>
-            <p>中国特色世界一流大学</p>
-            <a href="#about" class="btn">探索校园</a>
+    <!-- 英雄区域 -->
+    <section id="home" class="h-screen bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://bkimg.cdn.bcebos.com/pic/127901/a3/20210115181402-18333481.jpg?x-bce-process=image/resize,m_lfit,w_1920,h_1080,limit_1');">
+        <div class="h-full flex flex-col justify-center items-center text-center">
+            <h1 class="text-6xl font-bold text-white mb-4">Zhejiang University</h1>
+            <p class="text-2xl text-gray-300 mb-8">中国特色世界一流大学</p>
+            <a href="https://www.720yun.com/t/4dvkseiwr79?scene_id=44483251" class="bg-[#007bff] text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-[#0056b3] transition-colors duration-300">云游校园</a>
         </div>
     </section>
-
-    <section class="container" id="about">
-        <div class="section-title">
-            <h2>学校概况</h2>
+    <!-- 学校概况 -->
+    <section id="about" class="container mx-auto py-20 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#007bff] relative inline-block">
+                学校概况
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#007bff] rounded"></span>
+            </h2>
         </div>
-        <p style="font-size: 20px; line-height: 1.8; margin-bottom: 60px; color: #ddd;">
+        <p class="text-xl text-gray-300 leading-relaxed mb-12">
             浙江大学是一所历史悠久、声誉卓著的高等学府，坐落于中国历史文化名城、风景旅游胜地杭州。学校成立于1897年，前身"求是书院"是中国近代史上效法西方学制最早创办的几所新式高等学校之一。作为教育部直属的全国重点大学，浙江大学是国家"双一流"建设高校(A类)、"211工程""985工程"重点建设高校，在长期的办学过程中，形成了以"求是创新"为校训的优良传统。
         </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        <div class="stats">
-            <div class="stat-card">
-                <span>QS世界排名</span>
-                <p>2024年全球第47位<br>亚洲第10位</p>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center">
+                <span class="stat-number">NO.3</span>
+                <p class="stat-desc"><br>软科世界大学排名中国大陆第3位<br>全球第27位</p>
             </div>
-            <div class="stat-card">
-                <span>软科世界大学排名</span>
-                <p>2023年全球第27位<br>中国内地第3位</p>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center">
+                <span class="stat-number">No.47</span>
+                <p class="stat-desc"><br>QS世界大学排名全球第47位<br>亚洲第10位</p>
+            </div>            
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center">
+                <span class="stat-number">No.47</span>
+                <p class="stat-desc"><br>泰晤士高等教育排名全球第47位<br>科研影响力全球前50</p>
             </div>
-            <div class="stat-card">
-                <span>泰晤士高等教育排名</span>
-                <p>2024年全球第47位<br>科研影响力全球前50</p>
-            </div>
-            <div class="stat-card">
-                <span>毕业生竞争力</span>
-                <p>2023年全球第35位<br>中国高校就业质量第一梯队</p>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center">
+                <span class="stat-number">No.35</span>
+                <p class="stat-desc"><br>2023年全球毕业生竞争力第35位<br>中国高校就业质量第一梯队</p>
             </div>
         </div>
     </section>
-
-    <section class="container" id="features">
-        <div class="section-title">
-            <h2>核心竞争力</h2>
+    <!-- 核心竞争力数据 -->
+    <section id="core-data" class="container mx-auto py-20 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#007bff] relative inline-block">
+                核心竞争力数据
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#007bff] rounded"></span>
+            </h2>
         </div>
-        <div class="features">
-            <div class="feature-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>顶尖学科矩阵</h3>
-                <p>
-                    42个学科进入A类（A+、A、A-）<br>
-                    7个学科进入全球ESI前1‰<br>
-                    39个国家级一流本科专业<br>
-                    涵盖人工智能、脑科学、碳中和等前沿领域
-                </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-graduation-cap text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">42</div>
+                <div class="stat-desc">A类学科数量<br>（7个A+学科/11个A学科/24个A-学科）</div>
             </div>
-
-            <div class="feature-card">
-                <i class="fas fa-flask"></i>
-                <h3>科研创新高地</h3>
-                <p>
-                    近五年发表CNS主刊论文超50篇<br>
-                    建成超重力离心模拟与实验装置等大科学装置<br>
-                    获国家科技奖35项（含特等奖1项）<br>
-                    主导或参与嫦娥、天问等国家重大工程
-                </p>
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-users text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">6000+</div>
+                <div class="stat-desc">专任教师规模<br>（两院院士41人/国家杰青237人/海外高层次人才占比28%）</div>
             </div>
-
-            <div class="feature-card">
-                <i class="fas fa-users"></i>
-                <h3>卓越师资力量</h3>
-                <p>
-                    两院院士41人，国家杰青200+<br>
-                    海外高层次人才占比25%<br>
-                    拥有12个国家级教学团队<br>
-                    竺可桢、苏步青等著名学者曾在此执教
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <i class="fas fa-globe"></i>
-                <h3>国际化办学典范</h3>
-                <p>
-                    与哈佛大学、牛津大学等200+高校建立合作<br>
-                    海宁国际校区开设12个中外合作办学项目<br>
-                    留学生规模超6000人，来自160+国家<br>
-                    全球首个高校跨境教育质量保障联盟发起单位
-                </p>
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-globe text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">212</div>
+                <div class="stat-desc">国际合作高校<br>（含全球TOP100高校89所/建立联合实验室47个）</div>
             </div>
         </div>
     </section>
-
-    <section class="container" id="stats">
-        <div class="section-title">
-            <h2>关键发展数据</h2>
+    <!-- 关键发展指标 -->
+    <section id="key-metrics" class="container mx-auto py-20 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#007bff] relative inline-block">
+                关键发展指标
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#007bff] rounded"></span>
+            </h2>
         </div>
-        <div class="stats">
-            <div class="stat-card">
-                <span>60000+</span>
-                <p>在校生总数<br>（含30000+本科生）</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-users text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">60000+</div>
+                <div class="stat-desc">在校生总数<br>（本科生30000+人/硕士20000+人/博士约10000人）</div>
             </div>
-            <div class="stat-card">
-                <span>6000+</span>
-                <p>专任教师<br>其中90%具有海外经历</p>
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-chart-line text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">89.7%</div>
+                <div class="stat-desc">本科毕业生深造率<br>（国内深造58.2%/境外深造31.5%/TOP50高校占比72%）</div>
             </div>
-            <div class="stat-card">
-                <span>100+</span>
-                <p>国家级科研平台<br>其中国家重点实验室7个</p>
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-money-bill-wave text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">235亿</div>
+                <div class="stat-desc">年度科研经费<br>（2023年数据/基础研究占比65%/应用研究35%）</div>
             </div>
-            <div class="stat-card">
-                <span>4000+</span>
-                <p>年本科毕业生深造率<br>境外TOP50高校占比70%</p>
-            </div>
-            <div class="stat-card">
-                <span>200亿+</span>
-                <p>年度科研经费<br>科研实力稳居全国高校前三</p>
-            </div>
-            <div class="stat-card">
-                <span>1000+</span>
-                <p>授权发明专利<br>近三年技术转化金额超10亿元</p>
+            <div class="bg-[rgba(255,255,255,0.05)] p-8 rounded-lg text-center feature-card">
+                <i class="fas fa-suitcase text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">98.6%</div>
+                <div class="stat-desc">总体就业率<br>（世界500强就业占比28%/重点单位就业占比63%）</div>
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <p>地址：浙江省杭州市西湖区余杭塘路866号 | 邮编：310058</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-weixin"></i></a>
-            <a href="#"><i class="fab fa-qq"></i></a>
-            <a href="#"><i class="fab fa-weibo"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+    <!-- 科研资源与成果 -->
+    <section id="research-resources" class="container mx-auto py-20 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#007bff] relative inline-block">
+                科研资源与成果
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#007bff] rounded"></span>
+            </h2>
         </div>
-        <p>&copy; 2024 浙江大学智能概况系统 | 技术支持：浙江大学网络信息中心</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center research-card">
+                <i class="fas fa-flask text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">108</div>
+                <div class="stat-desc">国家级科研平台<br>（国家重点实验室7个/国家工程研究中心8个/国家野外科学观测研究站3个）</div>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center research-card">
+                <i class="fas fa-server text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">5</div>
+                <div class="stat-desc">国家重大科技基础设施<br>（超重力离心模拟装置/脑解析与脑机接口设施等）</div>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center research-card">
+                <i class="fas fa-file-alt text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">1327</div>
+                <div class="stat-desc">年授权发明专利<br>（2023年数据/有效专利转化率达45%/技术转化金额累计超50亿）</div>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.03)] p-8 rounded-lg text-center research-card">
+                <i class="fas fa-book-open text-4xl text-[#007bff] mb-4"></i>
+                <div class="stat-number">52</div>
+                <div class="stat-desc">近五年CNS主刊论文<br>（《自然》21篇/《科学》18篇/《细胞》13篇）</div>
+            </div>
+        </div>
+    </section>
+    <!-- 杰出校友名录 -->
+    <section id="distinguished-alumni" class="container mx-auto py-20 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-[#007bff] relative inline-block">
+                灿若星辰的浙大人
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#007bff] rounded"></span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./11.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">竺可桢</h3>
+                <p class="stat-desc">浙江大学前校长<br>中国科学院院士<br>中央研究院院士<br>中国近代地理学和气象学的奠基者<br>中国物候学创始人</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./12.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">钱三强</h3>
+                <p class="stat-desc">浙江大学前校长<br>两弹一星功勋奖章获得者<br>中国原子能科学事业的创始人<br></p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./13.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">王淦昌</h3>
+                <p class="stat-desc">曾任教于浙江大学<br>中国科学院院士<br>两弹一星功勋奖章获得者<br>中国惯性约束核聚变研究的奠基者</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./14.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">陈建功</h3>
+                <p class="stat-desc">曾任教于浙江大学<br>中国科学院院士<br>中国函数论研究的开拓者之一<br>全球三大微分几何学派之一“浙大学派”创始人</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./15.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">苏步青</h3>
+                <p class="stat-desc">曾任教于浙江大学<br>中国微分几何学派创始人<br>被誉为“东方国度灿烂的数学明星”<br>全球三大微分几何学派之一“浙大学派”创始人</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./5.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">束星北</h3>
+                <p class="stat-desc">曾任教于浙江大学<br>中国著名理论物理学家<br>“中国雷达之父”</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./1.png')"></div>
+                <h3 class="text-xl font-bold mb-2">李政道</h3>
+                <p class="stat-desc">1943年考入浙江大学物理系<br>1957年诺贝尔物理学奖得主<br>推动中美高能物理合作的先驱</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./2.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">谷超豪</h3>
+                <p class="stat-desc">1948级数学系<br>国家最高科学技术奖得主<br>偏微分方程与微分几何领域国际大师</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./3.png')"></div>
+                <h3 class="text-xl font-bold mb-2">程开甲</h3>
+                <p class="stat-desc">1941级物理系<br>八一勋章获得者<br>两弹一星功勋奖章获得者<br>国家最高科学技术奖获得者<br>中国核武器事业开拓者之一</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./4.png')"></div>
+                <h3 class="text-xl font-bold mb-2">林俊德</h3>
+                <p class="stat-desc">1960级化学系<br>中国工程院院士<br>爆炸力学与核试验工程领域著名专家<br>全军挂像英模</p>
+            </div>
+
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./6.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">汪猷</h3>
+                <p class="stat-desc">1937级化学系<br>中国科学院院士<br>人工合成牛胰岛素主要完成者（1965）</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./7.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">陈薇</h3>
+                <p class="stat-desc">1988级化学工程系<br>中国工程院院士<br>“人民英雄”国家荣誉称号获得者</p>
+            </div>    
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./8.png')"></div>
+                <h3 class="text-xl font-bold mb-2">段永平</h3>
+                <p class="stat-desc">1982级无线电系<br>步步高集团创始人<br>福布斯中国·北美华人精英TOP60商界领袖</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./9.jpg')"></div>
+                <h3 class="text-xl font-bold mb-2">黄峥</h3>
+                <p class="stat-desc">2002级竺可桢学院混合班<br>拼多多创始人<br>2024年8月登顶中国首富</p>
+            </div>
+            <div class="bg-[rgba(255,255,255,0.04)] p-8 rounded-lg text-center alumni-card">
+                <div class="w-24 h-24 rounded-full bg-cover bg-center mx-auto mb-4" style="background-image: url('./10.png')"></div>
+                <h3 class="text-xl font-bold mb-2">梁文锋</h3>
+                <p class="stat-desc">2006级电子工程系<br>DeepSeek创始人</p>
+            </div>
+        </div>
+    </section>
+    <!-- 页脚 -->
+    <footer class="bg-[rgba(0,0,0,0.9)] py-16 text-center">
+        <p class="text-gray-300 mb-4">地址：浙江省杭州市西湖区余杭塘路866号 | 邮编：310058</p>
+        <p class="text-gray-300">&copy; 2025 情系实验·浙里启辰</p>
     </footer>
-
+    <!-- 粒子动画脚本 -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
         particlesJS.load('particles-js', {
             "particles": {
@@ -476,11 +375,16 @@
             },
             "retina_detect": true
         });
-
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            header.classList.toggle('sticky', window.scrollY > 100);
+        // 导航栏粘性效果
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-[#007bff]', 'shadow-md');
+            } else {
+                header.classList.remove('bg-[#007bff]', 'shadow-md');
+            }
         });
     </script>
 </body>
-</html>
+
+</html>    

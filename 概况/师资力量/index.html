@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学师资力量</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+            --hover-blue: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 150px;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+        }
+        .stat-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+        }
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        .talent-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .talent-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .talent-item:hover {
+            transform: translateX(10px);
+        }
+        .talent-icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .talent-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="history.html">历史沿革</a>
+            <a href="honors.html">学校定位与荣誉</a>
+            <a href="faculty.html">师资力量</a>
+            <a href="students.html">学生规模</a>
+            <a href="research.html">科研成果</a>
+            <a href="education.html">人才培养</a>
+            <a href="international.html">国际交流</a>
+            <a href="culture.html">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">师资力量</h1>
+
+        <!-- 核心数据统计 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="stat-number">4605</div>
+                <p>专任教师</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-award"></i></div>
+                <div class="stat-number">48</div>
+                <p>两院院士</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                <div class="stat-number">127</div>
+                <p>外籍教授</p>
+            </div>
+        </div>
+
+        <!-- 国家级人才列表 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">
+            国家级高层次人才
+        </h2>
+
+        <ul class="talent-list">
+            <li class="talent-item">
+                <i class="fas fa-user-tie talent-icon"></i>
+                <div>
+                    <h3>中国科学院院士</h3>
+                    <p>27人 | 涵盖物理、化学、生物等前沿领域</p>
+                </div>
+            </li>
+            <li class="talent-item">
+                <i class="fas fa-user-tie talent-icon"></i>
+                <div>
+                    <h3>中国工程院院士</h3>
+                    <p>21人 | 聚焦工程科技、农业科学、医学等领域</p>
+                </div>
+            </li>
+            <li class="talent-item">
+                <i class="fas fa-star talent-icon"></i>
+                <div>
+                    <h3>长江学者</h3>
+                    <p>131人 | 其中特聘教授98人，讲座教授33人</p>
+                </div>
+            </li>
+            <li class="talent-item">
+                <i class="fas fa-lightbulb talent-icon"></i>
+                <div>
+                    <h3>国家杰出青年科学基金获得者</h3>
+                    <p>210人 | 年均新增超20人，居全国高校前列</p>
+                </div>
+            </li>
+            <li class="talent-item">
+                <i class="fas fa-users-cog talent-icon"></i>
+                <div>
+                    <h3>万人计划入选者</h3>
+                    <p>1500余人 | 涵盖教学名师、科技创新领军人才等</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 国际师资与团队 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            国际化师资与创新团队
+        </h2>
+
+        <div class="flex-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 3rem;">
+            <div class="team-card" style="flex: 1; min-width: 300px; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; transition: transform 0.3s;">
+                <h3 style="color: var(--primary-blue); text-align: center; margin-bottom: 1rem;">国际合作教授</h3>
+                <p>来自哈佛大学、剑桥大学、MIT等世界顶尖高校，开设全英文课程200余门，主导国际联合实验室17个。</p>
+            </div>
+            <div class="team-card" style="flex: 1; min-width: 300px; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; transition: transform 0.3s;">
+                <h3 style="color: var(--primary-blue); text-align: center; margin-bottom: 1rem;">创新团队</h3>
+                <p>能源清洁利用创新团队获国家科技进步奖（创新团队），脑机接口与人工智能团队年均发表《Nature》《Science》子刊论文超30篇。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="background: var(--dark-blue); padding: 2rem; text-align: center; color: white; margin-top: 5rem;">
+        <p>
+            &copy; 2025 浙江大学 | 教师招聘：<a href="https://www.zju.edu.cn/rczp/" target="_blank" style="color: var(--primary-blue);">人才招聘网</a> | 
+            联系我们：0571-88981111 | 地址：中国杭州市西湖区余杭塘路866号
+        </p>
+    </footer>
+</body>
+</html>

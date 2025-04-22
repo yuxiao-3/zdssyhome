@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学学校定位与荣誉</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+            --hover-blue: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 150px;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .core-info {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .core-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        .discipline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+        }
+        .discipline-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .discipline-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+        }
+        .platform-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .platform-card:hover {
+            transform: translateX(10px);
+        }
+        .platform-icon {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+        .award-timeline {
+            border-left: 3px solid rgba(255, 255, 255, 0.1);
+            padding-left: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .award-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            position: relative;
+        }
+        .award-year {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .discipline-grid {
+                grid-template-columns: 1fr;
+            }
+            .platform-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="history.html">历史沿革</a>
+            <a href="honors.html">学校定位与荣誉</a>
+            <a href="faculty.html">师资力量</a>
+            <a href="students.html">学生规模</a>
+            <a href="research.html">科研成果</a>
+            <a href="education.html">人才培养</a>
+            <a href="international.html">国际交流</a>
+            <a href="culture.html">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">学校定位与荣誉</h1>
+
+        <!-- 核心定位 -->
+        <div class="core-info">
+            <h2 class="core-title">中国特色世界一流大学</h2>
+            <p>教育部直属全国重点大学，中央直管高校，综合型、研究型、创新型“双一流”A类大学，2025年QS世界大学排名第47名，泰晤士高等教育排名全球前50。</p>
+        </div>
+
+        <!-- 学科优势 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            学科建设成果
+        </h2>
+        <div class="discipline-grid">
+            <!-- A+学科 -->
+            <div class="discipline-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">19个A+学科</h3>
+                <p>第五轮学科评估结果：计算机科学与技术、控制科学与工程、农业工程等19个学科获A+，数量居全国高校前列。</p>
+            </div>
+            <!-- 国际排名 -->
+            <div class="discipline-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">国际学科排名</h3>
+                <p>计算机科学（ESI前1‰）、农业科学（全球第3）、工程学（全球第5），12个学科进入全球前100。</p>
+            </div>
+        </div>
+
+        <!-- 国家级平台 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            国家级科研与教学平台
+        </h2>
+        <div class="platform-list">
+            <div class="platform-card">
+                <i class="fas fa-flask platform-icon"></i>
+                <div>
+                    <h3>国家重点实验室</h3>
+                    <p>硅材料国家重点实验室（全球最大单晶硅研究基地）<br>计算机辅助设计与图形学国家重点实验室（CAD&CG技术国际领先）</p>
+                </div>
+            </div>
+            <div class="platform-card">
+                <i class="fas fa-industry platform-icon"></i>
+                <div>
+                    <h3>国家工程研究中心</h3>
+                    <p>工业自动化国家工程研究中心（智能制造技术转化）<br>生物饲料安全与污染防控国家工程研究中心（绿色农业技术研发）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 科研奖励 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            近五年科研奖励
+        </h2>
+        <div class="award-timeline">
+            <div class="award-item">
+                <div class="award-year"><i class="fas fa-trophy"></i> 2024</div>
+                <p>“超临界二氧化碳发电技术”获国家技术发明奖一等奖<br>新增Nature/Science子刊论文超50篇</p>
+            </div>
+            <div class="award-item">
+                <div class="award-year"><i class="fas fa-trophy"></i> 2023</div>
+                <p>“水稻抗病分子机制”入选中国科学十大进展<br>国家科技奖获奖数量居全国高校前三</p>
+            </div>
+            <div class="award-item">
+                <div class="award-year"><i class="fas fa-trophy"></i> 2022-2021</div>
+                <p>累计获国家科技奖32项，其中一等奖4项<br>工程学、材料科学ESI排名进入全球前10</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="background: var(--dark-blue); padding: 2rem; text-align: center; color: white; margin-top: 5rem;">
+        <p>
+            &copy; 2025 浙江大学 | 学科查询：<a href="https://www.zju.edu.cn/xxgk/xxgk.htm" target="_blank" style="color: var(--primary-blue);">学科建设办公室</a> | 
+            数据来源：教育部“双一流”建设高校名单、QS世界大学排名
+        </p>
+    </footer>
+</body>
+</html>

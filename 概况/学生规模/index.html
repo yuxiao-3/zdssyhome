@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .student-stats {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .stat-number {
+            font-size: 4rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .image-container {
+            max-width: 700px;
+            margin: 0 auto 5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15);
+        }
+        .student-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .student-table th,
+        .student-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .student-table th {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+        .international-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 5rem auto;
+        }
+        .international-card {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 3rem;
+            }
+            .international-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="history.html">历史沿革</a>
+            <a href="honors.html">学校定位与荣誉</a>
+            <a href="faculty.html">师资力量</a>
+            <a href="students.html">学生规模</a>
+            <a href="research.html">科研成果</a>
+            <a href="education.html">人才培养</a>
+            <a href="international.html">国际交流</a>
+            <a href="culture.html">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">学生规模</h1>
+
+        <!-- 总体规模 -->
+        <div class="student-stats">
+            <div class="stat-number">67656</div>
+            <p>在校全日制学生总数（截至2025年1月）</p>
+        </div>
+
+        <!-- 替换为图片区域 -->
+        <div class="image-container">
+            <img src="./图片2.png" alt="学生活动场景" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+        </div>
+
+        <!-- 详细数据表格 -->
+        <table class="student-table">
+            <tr>
+                <th>类别</th>
+                <th>人数</th>
+                <th>比例</th>
+            </tr>
+            <tr>
+                <td>本科生</td>
+                <td>29286</td>
+                <td>41.8%</td>
+            </tr>
+            <tr>
+                <td>硕士研究生</td>
+                <td>25304</td>
+                <td>36.2%</td>
+            </tr>
+            <tr>
+                <td>博士研究生</td>
+                <td>15362</td>
+                <td>22.0%</td>
+            </tr>
+            <tr>
+                <td>国际学生</td>
+                <td>5609</td>
+                <td>8.0%</td>
+            </tr>
+        </table>
+
+        <!-- 国际化教育 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            国际化培养特色
+        </h2>
+        <div class="international-info">
+            <div class="international-card">
+                <i class="fas fa-globe" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>150+国家</h3>
+                <p>国际学生来自全球152个国家，亚洲占比68%，欧美占比25%</p>
+            </div>
+            <div class="international-card">
+                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>全英文项目</h3>
+                <p>开设87个全英文本科专业、120个全英文研究生项目</p>
+            </div>
+            <div class="international-card">
+                <i class="fas fa-dollar-sign" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>奖学金覆盖率</h3>
+                <p>中国政府奖学金生占比35%，校级奖学金覆盖率达70%</p>
+            </div>
+        </div>
+
+        <!-- 校园生活数据 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            校园生活概况
+        </h2>
+        <ul style="max-width: 800px; margin: 0 auto; list-style: none; padding: 0;">
+            <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-users" style="color: var(--primary-blue); font-size: 1.2rem;"></i>
+                学生组织：320+个（学术类占40%，公益类占30%）
+            </li>
+            <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-book" style="color: var(--primary-blue); font-size: 1.2rem;"></i>
+                图书馆藏书：800万册，电子资源数据库200+个
+            </li>
+            <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-futbol" style="color: var(--primary-blue); font-size: 1.2rem;"></i>
+                体育场馆：18个，人均运动场地面积达4.2㎡
+            </li>
+        </ul>
+    </div>
+
+    <footer class="footer" style="background: var(--dark-blue); padding: 2rem; text-align: center; color: white; margin-top: 5rem;">
+        <p>
+            &copy; 2025 浙江大学 | 学生事务咨询：0571-88981234 | 
+            <a href="https://www.zju.edu.cn/students/" target="_blank" style="color: var(--primary-blue); margin-left: 10px;">学生服务网</a>
+        </p>
+    </footer>
+</body>
+</html>

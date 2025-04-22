@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学历史沿革</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+            --hover-blue: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            list-style: none;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+            line-height: 1.6;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 150px;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .timeline {
+            border-left: 3px solid rgba(255, 255, 255, 0.1);
+            padding-left: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-item {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .timeline-year {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .timeline-year i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline-item::before {
+                left: -35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="history.html">历史沿革</a>
+            <a href="honors.html">学校定位与荣誉</a>
+            <a href="faculty.html">师资力量</a>
+            <a href="students.html">学生规模</a>
+            <a href="research.html">科研成果</a>
+            <a href="education.html">人才培养</a>
+            <a href="international.html">国际交流</a>
+            <a href="culture.html">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">历史沿革</h1>
+        
+        <div class="timeline">
+            <!-- 1897年求是书院创立 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1897</div>
+                <div class="timeline-content">
+                    <h3>求是书院创立</h3>
+                    <p>浙江大学的渊源——求是书院创建于1897年。1897年5月21日，在浙江巡抚廖寿丰、杭州知府林启等人的努力下，浙江大学的前身——求是书院在杭州正式办学。由于国内形势的变化和清末新政的陆续推进，学校几经更名，历经“浙江求是大学堂”（1901年）、“浙江大学堂”（1902年）、“浙江高等学堂”（1904年）、“浙江高等学校”（1912年）。</p>
+                </div>
+            </div>
+            <!-- 1928年国立第三中山大学定名 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1928</div>
+                <div class="timeline-content">
+                    <h3>国立第三中山大学定名</h3>
+                    <p>
+                        1914年，因学制改革，浙江高等学校一度停办。20世纪初期浙江工专和浙江农专先后成立，开启了浙江高等工业教育和高等农业教育的历程。<br>
+                        1927年，南京国民政府成立后，决定实行“大学区制”，每区设立大学一所，统一命名为“中山大学”。<br>
+                        1927年7月15日，在原浙江高等学校办学旧址，整合了浙江工专和浙江农专成立“第三中山大学”，下设工学院和农学院（由浙江公立工业专门学校和浙江公立农业专门学校改组为第三中山大学工学院和劳农学院），筹设文理学院；同年8月3日，冠名“国立”，称“国立第三中山大学”。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 1928年国立浙江大学定名 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1928</div>
+                <div class="timeline-content">
+                    <h3>国立浙江大学定名</h3>
+                    <p>
+                        1928年2月，国立第三中山大学改名为“浙江大学”；同年5月，定名为“国立浙江大学” 。<br>
+                        1936年，学校有文理、工、农3个学院。文理学院设有外国语文、教育、史地、数学、物理、化学、生物等7个学系；工学院设有电机工程、化学工程、土木工程、机械工程等4个学系；农学院设有农艺、园艺、植物病虫害、蚕桑、农业经济等5个学系。<br>
+                        1936年4月，蒋介石任命竺可桢为浙江大学校长，并答应了竺可桢提出的“财源须源源接济，用人校长有全权，不受国民党之干涉”的任职条件。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 抗战西迁 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1937-1946</div>
+                <div class="timeline-content">
+                    <h3>抗战西迁：文军长征</h3>
+                    <p>
+                        1937年，“七七事变”后，抗日战争全面爆发；同年9月，竺可桢校长率领师生员工及部分教职员家属，携带大批图书资料和仪器设备，一迁浙江於潜、建德，二迁江西吉安、泰和，三迁广西宜山。<br>
+                        1940年1月，到达贵州遵义、湄潭，在此办学近七年。与此同时，还在浙江设龙泉分校。西迁行程2600余公里，足迹涉及浙、赣、湘、桂、粤、黔、闽等7省。<br>
+                        1945年10月，龙泉分校师生启程回杭；同年10月，浙大师生分批启程回杭，师范学院在罗苑复课，其余在大学路校本部复课。<br>
+                        1946年5月7日，在遵义的师生分批返杭；6月1日起，遵义浙大总校结束，改为留守处；同年9月，原分散在贵州遵义、湄潭、永兴及浙江龙泉等地的浙江大学师生全部抵达杭州，重新成为一个整体。<br>
+                        1947年7月21日，校务会议决定将修复和新建的教学楼及宿舍楼冠以地方先贤和浙大西迁地名，以资纪念。<br>
+                        1948年3月底，浙江大学已发展为拥有文、理、工、农、师范、法、医７个学院、25个系、9个研究所、1个研究室的综合性大学。<br>
+                        1949年4月，浙江大学成立“应变委员会”；5月3日，杭州宣布解放，翌月，中国人民解放军华东区杭州市军事管制委员会对国立浙江大学实行军事接管。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 1952年院系调整 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1952</div>
+                <div class="timeline-content">
+                    <h3>全国院系调整</h3>
+                    <p>1952年，全国高等学校进行院系调整，浙江大学的学科和院系设置发生了很大变动。其部分系科调整到省外兄弟院校，部分院系或独立成校，或与之江大学、浙江省立医学院等院校组合重新建校。<br>
+                        1952年院系调整前，浙江大学拥有文、理、工、农、法、医、师范七个学院。浙江大学院系调整状况如下：<br>
+                        1、理学院数学系、物理系、化学系、生物系并入复旦大学；理学院药学系并入上海第一医学院；理学院地理系分别并入华东师范大学和南京大学。<br>
+                        2、文学院人类学系并入复旦大学；文学院、师范学院部分并入华东师范大学，部分与之江大学组建浙江师范学院，其余部分调入北京大学、厦门大学、南京大学等。<br>
+                        3、法学院停办。 <br>
+                        4、医学院并入浙江医学院。 <br>
+                        5、农学院独立为浙江农学院；农学院畜牧兽医学系并入南京农学院；农学院森林系和东北农学院森林系合并为东北林学院；农学院农化系并入南京工学院食品工业系。<br>
+                        6、工学院航空系与中央大学、交通大学的航空系合并，组建为华东航空学院；工学院土木系水利组并入华东水利学院；工学院电机系电信组并入南京工学院。 <br>
+                        7、浙江大学文学院、理学院的一部分、之江大学的文理学院和浙江师范专科学校合并，建立浙江师范学院，1958年又与新建的杭州大学合并，定名杭州大学；浙江大学的农学院单独分出成立浙江农学院，1960年更名为浙江农业大学；浙江大学的医学院与浙江省立医学院合并，成立浙江医学院，1960年更名为浙江医科大学。调整后的浙江大学成为一所多科性的工业大学。</p>
+                </div>
+            </div>
+            <!-- 恢复理科 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1957</div>
+                <div class="timeline-content">
+                    <h3>率先恢复理科</h3>
+                    <p>
+                        1952年的院系调整使许多原来的综合大学被拆解为多科性工业大学，如清华大学、浙江大学、交通大学、天津大学等，还成立了许多专科学院，如钢铁学院、化工学院、地质学院、农学院、医学院、法学院等。<br>
+                        有些学院经过调整后，设有文学院和理学院。这些学校称之为综合性大学，如北京大学、南京大学、复旦大学、武汉大学等。<br>
+                        即是说，此次院系调整造成了真正意义上的文、理、工、农、医、法学科俱全的综合性大学不复存在。特别是工科院校，缺少理科的支撑，教学质量难以提高。<br>
+                        有鉴于此，浙江大学于1957年在工科院校率先恢复理科，但相对于过去浙江大学的理科力量薄弱得多。许多教育界人士希望国家能尽早恢复或建立一些学科齐全、真正意义上的综合性大学。
+                    </p>
+                </div>
+            </div>
+            <!-- 1984 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1984</div>
+                <div class="timeline-content">
+                    <h3>创建浙江大学研究生院</h3>
+                    <p>1984年12月，浙江大学研究生院创建，是国务院首批批准试办的研究生院之一。<br>
+                        1988年，路甬祥老校长在任时主持校务会议为校训添加“创新”两字，最终形成现在的“求是创新”校训。</p>
+                </div>
+            </div>
+            <!-- 1995 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1995</div>
+                <div class="timeline-content">
+                    <h3>入选首批“211工程”</h3>
+                    <p>
+                        1995年，浙江大学成为首批列入国家“211工程”建设计划的重点大学之一。<br>
+                        杭州大学、浙江农业大学、浙江医科大学也分别通过了“211工程”部门预审和重点建设项目立项论证。
+                    </p>
+                </div>
+            </div>
+            <!-- 1998 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1998.5</div>
+                <div class="timeline-content">
+                    <h3>入选首批“985工程”</h3>
+                    <p>
+                        1998年5月，浙大成为首批9所列入国家“985工程”建设计划的全国重点大学之一。
+                    </p>
+                </div>
+            </div>
+            <!-- 1998年四校合并 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 1998.9</div>
+                <div class="timeline-content">
+                    <h3>四校合并组建新浙江大学</h3>
+                    <p>文化大革命结束以后，1979年，浙江大学校长刘丹率领一个教育代表团赴美国访问，回国后就访问所得认真进行整理总结，提出在我国要发展多种类型的高等教育。<br>
+                        特别指出：“1952年全国高等学校院系调整，使得一些基础较好的、拥有文、理、工、农等学院的老大学都分成文理大学、多科性工业大学及一些专门学院，以致当前全国竟没有一所文、理、工农、医、法、师范等学院比较齐全的综合性大学。这对我们这样一个有十亿人口的大国来说，是很不相称的，也是我国高等教育的一大缺陷。因为，当前科学技术发展的总趋势是各门学科互相渗透，新兴边缘学科不断产生，而多科性综合大学由于各种人才汇集，图书仪器也比较齐全，容易吸引和组织校内外各门学科的专家，经各方面合作，突破传统学科的框架，有效地发展跨学科的科学研究和研究生教学，因此较快适应世界科学技术发展的潮流。同时，师生在这样的大学里教学，耳濡目染，集思广益，思路开阔，有可能比在单科性学院和文理大学里教得更好，学得更活，提高得更快，更有利于出高质量人才和成果。”<br>
+                        并且建议“从长远的战略观点考虑，我国当下决心在各大区、重大城市创办或恢复一些综合性大学”。<br>
+                        由于当时的条件，这个建议难以实现。在这种情况下，浙江四校曾经签订过一个联合办学的协议，但还是不能起到一个综合大学的作用。因此，四校的领导层一直在考虑如何实现这个愿望。<br>
+                        20世纪90年代初我国政府就高等教育提出了“共建、调整、合作、合并”的方针，对高等教育管理体制和结构布局进行了调整，开始有一些大学合并组建了新的大学。<br>
+                        在这个情况下，浙江农业大学校长朱祖祥院士和浙江大学副校长王启东教授1996年在全国人大会议上主动向中央政府提出原来分开的四所大学重新合并组建新的浙江大学的提议，并得到中央领导、教育部和浙江省政府的支持。经过两年的沟通协调，并经过一段时间的筹备，同根同源的浙江大学、杭州大学、浙江农业大学和浙江医科大学于1998年9月15日重新合并组建了新的浙江大学。<br>
+                        有人批评我国的大学合并是政府领导人的长官意志，是瞎指挥。以四校合并成立新浙江大学而言，并非如此，而是学校基于发展愿景提出申请并得到上级主管部门的支持而实现的。</p>
+                </div>
+            </div>
+
+            <!-- 2017年双一流建设 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 2017</div>
+                <div class="timeline-content">
+                    <h3>入选首批“双一流”A类高校</h3>
+                    <p>21个学科入选一流学科，包括计算机科学与技术、软件工程、控制科学与工程、化学、生物学、临床医学等，确立世界一流大学建设目标。</p>
+                </div>
+            </div>
+
+            <!-- 2024年学科调整 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 2024</div>
+                <div class="timeline-content">
+                    <h3>成立集成电路学院</h3>
+                    <p>撤销微电子学院，成立集成电路学院，聚焦半导体材料与芯片设计，与华为、中芯国际共建联合实验室，强化“卡脖子”技术攻关。</p>
+                </div>
+            </div>
+
+            <!-- 2025年战略布局 -->
+            <div class="timeline-item">
+                <div class="timeline-year"><i class="fas fa-clock"></i> 2025</div>
+                <div class="timeline-content">
+                    <h3>启动“数字孪生与智能系统”研究院</h3>
+                    <p>整合人工智能、量子信息等前沿领域，推动学科交叉融合，打造未来技术创新高地。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: center; padding: 2rem; background: var(--dark-blue); margin-top: 5rem;">
+            &copy; 2025 浙江大学 | 地址：中国浙江省杭州市西湖区余杭塘路866号 | 邮编：310058 | 
+            <a href="https://www.zju.edu.cn" target="_blank" style="color: var(--primary-blue); margin-left: 10px;">官网入口</a>
+        </p>
+    </footer>
+</body>
+</html>
