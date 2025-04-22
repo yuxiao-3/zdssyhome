@@ -182,6 +182,41 @@
             width: 16px;
             height: 16px;
         }
+        footer {
+             background: #040830;
+             padding: 32px 20px;
+             text-align: center;
+             border-top: 1px solid #e0e0e0;
+             color: #e0e0e0
+         }
+
+         .qr-code {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            width: 150px ;
+            height: 150px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link-container {
+            position: relative;
+        }
+
+        .social-link-container:hover .qr-code {
+            display: block;
+        }
+        .social-link-container a {
+            /* 避免过大的外边距 */
+            margin: 0; 
+            /* 调整内边距 */
+            padding: 50px; 
+        }
 
         #initial {
     height: 100vh; /* 固定初始页高度，确保占据整个视口 */
@@ -232,12 +267,6 @@
             line-height: 1.6;
         }
 
-        footer {
-            background: #f0f0f0;
-            padding: 32px 20px;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
-        }
         /* 导航栏左侧文字样式 */
         .nav-left-text {
             position: absolute;
@@ -492,7 +521,31 @@
         </main>
 
         <footer>
-            <p class="footer-text">&copy; 2025 情系实验·浙里启辰. 保留所有权利.</p>
+            电话：0571-87951111 | 地址：中国浙江省杭州市西湖区余杭塘路866号 | 邮编：310058 | 邮箱：zupo@zju.edu.cn |
+            <a href="https://www.zju.edu.cn" target="_blank" style="color: var(--primary-blue); margin-left: 10px;">浙江大学官网入口</a><br><br>
+            <div class="flex justify-center space-x-6 mb-4">
+                <div class="social-link-container">
+                    <a href="#" class="text-white text-2xl hover:text-[#007bff] transition-colors duration-300"><i class="fab fa-weixin"></i></a>
+                    <img class="qr-code" src="./vx.png" alt="微信二维码">
+                </div>
+                <div class="social-link-container">
+                    <a href="#" class="text-white text-2xl hover:text-[#007bff] transition-colors duration-300"><i class="fab fa-weixin"></i></a>
+                    <img class="qr-code" src="./zdvx.png" alt="QQ二维码">
+                </div>
+                <div class="social-link-container">
+                    <a href="#" class="text-white text-2xl hover:text-[#007bff] transition-colors duration-300"><i class="fab fa-weibo"></i></a>
+                    <img class="qr-code" src="./vb.jpg" alt="微博二维码">
+                </div>
+                <div class="social-link-container">
+                    <a href="#" class="text-white text-2xl hover:text-[#007bff] transition-colors duration-300"><i class="fa-brands fa-bilibili"></i></a>
+                    <img class="qr-code" src="./bili.jpg" alt="B站二维码">
+                </div>
+                <div class="social-link-container">
+                    <a href="#" class="text-white text-2xl hover:text-[#007bff] transition-colors duration-300"><i class="fa-brands fa-tiktok"></i></a>
+                    <img class="qr-code" src="./dy.jpg" alt="抖音二维码">
+                </div>
+            </div>
+            &copy; 2025 情系实验·浙里启辰
         </footer>
     </div>
 
