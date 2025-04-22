@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学人才培养</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+            --hover-blue: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 150px;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .core-concept {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .concept-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+        }
+        .education-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .education-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+        }
+        .program-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .program-table th,
+        .program-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .program-table th {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .achievement-icon {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+        @media (max-width: 768px) {
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            .achievement-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/历史沿革/">历史沿革</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/学校定位/">学校定位与荣誉</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/师资力量/">师资力量</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/学生规模/">学生规模</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/科研成果/">科研成果</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/人才培养/">人才培养</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/国际交流/">国际交流</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/校园文化/">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">人才培养</h1>
+
+        <!-- 培养理念 -->
+        <div class="core-concept">
+            <i class="fas fa-book concept-icon"></i>
+            <h2 style="color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 1rem;">
+                求是创新·德才兼备
+            </h2>
+            <p>以“培养具有全球竞争力的高素质创新人才”为目标，构建“通识教育+专业教育+交叉培养”三位一体体系</p>
+        </div>
+
+        <!-- 培养体系 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            多层次培养架构
+        </h2>
+        <table class="program-table">
+            <tr>
+                <th>培养层次</th>
+                <th>学制</th>
+                <th>核心特点</th>
+                <th>年度招生规模</th>
+            </tr>
+            <tr>
+                <td>本科</td>
+                <td>4年</td>
+                <td>大类招生、书院制管理、跨学科选修</td>
+                <td>6,000人</td>
+            </tr>
+            <tr>
+                <td>硕士</td>
+                <td>2-3年</td>
+                <td>研究导向、校企联合培养、国际学术交流</td>
+                <td>7,500人</td>
+            </tr>
+            <tr>
+                <td>博士</td>
+                <td>3-4年</td>
+                <td>导师制、原创性研究、重大项目参与</td>
+                <td>3,000人</td>
+            </tr>
+        </table>
+
+        <!-- 特色培养项目 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            顶尖人才培养计划
+        </h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">求是创新班</h3>
+                <p>选拔前5%本科生，配备院士导师，本硕博贯通培养，近三年深造率98%（其中海外TOP50高校占比40%）</p>
+            </div>
+            <div class="education-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">交叉学科微专业</h3>
+                <p>开设人工智能+医学、新能源+材料等20个微专业，允许跨学院选课，累计培养复合型人才3,000+</p>
+            </div>
+            <div class="education-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">创新创业学院</h3>
+                <p>每年投入5000万元扶持学生创业，孵化出估值超10亿的科技企业12家，获中国“互联网+”大赛金奖15项</p>
+            </div>
+        </div>
+
+        <!-- 教学成果 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            教学质量与竞赛成绩
+        </h2>
+        <div class="achievement-list">
+            <div class="achievement-item">
+                <i class="fas fa-award achievement-icon"></i>
+                <div>
+                    <h3>国家级教学成果奖</h3>
+                    <p>近五年获一等奖3项、二等奖8项，数量居全国高校前列</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <i class="fas fa-trophy achievement-icon"></i>
+                <div>
+                    <h3>学科竞赛成绩</h3>
+                    <p>2024年获国际数学建模竞赛特等奖3项、ACM国际大学生程序设计竞赛全球总决赛第4名</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 国际培养体系 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            全球化培养特色
+        </h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">海外名校联合培养</h3>
+                <p>与MIT、斯坦福等100+高校建立双学位项目，年均派出交换生2000+人，海外学习覆盖率达45%</p>
+            </div>
+            <div class="education-card">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">国际课程体系</h3>
+                <p>开设全英文课程800+门，邀请诺奖得主、院士等开设“大师讲堂”年均150场</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: center; padding: 2rem; background: var(--dark-blue); margin-top: 5rem;">
+            &copy; 2025 情系实验·浙里启辰 | 地址：中国浙江省杭州市西湖区余杭塘路866号 | 邮编：310058 | 
+            <a href="https://www.zju.edu.cn" target="_blank" style="color: var(--primary-blue); margin-left: 10px;">浙江大学官网入口</a>
+        </p>
+    </footer>
+</body>
+</html>

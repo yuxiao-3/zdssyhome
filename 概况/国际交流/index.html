@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙江大学国际交流</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-blue: #0a1931;
+            --light-blue: #1e3a68;
+            --hover-blue: #0056b3;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+            color: white;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 25, 49, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12rem 5% 5rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 150px;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 5rem;
+        }
+        .partner-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .partner-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+        }
+        .joint-program {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .program-info {
+            flex: 1;
+        }
+        .student-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 5rem auto;
+        }
+        .stats-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+        @media (max-width: 768px) {
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+            .joint-program {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> 浙江大学</a>
+        <div class="nav-links">
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/历史沿革/">历史沿革</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/学校定位/">学校定位与荣誉</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/师资力量/">师资力量</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/学生规模/">学生规模</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/科研成果/">科研成果</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/人才培养/">人才培养</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/国际交流/">国际交流</a>
+            <a href="https://yuxiao-3.github.io/zdssyhome/概况/校园文化/">校园文化</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">国际交流</h1>
+
+        <!-- 全球合作网络 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            全球战略合作伙伴
+        </h2>
+        <div class="partner-grid">
+            <div class="partner-card">
+                <img src="" alt="哈佛大学" style="width: 150px; height: 80px; object-fit: contain; margin-bottom: 1rem;">
+                <p>哈佛大学</p>
+                <p>联合实验室：脑科学与人工智能</p>
+            </div>
+            <div class="partner-card">
+                <img src="" alt="剑桥大学" style="width: 150px; height: 80px; object-fit: contain; margin-bottom: 1rem;">
+                <p>剑桥大学</p>
+                <p>合作领域：绿色能源、材料科学</p>
+            </div>
+            <div class="partner-card">
+                <img src="" alt="东京大学" style="width: 150px; height: 80px; object-fit: contain; margin-bottom: 1rem;">
+                <p>东京大学</p>
+                <p>双学位项目：工程科学</p>
+            </div>
+        </div>
+
+        <!-- 联合培养项目 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            高水平联合学院
+        </h2>
+        <div class="joint-program">
+            <div class="program-info">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">爱丁堡大学联合学院</h3>
+                <p>“4+0”双学位模式，覆盖生物医学、数据科学</p>
+                <p>学费：6万元/年 | 招生规模：200人/年</p>
+            </div>
+            <div class="program-info">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">伊利诺伊大学联合学院</h3>
+                <p>全英文授课，工程与计算机科学方向</p>
+                <p>海外实习率：85% | 毕业生留美深造率：30%</p>
+            </div>
+        </div>
+
+        <!-- 国际学生与学者 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            国际化人才培养数据
+        </h2>
+        <div class="student-stats">
+            <div class="stats-card">
+                <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>6,360+</h3>
+                <p>国际学生总数（2025）</p>
+                <p>“一带一路”国家占比：41.4%</p>
+            </div>
+            <div class="stats-card">
+                <i class="fas fa-globe" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>152</h3>
+                <p>生源国家及地区</p>
+                <p>学历生占比：89%</p>
+            </div>
+            <div class="stats-card">
+                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
+                <h3>87</h3>
+                <p>全英文本科专业</p>
+                <p>年均开设国际课程：1200门</p>
+            </div>
+        </div>
+
+        <!-- 学术交流平台 -->
+        <h2 class="sub-title" style="color: var(--primary-blue); text-align: center; font-size: 2.5rem; margin: 5rem 0 3rem;">
+            国际学术合作
+        </h2>
+        <div class="joint-program">
+            <div class="program-info">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">国际会议主办</h3>
+                <p>近三年主办IEEE国际会议、环太平洋大学联盟年会等</p>
+                <p>年均吸引海外学者参会：2000+人次</p>
+            </div>
+            <div class="program-info">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">联合研究中心</h3>
+                <p>与MIT共建“城市大脑联合实验室”，与牛津大学共建“碳中和创新中心”</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: center; padding: 2rem; background: var(--dark-blue); margin-top: 5rem;">
+            &copy; 2025 情系实验·浙里启辰 | 地址：中国浙江省杭州市西湖区余杭塘路866号 | 邮编：310058 | 
+            <a href="https://www.zju.edu.cn" target="_blank" style="color: var(--primary-blue); margin-left: 10px;">浙江大学官网入口</a>
+        </p>
+    </footer>
+</body>
+</html>
